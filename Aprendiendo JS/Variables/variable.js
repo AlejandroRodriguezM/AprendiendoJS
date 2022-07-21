@@ -2,13 +2,17 @@ let texto1 = "Esto es una prueba"; //Esto es una variable tipo string
 
 let numero = 23; //Esto es una variable tipo numerica
 
-let estado = false;
+let estado = false; //Esto es una variable de tipo booleano
 
 let indefinido; //Las variables sin valor, se veran en pantalla como "undefined"
 
 let num1 = 20;
 let num2 = 10;
-let num3 = num1 - num2; //Variable que guarda el calculo de 2 variables de tipo numerico
+let num3 = num1 * num2; //Variable que guarda el calculo de 2 variables de tipo numerico
+
+num1 = num1 * num2; //Es igual que lo anterior
+
+const minHora = 60; //Variable const no es modificable, muestra una constante.
 
 console.log(texto1); //Variable que se muestra en la consola del navegador
 
