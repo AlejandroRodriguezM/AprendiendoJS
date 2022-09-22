@@ -1,4 +1,4 @@
-//const = a es una variable que no se puede cambiar, se entiende como si fuese el numero pi, es inmutable.
+//const = a es una variable que no se puede cambiar, se entiende como si fuese el numero pi, es inmutable..
 
 const PI = 3.14159; //Para buena practica, todas las constantes deben de ser en mayuscula
 let radios;
