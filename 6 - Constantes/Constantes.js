@@ -9,6 +9,6 @@ radius = Number(radius);
 
 //Si se modifica el valor de una constante, el resultado sera que se nos devolvera un error por consola.
 
-circunferencia = 2 * pi * radius;
+circunferencia = 2 * PI * radius;
 
 console.log("La circunferencia es: ",circunferencia);
