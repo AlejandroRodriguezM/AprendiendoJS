@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script language="JavaScript">
+
+        var yearNacimiento;
+        var year = new Date().getFullYear();
+
+        yearNacimiento = prompt('Ingrese el año de su nacimiento:');
+
+        var edad = year - yearNacimiento;
+
+        if (typeof edad == "number") {
+            if (edad < 18 && edad >= 0) {
+                document.write('Eres menor de edad');
+            }
+            else if (edad >= 18 && edad <= 66) {
+                document.write('Estas en edad activa');
+            }
+            else if (edad > 66) {
+                document.write('Estas en edad de jubilacion');
+            }
+            else{
+                document.write('No has nacido');
+            }
+        }
+        else {
+            document.write('No ingresaste un numero');
+        }
+
+    </script>
+</body>
+
+</html>

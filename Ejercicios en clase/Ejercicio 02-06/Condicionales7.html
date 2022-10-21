@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script language="JavaScript">
+        var url = window.location.href;
+        var url2 = url.substring(0, 4);
+        if (url2 == 'http') {
+            document.write('Es una pagina remota');
+        }
+        else {
+            document.write('Es una pagina local');
+        }
+    </script>
+    
+</body>
+</html>
