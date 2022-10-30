@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var cateto1 = parseInt(window.prompt("Valor de cateto 1: "));
+        var cateto2 = parseInt(window.prompt("Valor de cateto 2: "));
+
+        if(!isNaN(cateto1) && !isNaN(cateto2)){
+            var hipotenusa = Math.sqrt(cateto1^2 + cateto2^2);
+            document.write("La hipotenusa es: " + hipotenusa);
+        }
+        else{
+            document.write("No has introducido un numero");
+        }
+    </script>
+    
+</body>
+</html>

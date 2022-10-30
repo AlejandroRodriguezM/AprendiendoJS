@@ -1,0 +1,5 @@
+cadena = "<br>Los temas son tema 1, tema 3, tema 5 y tema 6";
+//Expresion
+expresion = /(tema \d+)/i; 
+hallado = cadena.match(expresion);
+// document.write(cadena + "<br> expresion en " + hallado[1]);

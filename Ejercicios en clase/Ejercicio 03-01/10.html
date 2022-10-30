@@ -11,9 +11,13 @@
 <body>
     <script>
         cadena = "<br>Los temas son tema 1, tema 3, tema 5 y tema 6";
-
-        //Expresion es una variable que 
+        //Expresion 
         expresion = /(tema \d+)/i;
+        hallado = cadena.match(expresion);
+        document.write(cadena + "<br> expresion en " + hallado[1]);
+
+        //Expresion es una expresion regular que sirve para que el valor de expresion sea "tema 1". En hallado, se usa un match para buscar la palabra tema 1 en la cadena.
+        
     </script>
 
 </body>

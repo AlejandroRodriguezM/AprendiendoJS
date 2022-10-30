@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        var numero = parseInt(window.prompt("Introduce un numero: "));
+
+        if(!isNaN(numero)){
+
+            var logaritmoNeperiano = Math.log(numero);
+            var logaritmoBase2 = Math.log2(numero);
+            var logaritmoBase10 = Math.log10(numero);
+
+            document.write("Logaritmo neperiano: " + logaritmoNeperiano + "<br>");
+            document.write("Logaritmo base 2: " + logaritmoBase2 + "<br>");
+            document.write("Logaritmo base 10: " + logaritmoBase10 + "<br>");
+        }
+        else{
+            document.write("No has introducido un numero");
+        }
+    </script>
+
+</body>
+
+</html>

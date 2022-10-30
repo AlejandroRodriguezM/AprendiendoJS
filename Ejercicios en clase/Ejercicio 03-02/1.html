@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var radio = parseInt(window.prompt("Dime un numero"));
+
+        if(!isNaN(radio)){
+            var circunferencia = 2*Math.PI*radio^2;
+            var area = Math.PI * radio^2;
+
+            document.write("La circunferencia es: " + circunferencia + "<br>Y el area es de: " + area);
+        }
+        else{
+            document.write("No has introducido un numero");
+        }
+        
+    </script>
+    
+</body>
+</html>

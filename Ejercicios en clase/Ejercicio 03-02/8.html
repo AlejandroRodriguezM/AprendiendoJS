@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var numero = parseInt(window.prompt("Introduce un numero: "));
+
+        if (!isNaN(numero)) {
+
+            var techo = Math.ceil(numero);
+            var suelo = Math.floor(numero);
+            var redondeo = Math.round(numero);
+
+            document.write("Techo: " + techo + "<br>");
+            document.write("Suelo: " + suelo + "<br>");
+            document.write("Redondeo: " + redondeo + "<br>");
+        }
+        else {
+            document.write("No has introducido un numero");
+        }
+    </script>
+
+</body>
+
+</html>
