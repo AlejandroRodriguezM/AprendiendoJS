@@ -10,7 +10,9 @@ console.log("Tu edad es ",edad," feliz cumpleaños!")
 */
 //Convertir el String edad a number seria:
 
-let edad = window.prompt("Que edad tienes?: ");
+// let edad = window.prompt("Que edad tienes?: ");
+
+var edad = "15";
 
 console.log(typeof edad); //Tipo String
 

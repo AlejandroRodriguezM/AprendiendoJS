@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        var numero = parseInt(window.prompt("Dime un numero"));
+        var piramide = 0;
+        var auxiliar = piramide;
+
+        for (let i = 0; i < numero; i++) {
+            if (i % 2 == 0) {
+                piramide = i + 1;
+
+                for (let j = piramide; j > 0; j -= 2) {
+                    document.write(j + " ");
+                }
+                document.write("<br>");
+            }
+        }
+    </script>
+</body>
+
+</html>

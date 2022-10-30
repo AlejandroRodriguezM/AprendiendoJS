@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var cantidad = parseInt(window.prompt("Dime una cantidad a invertir"));
+        var interesAnual = parseInt(window.prompt("Dime el interes anual: "));
+        var numeroAnios = parseInt(window.prompt("Cantidad de años en los que quieres invertir"));
+        var resultado = "";
+
+        for (let i = 1; i <= numeroAnios; i++) {
+
+            let capitalObtenido = Math.abs((cantidad - (cantidad*interesAnual)) * i);
+            resultado += "El capital obtenido en el " + i + " anio seria de " + capitalObtenido + "<br>";
+        }
+
+        document.write(resultado);
+    </script>
+    
+</body>
+</html>
