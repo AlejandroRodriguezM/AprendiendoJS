@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var numero = parseInt(window.prompt("Introduce un numero: "));
+        var aleatorio1 = Math.round(Math.random() * numero);
+        var aleatorio2 = Math.round(Math.random() * (aleatorio1-numero)) + numero;
+        document.write("El numero aleatorio es: " + aleatorio1 + "<br>" +  "El numero aleatorio es: " + aleatorio2);
+    </script>
+    
+</body>
+</html>

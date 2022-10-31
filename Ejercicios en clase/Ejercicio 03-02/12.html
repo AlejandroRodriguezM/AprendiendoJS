@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var numero = parseInt(window.prompt("Introduce un numero: "));
+        var binario = numero.toString(2);
+        var octal = numero.toString(8);
+        var hexadecimal = numero.toString(16);
+        var exponencial = numero.toExponential(10);
+        var longitud = numero.toPrecision(8);
+        
+        document.write("Binario: " + binario + "<br>");
+        document.write("Octal: " + octal + "<br>");
+        document.write("Hexadecimal: " + hexadecimal + "<br>");
+        document.write("Exponencial: " + exponencial + "<br>");
+        document.write("Longitud: " + longitud + "<br>");
+    </script>
+    
+</body>
+</html>
