@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var anioNacimiento = window.prompt("¿Que año naciste?");
+        var pais = window.prompt("¿De que pais eres?");
+        var sexo = window.prompt("¿Que sexo eres?");
+        var edadMedia = 0;
+        var edad = 0;
+        var tiempoTranscurrido = Date.now();
+        var hoy = new Date(tiempoTranscurrido);
+        var anioActual = hoy.getFullYear();
+        var diferencia = anioActual - anioNacimiento;
+        var edad = diferencia;
+        var edadMedia = 0;
+        var edadFaltante = 0;
+
+        if (pais == "Japon") {
+            if (sexo == "Mujer") {
+                edadMedia = 84.3;
+            } else {
+                edadMedia = 81.5;
+            }
+        } else if (pais == "Suiza") {
+            if (sexo == "Mujer") {
+                edadMedia = 83.4;
+            } else {
+                edadMedia = 81.8;
+            }
+        } else if (pais == "España") {
+            if (sexo == "Mujer") {
+                edadMedia = 83.2;
+            } else {
+                edadMedia = 80.7;
+            }
+        } else if (pais == "Italia") {
+            if (sexo == "Mujer") {
+                edadMedia = 83.0;
+            } else {
+                edadMedia = 80.9;
+            }
+        } else if (pais == "Irak") {
+            if (sexo == "Mujer") {
+                edadMedia = 72.4;
+            } else {
+                edadMedia = 69.9;
+            }
+        } else if (pais == "Guinea Ecuatorial") {
+            if (sexo == "Mujer") {
+                edadMedia = 62.2;
+            } else {
+                edadMedia = 60.9;
+            }
+        } else if (pais == "Somalia") {
+            if (sexo == "Mujer") {
+                edadMedia = 56.5;
+            } else {
+                edadMedia = 54.0;
+            }
+        } else {
+            document.write("No se encuentra el pais");
+        }
+
+        edadFaltante = edadMedia - edad;
+
+        document.write("Edad: " + edad + "<br>");
+    </script>
+
+</body>
+
+</html>

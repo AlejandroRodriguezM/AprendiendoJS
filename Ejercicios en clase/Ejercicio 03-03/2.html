@@ -8,13 +8,11 @@
 </head>
 <body>
     <script>
-        edad = window.prompt("Dime tu edad:");
-        if(edad <18){
-            document.write("Eres menor de edad");
-        }
-        else if(edad >= 18) {
-            document.write("Estas en edad activa");
-        }
+        const tiempoTranscurrido = Date.now();
+        const hoy = new Date(tiempoTranscurrido);
+        
+        document.write("Fecha: " + hoy + "<br>");
+
     </script>
     
 </body>

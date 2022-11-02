@@ -8,8 +8,14 @@
 </head>
 <body>
     <script>
-        nombre = window.prompt("Escribe algo: ")
-        document.write('<h1><b>', nombre, '</b></h1>');
+        var dia = window.prompt("Que dia es hoy?");
+        var mes = window.prompt("Que mes es hoy?");
+        var anio = window.prompt("Que año es hoy?");
+
+        var fecha = new Date(anio, mes, dia);
+
+        document.write("Fecha: " + fecha + "<br>");
+
     </script>
     
 </body>
