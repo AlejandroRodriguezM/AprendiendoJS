@@ -25,33 +25,44 @@
         var hoy = Date.today();
         document.write(hoy + "<br>");
 
-        var proximoLunes = Date.n
+        var proximoLunes = new Date();
+        proximoLunes.setDate(proximoLunes.getDate() + (1 + 7 - proximoLunes.getDay()) % 7 );
         document.write(proximoLunes + "<br>");
 
         var hoyNoche = new Date(2022 - 11 - 6, 23);
         document.write(hoyNoche + "<br>");
 
-
+        var dentroDeUnAnio = new Date();
+        dentroDeUnAnio.setFullYear(dentroDeUnAnio.getFullYear() + 1);
+        document.write(dentroDeUnAnio + "<br>");
 
         const cumple = new Date("2022-11-29");
         var dia = cumple.getDay();
         var mes = cumple.getMonth();
         var anioCumple = cumple.getFullYear();
         var cumpleHoy = new Date(anioCumple, mes, dia);
-        document.write(cumpleHoy);
+        document.write(cumpleHoy + "<br>");
 
-        var primerLunes = Date.today().first().thursday()
-        var proximoMes = Date.getMonth() + 1;
-        var primerLunesProximoMes = new Date(Date.getFullYear(), proximoMes, primerLunes);
+        var primerLunesProximoMes = new Date();
+        primerLunesProximoMes.setMonth(primerLunesProximoMes.getMonth() + 1);
+        primerLunesProximoMes.setDate(primerLunesProximoMes.getDate() + (1 + 7 - primerLunesProximoMes.getDay()) % 7 );
         document.write(primerLunesProximoMes + "<br>");
 
-        var queDia = window.prompt("¿Que dia de la semana es hoy?")
-        var esViernes = Date.today().is().friday();
-        document.write(esViernes + "<br>");
+        var queDia = window.prompt("¿Hoy es viernes?")
+        if(Date.today().is().friday()){
+            document.write("Hoy es viernes"+ "<br>");
+        }
+        else{
+            document.write("Hoy no es viernes"+ "<br>");
+        }
 
-        var haceUnMes = Date.today().addMonths(-1);
-        var esSeptiembre = haceUnMes.is().september();
-        document.write(esSeptiembre + "<br>");
+        var queDia = window.prompt("¿El mes pasado fue septiembre?")
+        if(Date.today().add({months: -1}).is().september()){
+            document.write("Hace un mes fue septiembre"+ "<br>");
+        }
+        else{
+            document.write("Hace un mes no fue septiembre"+ "<br>");
+        }
 
     </script>
 
