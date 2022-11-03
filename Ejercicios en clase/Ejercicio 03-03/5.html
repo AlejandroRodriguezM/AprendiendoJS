@@ -5,46 +5,47 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/Javascript" src="date.js"></script>
     <title>Document</title>
 </head>
 
 <body>
-    <script type="text/Javascript" src="date.js">
+    <script>
     var n = 6; 
     var time = {hour:18, minute:15}; Date.today().at(time);
     var birthDayParty = {month: 1, day: 20, hour: 20, minute: 30};
-    document.write(Date.today()); // Returns today's date, with time set to 00:00 (start of day).
-    document.write(Date.today().next().friday()); // Returns the date of the next Friday.
-    document.write(Date.today().last().monday()); // Returns the date of the previous Monday.
-    document.write(new Date().next().march()); // Returns the date of the next March.
-    document.write(new Date().last().week()); // Returns the date one week ago.
-    document.write(Date.today().is().friday()); // Returns true|false if the day-of-week matches.
-    document.write(Date.today().is().fri()); // Abbreviated day names.
-    document.write(Date.today().is().november()); // Month names.
-    document.write(Date.today().is().nov()); // Abbreviated month names.
-    document.write(Date.today().is().weekday()); // Is today a weekday?
-    document.write(Date.today().addDays(1)); // Add one day (+1).
-    document.write(Date.today().addMonths(-3)); // Subtract three months (-3).
-    document.write(Date.today().add(1).day()); // Add one (+1) day. Supports all date parts
-    document.write(Date.today().add(-3).months()); // Subtract three (-3) months.
-    document.write((1).day().fromNow()); // One (1) day from now.
-    document.write((3).months().ago()); // Three (3) months ago.
-    document.write(n.months().fromNow()); // Six (6) months from now.
-    document.write(Date.monday()); // Returns Monday of the current week.
-    document.write(Date.mon()); // Abbreviated version of Date.monday()
-    document.write(Date.march()); // Returns March 1st of this year.
-    document.write(Date.mar()); // Abbreviated version of Date.march()
-    document.write(Date.today().first().thursday()); // Returns the first Thursday of the current month.
-    document.write(Date.today().second().thursday()); // Returns the second Thursday of the current month.
-    document.write(Date.march().third().thursday());  // Returns the third Thursday in March of the current year.
-    document.write(Date.october().fourth().sunday()); // Returns the fourth Sunday in October.
-    document.write(Date.today().fifth().sunday()); // Returns the fifth Sunday in the current month,
-    document.write(Date.october().final().sunday()); // Returns the final Sunday in October.
-    document.write(Date.january().first().monday()); // Returns the first Monday of the current year.
-    document.write(Date.december().final().friday()); // Returns the last Friday of the current year.
-    document.write(Date.today().at("6:15pm")); // Returns todays date at 6:15pm.
-    document.write(Date.today().at(time));  // Set time with a config object.
-    document.write(Date.today().set(birthDayParty)); // Set date and time with a config object.
+    document.write(Date.today() + "<br>"); // Returns today's date, with time set to 00:00 (start of day).
+    document.write(Date.today().next().friday() + "<br>"); // Returns the date of the next Friday.
+    document.write(Date.today().last().monday() + "<br>"); // Returns the date of the previous Monday.
+    document.write(new Date().next().march() + "<br>"); // Returns the date of the next March.
+    document.write(new Date().last().week() + "<br>"); // Returns the date one week ago.
+    document.write(Date.today().is().friday() + "<br>"); // Returns true|false if the day-of-week matches.
+    document.write(Date.today().is().fri() + "<br>"); // Abbreviated day names.
+    document.write(Date.today().is().november() + "<br>"); // Month names.
+    document.write(Date.today().is().nov() + "<br>"); // Abbreviated month names.
+    document.write(Date.today().is().weekday() + "<br>"); // Is today a weekday?
+    document.write(Date.today().addDays(1) + "<br>"); // Add one day (+1).
+    document.write(Date.today().addMonths(-3) + "<br>"); // Subtract three months (-3).
+    document.write(Date.today().add(1).day() + "<br>"); // Add one (+1) day. Supports all date parts
+    document.write(Date.today().add(-3).months() + "<br>"); // Subtract three (-3) months.
+    document.write((1).day().fromNow() + "<br>"); // One (1) day from now.
+    document.write((3).months().ago() + "<br>"); // Three (3) months ago.
+    document.write(n.months().fromNow() + "<br>"); // Six (6) months from now.
+    document.write(Date.monday() + "<br>"); // Returns Monday of the current week.
+    document.write(Date.mon() + "<br>"); // Abbreviated version of Date.monday()
+    document.write(Date.march() + "<br>"); // Returns March 1st of this year.
+    document.write(Date.mar() + "<br>"); // Abbreviated version of Date.march()
+    document.write(Date.today().first().thursday() + "<br>"); // Returns the first Thursday of the current month.
+    document.write(Date.today().second().thursday() + "<br>"); // Returns the second Thursday of the current month.
+    document.write(Date.march().third().thursday() + "<br>");  // Returns the third Thursday in March of the current year.
+    document.write(Date.october().fourth().sunday() + "<br>"); // Returns the fourth Sunday in October.
+    document.write(Date.today().fifth().sunday() + "<br>"); // Returns the fifth Sunday in the current month,
+    document.write(Date.october().final().sunday() + "<br>"); // Returns the final Sunday in October.
+    document.write(Date.january().first().monday() + "<br>"); // Returns the first Monday of the current year.
+    document.write(Date.december().final().friday() + "<br>"); // Returns the last Friday of the current year.
+    document.write(Date.today().at("6:15pm") + "<br>"); // Returns todays date at 6:15pm.
+    document.write(Date.today().at(time) + "<br>");  // Set time with a config object.
+    document.write(Date.today().set(birthDayParty) + "<br>"); // Set date and time with a config object.
     Date.now();
     </script>
 </body>

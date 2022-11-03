@@ -1,16 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/Javascript" src="date.js"></script>
     <title>Document</title>
 </head>
-<body>
-    <script src="date.js">
 
+<body>
+    <script>
+
+        //using library date.js
+        // 1. hoy
+        // 2. la fecha del proximo lunes
+        // 3. hoy a las 23:00
+        // 4. hoy dentro de un año
+        // 5. Tu cumpleaños este año
+        // 6. El primer lunes de mes que viene
+        // 7. Preguntar si hoy es viernes
+        // 8. Preguntar si hace un mes fue septiembre
+
+        var hoy = Date.today();
+        document.write(hoy + "<br>");
+
+        var proximoLunes = Date.n
+        document.write(proximoLunes + "<br>");
+
+        var hoyNoche = new Date(2022 - 11 - 6, 23);
+        document.write(hoyNoche + "<br>");
+
+
+
+        const cumple = new Date("2022-11-29");
+        var dia = cumple.getDay();
+        var mes = cumple.getMonth();
+        var anioCumple = cumple.getFullYear();
+        var cumpleHoy = new Date(anioCumple, mes, dia);
+        document.write(cumpleHoy);
+
+        var primerLunes = Date.today().first().thursday()
+        var proximoMes = Date.getMonth() + 1;
+        var primerLunesProximoMes = new Date(Date.getFullYear(), proximoMes, primerLunes);
+        document.write(primerLunesProximoMes + "<br>");
+
+        var queDia = window.prompt("¿Que dia de la semana es hoy?")
+        var esViernes = Date.today().is().friday();
+        document.write(esViernes + "<br>");
+
+        var haceUnMes = Date.today().addMonths(-1);
+        var esSeptiembre = haceUnMes.is().september();
+        document.write(esSeptiembre + "<br>");
 
     </script>
 
 </body>
+
 </html>

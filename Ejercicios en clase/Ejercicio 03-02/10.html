@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
 
@@ -14,16 +16,15 @@
         var minimo = numero;
         while (numero != 0) {
             numero = parseInt(window.prompt("Introduce un numero: "));
-            if (numero > maximo) {
-                maximo = numero;
-            }
-            if (numero < minimo) {
-                minimo = numero;
-            }
+            //Using MAth object
+            maximo = Math.max(maximo, numero);
+            minimo = Math.min(minimo, numero);
         }
+
         document.write("El numero maximo es: " + maximo + "<br>");
         document.write("El numero minimo es: " + minimo + "<br>");
     </script>
-    
+
 </body>
+
 </html>
