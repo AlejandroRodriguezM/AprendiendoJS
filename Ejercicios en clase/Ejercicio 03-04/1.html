@@ -8,7 +8,9 @@
 </head>
 <body>
     <script>
-        var subVentana=window.open("nueva.html","nueva","height=800,width=600");
+        var altura = parseInt(window.prompt("Dime la altura"));
+        var anchura = parseInt(window.prompt("Dime la anchura"));
+        var subVentana=window.open("nueva.html","nueva","height="+altura+",width="+anchura);
     </script>
     
 </body>

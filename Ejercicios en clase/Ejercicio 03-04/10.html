@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>The Window Object</h1>
+    <h2>The setInterval() and clearInterval() Methods</h2>
+    <button onclick="stopColor()">Stop </button>
+    <button onclick=" iniciarIntervalo()">Start </button>
+    <script>
+        var intervalo = parseInt(window.prompt("Escribe un intervalo de tiempo"))
+        var color1 = window.prompt("Escribe un color")
+        var color2 = window.prompt("Escribe otro color")
+
+        function iniciarIntervalo() {
+            myInterval = setInterval(setColor, intervalo);
+        }
+
+        function setColor() {
+            let x = document.body;
+            x.style.backgroundColor = x.style.backgroundColor == color1 ? color2 : color1;
+        }
+
+        function stopColor() {
+            clearInterval(myInterval);
+        }
+    </script>
+</body>
+
+</html>
