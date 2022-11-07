@@ -10,16 +10,15 @@
 
 <body>
     <script>
-        var limite = 25;
-
-        for (var i = 0; i < limite; ++i) {
-            for (var k = i; k < limite; ++k) {
-                document.write(" ");
+        altura = parseInt(prompt("Introduce altura"));
+        for (i = 0; i < altura; i++) {
+            for (j = (altura - i); 0 < j; j--) {
+                document.write("&nbsp;");
             }
-            for (var j = 0; j < i * 2 - 1; ++j) {
-                document.write("*");
+            for (j = 0; j < i; j++) {
+                document.write("* ");
             }
-            document.write("<br>")
+            document.write("<br>");
         }
     </script>
 
