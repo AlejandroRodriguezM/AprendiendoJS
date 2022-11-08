@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let num = parseInt(window.prompt("Introduce un numero"));
+
+        if (isNaN(num)) {
+            document.write("No has introducido un numero");
+        } else {
+            for (let i = 1; i <= 3; i++) {
+                document.write("<ol><li>Elemento " + i);
+                for (let j = 1; j <= 3; j++) {
+                    document.write("<li><dd>" + j + ". Elemento " + j + "</dd></li>");
+                    for (let k = 1; k <= 3; k++) {
+                        document.write("<li><dd>");
+                        document.write("<ol>" + k + ". Elemento" + i + ". " + j + ". " + k + "</ol>");
+                        document.write("</dd></li>");
+                    }
+                    document.write("</li>");
+                }
+                document.write("</ol>");
+            }
+        }
+    </script>
+</body>
+
+</html>

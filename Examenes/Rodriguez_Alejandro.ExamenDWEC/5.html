@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var cadena = window.prompt("Dime una cadena");
+        var longitud = cadena.length;
+        var primeraLetra = cadena.charAt(0);
+        var ultimaLetra = cadena.charAt(longitud - 1);
+        var numero = parseInt(cadena);
+        var numeroFinal = cadena.charAt(longitud - 1);
+        var numeroFinal = parseInt(numeroFinal);
+        var numero1000 = parseInt(cadena);
+        var numeropar = parseInt(cadena);
+
+        if (longitud > 10 || longitud < 2) {
+            document.write("Largopequeño");
+        } else if (primeraLetra == "a" || primeraLetra == "e" || primeraLetra == "i" || primeraLetra == "o" || primeraLetra == "u" || ultimaLetra == "a" || ultimaLetra == "e" || ultimaLetra == "i" || ultimaLetra == "o" || ultimaLetra == "u") {
+            document.write("Vocal");
+        } else if (!isNaN(numeroFinal)) {
+            document.write("NumeroFinal");
+        } else if (numero1000 > 100 && numero1000 < 1000) {
+            document.write("Numero1000");
+        } else if (numeropar % 7 == 0 && numeropar % 2 == 0 || numeropar % 5 == 0 && numeropar % 3 == 0) {
+            document.write("Numeropar");
+        } else {
+            document.write("Otracosa");
+        }
+    </script>
+</body>
+</html>
