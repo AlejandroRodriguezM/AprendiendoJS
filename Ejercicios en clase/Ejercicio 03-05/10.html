@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>The Window Navigator Object</h1>
+    <h2>The The geolocation Property</h2>
+    <p id="demo"></p>
+    <button onclick="myPosition()">Mi posicion</button>
+    <script>
+        function myPosition() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                document.getElementById("demo").innerHTML =
+                    "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            window.location.assign("http://www.google.es/maps/@" + position.coords.latitude + "," + position.coords.longitude);
+        }
+    </script>
+
+</body>
+
+</html>

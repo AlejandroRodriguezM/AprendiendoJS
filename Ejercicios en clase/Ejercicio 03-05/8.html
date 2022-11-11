@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="navigator"></div>
+    <script>
+        var url = window.navigator.appCodeName;
+        var url2 = window.navigator.appName;
+        var url3 = window.navigator.appVersion;
+        var url4 = window.navigator.cookieEnabled;
+        var url5 = window.navigator.platform;
+        var url6 = window.navigator.userAgent;
+
+        document.getElementById("navigator").innerHTML = "appCodeName: " + url + "<br>" + "appName: " + url2 + "<br>" + "appVersion: " + url3 + "<br>" + "cookieEnabled: " + url4 + "<br>" + "platform: " + url5 + "<br>" + "userAgent: " + url6;
+    </script>
+    
+</body>
+</html>

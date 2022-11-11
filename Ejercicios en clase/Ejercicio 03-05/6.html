@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>The assign Property of Location Object</h2>
+    <button onclick="myFunction()">Load new document</button>
+    <button onclick="myFunction2()">Reload</button>
+    <button onclick="myFunction3()">Replace</button>
+    <script>
+        function myFunction() {
+            var x = prompt("Introduce la direccion de una web");
+            if (x.includes("https://")) {
+                window.location.assign(x);
+            } else {
+                window.location.assign("https://" + x);
+            }
+        }
+
+        function myFunction2() {
+            window.location.reload();
+        }
+
+        function myFunction3() {
+            var url = "https://www.google.es";
+            window.location.replace(url);
+        }
+    </script>
+</body>
+
+</html>
