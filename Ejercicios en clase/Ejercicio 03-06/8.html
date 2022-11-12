@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1> una cabecera h1</h1>
+    <h2> una cabecera h2</h2>
+    <p> Un parrafo </p>
+    <span>Torremolinos</span>
+    <p id="explica"></p>
+    <h2 id="elemento"></h2>
+    <script>
+        etiqueta = prompt('Ingrese el contenido que deseas conocer (p,h1,h2,span) que deseas seleccionar:', '');
+
+        const collection = document.getElementsByTagName(etiqueta);
+        document.getElementById("explica").innerHTML = "El contenido de la etiqueta " + etiqueta + " es: ";
+        document.getElementById("elemento").innerHTML = collection[0].innerHTML;;
+
+    </script>
+</body>
+
+</html>

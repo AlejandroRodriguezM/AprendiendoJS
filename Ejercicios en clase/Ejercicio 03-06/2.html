@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="html"></div>
+    <script>
+        //mostrar domain
+        var domain = document.domain;
+        document.getElementById("html").innerHTML += domain + "<br>";
+        //mostrar lastModified
+        var lastModified = document.lastModified;
+        document.getElementById("html").innerHTML += lastModified + "<br>";
+        //mostrar readyState
+        var readyState = document.readyState;
+        document.getElementById("html").innerHTML += readyState + "<br>";
+        //mostrar referrer
+        var referrer = document.referrer;
+        document.getElementById("html").innerHTML += referrer + "<br>";
+        //mostrar title
+        var title = document.title;
+        document.getElementById("html").innerHTML += title + "<br>";
+        //mostrar URL
+        var URL = document.URL;
+        document.getElementById("html").innerHTML += URL;
+    </script>
+    
+</body>
+</html>

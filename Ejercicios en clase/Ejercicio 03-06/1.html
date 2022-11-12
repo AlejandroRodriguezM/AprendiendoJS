@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="html"></div>
+    <script>
+
+        //1. anchors[] Es un array que contiene todos los hiperenlaces del documento. (deprectated)
+        //2. applets[] Es un array que contiene todos los applets del documento(deprectated)
+        //3. links[] Es un array que contiene todos los enlaces del documento.
+        //4. forms[] Es un array que contiene todos los formularios del documento.
+        //5. images[] Es un array que contiene todas las imágenes del documento.
+        //6. Document.scripts[]
+        //7. Document.styleSheets []
+        //8. cookie[] Devuelve todos los nombres/valores de las cookies en el documento.
+
+
+        var html = document.getElementById("html").innerHTML += "";
+        //mostrar anchors
+        var anchors = document.anchors;
+        for (let i = 0; i < anchors.length; i++) {
+            document.getElementById("html").innerHTML += anchors[i] + "<br>";
+        }
+        //mostrar applets
+        var applets = document.applets;
+        for (let i = 0; i < applets.length; i++) {
+            document.getElementById("html").innerHTML += applets[i] + "<br>";
+        }
+        //mostrar links
+        var links = document.links;
+        for (let i = 0; i < links.length; i++) {
+            document.getElementById("html").innerHTML += links[i] + "<br>";
+        }
+        //mostrar forms
+        var forms = document.forms;
+        for (let i = 0; i < forms.length; i++) {
+            document.getElementById("html").innerHTML += forms[i] + "<br>";
+        }
+        //mostrar images
+        var images = document.images;
+        for (let i = 0; i < images.length; i++) {
+            document.getElementById("html").innerHTML += images[i] + "<br>";
+        }
+        //mostrar scripts
+        var scripts = document.scripts;
+        for (let i = 0; i < scripts.length; i++) {
+            document.getElementById("html").innerHTML += scripts[i] + "<br>";
+        }
+        //mostrar styleSheets
+        var styleSheets = document.styleSheets;
+        for (let i = 0; i < styleSheets.length; i++) {
+            document.getElementById("html").innerHTML += styleSheets[i] + "<br>";
+        }
+        //mostrar cookie
+        var cookie = document.cookie;
+        document.getElementById("html").innerHTML += (cookie);
+
+        // show anchors[]
+        
+
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>

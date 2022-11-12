@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World!</title>
+</head>
+
+<body>
+    <input type="text" name="etiquetaARellenar1"> elemento1
+    <input type="text" name="etiquetaARellenar2"> elemento2
+    <script language="JavaScript">
+        nombre = prompt('Ingrese su nombre:', '');
+        // Usa getElementsByName().InnerElement para acceder a un elemento identificado por el id
+        // escrito entre paréntesis.
+        document.getElementsByName("etiquetaARellenar1").InnerElement = nombre;
+        document.getElementsByName("etiquetaARellenar2").InnerElement = nombre;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1> Objeto Document</h1>
+    <h2>Metodo getElementsByTagName()</h2>
+    <p> Una Lista ordenada:</p>
+    <ol>
+        <li>Torremolinos</li>
+        <li>Málaga</li>
+        <li>Granada</li>
+
+        <li>Sevilla</li>
+        <li>Alhaurin</li>
+        <li>Churriana</li>
+    </ol>
+    <p id="indice"></p>
+    <h2 id="lista"></h2>
+    <script>
+        numero = prompt('Ingrese el numero que deseas selecionar:', '');
+        indice_string = "El " + numero + "o elemento de la lista es";
+        const collection = document.getElementsByTagName("li");
+        document.getElementById("lista").innerHTML = collection[numero - 1].innerHTML;
+        document.getElementById("indice").innerHTML = indice_string;
+    </script>
+</body>
+
+</html>
