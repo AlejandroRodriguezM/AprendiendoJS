@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+
+    <form action="">
+        <label for="latitud">Latitud</label>
+        <input type="number" name="latitud" id="latitud">
+        <label for="longitud">Longitud</label>
+        <input type="number" name="longitud" id="longitud">
+        <input type="button" value="Calcular" onclick="calcular()">
+        <p id="distancia"></p>
+    </form>
+    <script>
+        function calcular() {
+            let latitud = document.getElementById("latitud").value;
+            let longitud = document.getElementById("longitud").value;
+            //Lo dejo comentado ya que el navegador me da problemas y le he dado valor absoluto
+            // let latitud2 = navigator.geolocation.latitude;
+            // let longitud2 = navigator.geolocation.longitude;
+            let latitud2 = 15;
+            let longitud2 = 20;
+            let distancia = Math.sqrt(Math.pow(latitud - latitud2, 2) + Math.pow(longitud - longitud2, 2));
+            document.getElementById("distancia").innerHTML = "La distancia es de " + distancia + " km";
+        }
+    </script>
+</body>
+
+</html>

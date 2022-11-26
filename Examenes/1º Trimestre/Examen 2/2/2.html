@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="button" value="Iniciar" onclick="iniciar()">
+        <input type="button" value="Parar" onclick="parar()">
+    </form>
+    <div id="cronometro"></div>
+    <script>
+        let cronometro = document.getElementById("cronometro");
+        let segundos = 0;
+        let decimas = 0;
+        let intervalo;
+
+        function iniciar() {
+            intervalo = setInterval(function () {
+                decimas++;
+                if (decimas == 10) {
+                    segundos++;
+                    decimas = 0;
+                }
+                cronometro.innerHTML = segundos + "." + decimas;
+            }, 100);
+        }
+
+        function parar() {
+            clearInterval(intervalo);
+        }
+    </script>
+
+</body>
+
+</html>

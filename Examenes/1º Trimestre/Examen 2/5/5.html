@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="text" id="numeros">
+        <input type="button" value="Mostrar" onclick="mostrar()">
+    </form>
+    <div id="resultado"></div>
+    <script>
+        function mostrar() {
+            let numeros = document.getElementById("numeros").value;
+            let arrayNumeros = numeros.split(",");
+            let resultado = document.getElementById("resultado");
+            resultado.innerHTML = "";
+            for (let i = 0; i < arrayNumeros.length; i++) {
+                let imagen = document.createElement("img");
+                imagen.src = "./numeros/" + arrayNumeros[i] + ".jpg";
+                resultado.appendChild(imagen);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

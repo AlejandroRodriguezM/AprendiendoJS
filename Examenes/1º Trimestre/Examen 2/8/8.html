@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="button" value="Pedir carta" onclick="pedirCarta()">
+        <input type="button" value="Parar" onclick="parar()">
+    </form>
+    <div id="resultado"></div>
+
+    <script>
+        let cartas = [];
+        let cartasCrupier = [];
+        let sumaJugador = 0;
+        let puntosMaquina = 0;
+        let cartasMaquina = 0;
+        let resultado = document.getElementById("resultado");
+
+        function pedirCarta() {
+            let carta = Math.floor(Math.random() * 7) + 1;
+            cartas.push(carta);
+            sumaJugador += carta;
+            resultado.innerHTML = "Cartas: " + cartas + "<br> Puntos: " + sumaJugador;
+            if (puntos > 7.5) {
+                resultado.innerHTML += " Has perdido";
+            }
+        }
+
+        function parar() {
+            
+            let carta = Math.floor(Math.random() * 7) + 1;
+            cartasCrupier.push(carta);
+            puntosMaquina += carta;
+            resultado.innerHTML += "<br>Cartas de cupier: " + cartasCrupier + "<br> Puntos: " + puntosMaquina;
+            if (puntosMaquina > 7.5) {
+                resultado.innerHTML += "<br>Has ganado";
+            }
+            cartas = [];
+            cartasCrupier = [];
+            sumaJugador = 0;
+            puntosMaquina = 0;
+        }
+    </script>
+
+
+</body>
+
+</html>

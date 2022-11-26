@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="año">Año</label>
+        <input type="number" name="año" id="año">
+        <label for="mes">Mes</label>
+        <input type="number" name="mes" id="mes">
+        <label for="dia">Dia</label>
+        <input type="number" name="dia" id="dia">
+        <input type="button" value="Calcular" onclick="calcular()">
+        <p id="tiempo"></p>
+    </form>
+    <script>
+        function calcular() {
+            let año = document.getElementById("año").value;
+            let mes = document.getElementById("mes").value;
+            let dia = document.getElementById("dia").value;
+            let fecha = new Date(año, mes, dia);
+            let fecha2 = new Date(1990, 0, 1);
+            let diferencia = fecha.getTime() - fecha2.getTime();
+            let dias = Math.round(diferencia / (1000 * 60 * 60 * 24));
+            document.getElementById("tiempo").innerHTML = "Han pasado " + dias + " dias desde el año 1990";
+        }
+    </script>
+
+</body>
+
+</html>
