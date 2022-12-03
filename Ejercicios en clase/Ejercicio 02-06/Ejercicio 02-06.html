@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 1/////////////
+    //////////////////////////////// -->
+    <script language="JavaScript">
+        var nombre;
+        var edad;
+        nombre = prompt('Ingrese su nombre:', '');
+        edad = prompt('Ingrese su edad:', '');
+        document.write('Hola');
+        document.write(nombre);
+        document.write(' asi que tienes ');
+        document.write(edad);
+        document.write(' años');
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 2/////////////
+    //////////////////////////////// -->
+    <script language="JavaScript">
+
+        var nombre;
+        nombre = prompt('Ingrese su nombre:');
+        document.write('<h1><b>');
+        document.write(nombre);
+        document.write('</b></h1>');
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 3/////////////
+    //////////////////////////////// -->
+    <script language="JavaScript">
+
+        var edad;
+        edad = prompt('Ingrese su edad:');
+        if (typeof edad == 'number') {
+            if (edad >= 18) {
+                document.write('Eres mayor de edad');
+            } else {
+                document.write('Eres menor de edad');
+            }
+        } else {
+            document.write('No ingresaste un número');
+        }
+
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 4/////////////
+    //////////////////////////////// -->
+    <script language="JavaScript">
+
+        var yearNacimiento;
+        var year = new Date().getFullYear();
+
+        yearNacimiento = prompt('Ingrese el año de su nacimiento:');
+
+        var edad = year - yearNacimiento;
+
+        if (edad < 18) {
+            document.write('Eres menor de edad');
+        }
+        else {
+            document.write('Estas en edad activa');
+        }
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 5/////////////
+    //////////////////////////////// -->
+    <script language="JavaScript">
+
+        var yearNacimiento;
+        var year = new Date().getFullYear();
+
+        yearNacimiento = prompt('Ingrese el año de su nacimiento:');
+
+        var edad = year - yearNacimiento;
+
+        if (typeof edad == "number") {
+            if (edad < 18 && edad >= 0) {
+                document.write('Eres menor de edad');
+            }
+            else if (edad >= 18 && edad <= 66) {
+                document.write('Estas en edad activa');
+            }
+            else if (edad > 66) {
+                document.write('Estas en edad de jubilacion');
+            }
+            else {
+                document.write('No has nacido');
+            }
+        }
+        else {
+            document.write('No ingresaste un numero');
+        }
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 6/////////////
+    //////////////////////////////// -->
+    <script language="JavaScript">
+
+        var year;
+        year = prompt('Ingrese el año:');
+        if (year % 4 == 0) {
+            document.write('El año es bisiesto');
+        }
+        else {
+            document.write('El año no es bisiesto');
+        }
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 7/////////////
+    //////////////////////////////// -->
+    <script language="JavaScript">
+        var url = window.location.href;
+        var url2 = url.substring(0, 4);
+        if (url2 == 'http') {
+            document.write('Es una pagina remota');
+        }
+        else {
+            document.write('Es una pagina local');
+        }
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 8/////////////
+    //////////////////////////////// -->
+    <script language="JavaScript">
+        var numero;
+        numero = prompt('Ingrese un numero de cliente:');
+        if (numero == 1000) {
+            document.write('Ganaste un premio');
+        }
+        else {
+            document.write('No ganaste nada');
+        }
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 9/////////////
+    //////////////////////////////// -->
+    <script language="JavaScript">
+        var numero1;
+        var numero2;
+        numero1 = prompt('Ingrese un numero:');
+        numero2 = prompt('Ingrese otro numero:');
+        if (numero1 < numero2) {
+            document.write('El numero ' + numero1 + ' es menor que el numero ' + numero2);
+        }
+        else if (numero1 > numero2) {
+            document.write('El numero ' + numero2 + ' es menor que el numero ' + numero1);
+        }
+        else {
+            document.write('Los numeros son iguales');
+        }
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 10/////////////
+    //////////////////////////////// -->
+    <script language="JavaScript">
+        var numero1;
+        var numero2;
+        numero1 = prompt('Ingrese un numero:');
+        numero2 = prompt('Ingrese otro numero:');
+        if (numero1 < numero2) {
+            document.write('El numero ' + numero1 + ' es menor que el numero ' + numero2);
+        }
+        else if (numero1 > numero2) {
+            document.write('El numero ' + numero2 + ' es menor que el numero ' + numero1);
+        }
+        else {
+            document.write('Los numeros son iguales');
+        }
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 11/////////////
+    //////////////////////////////// -->
+    <script language="JavaScript">
+
+        var dia;
+        dia = prompt('Ingrese un dia de la semana:');
+
+        if (dia == 'lunes') {
+            document.write('Es lunes');
+        }
+        else if (dia == 'viernes') {
+            document.write('Es viernes');
+        }
+        else if (dia == 'sabado' || dia == 'domingo') {
+            document.write('Es fin de semana');
+        }
+        else {
+            document.write('No es un dia de la semana');
+        }
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 12/////////////
+    //////////////////////////////// -->
+    <script language="JavaScript">
+        var numero;
+        numero = prompt('Ingrese un numero:');
+        if (numero < 0) {
+            document.write('El valor absoluto del numero ' + numero + ' es ' + numero * -1);
+        }
+        else {
+            document.write('El valor absoluto del numero ' + numero + ' es ' + numero);
+        }
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 13/////////////
+    //////////////////////////////// -->
+    <script language="JavaScript">
+
+        var nombre1;
+        var nombre2;
+
+        nombre1 = prompt('Ingrese el nombre de la primera persona:');
+        nombre2 = prompt('Ingrese el nombre de la segunda persona:');
+        if (nombre1.charAt(0) == nombre2.charAt(0) || nombre1.charAt(nombre1.length - 1) == nombre2.charAt(nombre2.length - 1)) {
+            document.write('Coincidencia');
+        }
+        else {
+            document.write('No hay coincidencia');
+        }
+
+    </script>
+</body>
+
+</html>

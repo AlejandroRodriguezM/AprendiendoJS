@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 1/////////////
+    //////////////////////////////// -->
+    <script>
+        var nombre = window.prompt("Dime una palabra");
+        var resultado = "";
+        for (let i = 0; i < 10; i++) {
+            resultado += nombre + "<br>";
+        }
+        document.write(resultado);
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 2/////////////
+    //////////////////////////////// -->
+    <script>
+        var edadActual = parseInt(window.prompt("Dime tu edad"));
+        var resultado = "";
+        var fechaActual = 2022;
+        var edadNacimiento = 2022 - edadActual;
+
+        for (let i = 1; i <= edadActual; i++) {
+
+            resultado += "En el año " + edadNacimiento + " tenias " + i + " años <br>";
+            edadNacimiento++;
+        }
+        
+        document.write(resultado);
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 3/////////////
+    //////////////////////////////// -->
+    <script>
+
+        var numero = parseInt(window.prompt("Dime un numero"));
+        var resultado = "";
+
+        for (let i = 1; i <= numero; i++) {
+
+            if(i % 2 != 0){
+                resultado += i + ",";
+            }
+        }
+
+        document.write(resultado);
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 4/////////////
+    //////////////////////////////// -->
+    <script>
+        var numero = parseInt(window.prompt("Introduce un numero positivo"));
+        var auxiliar = numero;
+        var resultado = "";
+        if(numero > 0){
+            for (let i = 0; i <= numero; i++) {
+                resultado += auxiliar + ",";
+                auxiliar--;
+            }
+            document.write(resultado);
+        }
+        else{
+            document.write("<b style='color: red;'>ERROR. Debes de introducir un numero positivo</b>");
+        }
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 5/////////////
+    //////////////////////////////// -->
+    <script>
+        var cantidad = parseInt(window.prompt("Dime una cantidad a invertir"));
+        var interesAnual = parseInt(window.prompt("Dime el interes anual: "));
+        var numeroAnios = parseInt(window.prompt("Cantidad de años en los que quieres invertir"));
+        var resultado = "";
+
+        for (let i = 1; i <= numeroAnios; i++) {
+
+            let capitalObtenido = Math.abs((cantidad - (cantidad*interesAnual)) * i);
+            resultado += "El capital obtenido en el " + i + " anio seria de " + capitalObtenido + "<br>";
+        }
+
+        document.write(resultado);
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 6/////////////
+    //////////////////////////////// -->
+    <script>
+
+        var numero = parseInt(window.prompt("Dime un numero"));
+        var piramide = "*";
+
+        for (let i = 0; i <= numero; i++) {
+            document.write(piramide + "<br>");
+            piramide += "*" ;
+        }
+       
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 7/////////////
+    //////////////////////////////// -->
+    <script>
+        var numero = parseInt(window.prompt("Dime un numero"));
+        var resultado = "";
+        for (let i = 1; i <= 10; i++) {
+            resultado += numero + "X" + i + "=" + (numero * i) + "<br>" 
+        }
+        document.write(resultado);
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 8/////////////
+    //////////////////////////////// -->
+    <script>
+
+        var numero = parseInt(window.prompt("Dime un numero"));
+        var piramide = 0;
+        var auxiliar = piramide;
+
+        for (let i = 0; i < numero; i++) {
+            if (i % 2 == 0) {
+                piramide = i + 1;
+
+                for (let j = piramide; j > 0; j -= 2) {
+                    document.write(j + " ");
+                }
+                document.write("<br>");
+            }
+        }
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 9/////////////
+    //////////////////////////////// -->
+    <script>
+        var pass = window.prompt("Escribe tu contraseña");
+        var posiblePass = "";
+
+        while(pass != posiblePass){
+            posiblePass = window.prompt("Escribe tu contraseña");
+        }
+        document.write("Contraseña correcta");
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 10/////////////
+    //////////////////////////////// -->
+    <script>
+        //numero primo
+
+        var numero = parseInt(window.prompt("Dime un numero"));
+        var resultado = 0;
+
+        for (let i = 1; i <= numero; i++) {
+            if (numero % i == 0) {
+                resultado++;
+            }
+        }
+
+        if (resultado == 2) {
+            document.write("El numero es primo");
+        } else {
+            document.write("El numero no es primo");
+        }
+
+
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 11/////////////
+    //////////////////////////////// -->
+    <script>
+        var palabra = window.prompt("Escribe una palabra");
+        var resultado = "";
+        for (let i = palabra.length - 1; i >= 0; i--) {
+            resultado += palabra[i];
+        }
+        document.write(resultado);
+
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 12/////////////
+    //////////////////////////////// -->
+    <script>
+        var frase = window.prompt("Escribe una frase");
+        var letra = window.prompt("Escribe una letra");
+        var contador = 0;
+
+        for (let i = 0; i < frase.length; i++) {
+            if (frase[i] == letra) {
+                contador++;
+            }
+        }
+        document.write("La letra " + letra + " aparece " + contador + " veces en la frase " + frase);
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 13/////////////
+    //////////////////////////////// -->
+    <script>
+        var palabra = window.prompt("Dime una palabra, pulse salir para terminar");
+
+        while (palabra != "salir") {
+            document.write(palabra + "<br>");
+            palabra = window.promt("Dime una palabra, pulse salir para terminar");
+        }
+    </script>
+</body>
+
+</html>

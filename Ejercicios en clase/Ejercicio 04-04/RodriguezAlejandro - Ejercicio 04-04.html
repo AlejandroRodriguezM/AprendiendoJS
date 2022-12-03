@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- Ejercicio 1.	Crea un objeto alumno con los siguientes valores metodos y propiedades
+1.	Propiedades: nombre, apellidos, id, NombreModulos, notasModulos (estos dos son dos arrays paralelos) 
+2.	Metodos: 
+1.	set y get de las propiedades nombre, apellidos, id 
+2.	Mostrar modulos(id): muestra el nombre de los modulos
+3.	nota(nombremodulo) : muestra la nota del modulo
+4.	media(id) te muestra su media
+5.	suspensas(id): te muestra las notas suspensas
+6.	Aprobadas(id): te muestra las notas aprobadas
+el id es para que se muestre en el InnerElement que tenga ese id. -->
+
+    <script>
+        var alumno = {
+            nombre: "Maria",
+            apellidos: "Martinez Martin",
+            id: 1,
+            NombreModulos: ["Programacion", "Base de datos", "Entornos de desarrollo"],
+            notasModulos: [5, 7, 8],
+            setNombre: function (nombre) {
+                this.nombre = nombre;
+            },
+            getNombre: function () {
+                return this.nombre;
+            },
+            setApellidos: function (apellidos) {
+                this.apellidos = apellidos;
+            },
+            getApellidos: function () {
+                return this.apellidos;
+            },
+            setId: function (id) {
+                this.id = id;
+            },
+            getId: function () {
+                return this.id;
+            },
+            mostrarModulos: function () {
+                var modulos = "";
+                for (var i = 0; i < this.NombreModulos.length; i++) {
+                    modulos += this.NombreModulos[i] + " ";
+                }
+                return modulos;
+            },
+            nota: function (nombremodulo) {
+                var nota = "";
+                for (var i = 0; i < this.NombreModulos.length; i++) {
+                    if (this.NombreModulos[i] == nombremodulo) {
+                        nota = this.notasModulos[i];
+                    }
+                }
+                return nota;
+            },
+            media: function () {
+                var media = 0;
+                for (var i = 0; i < this.notasModulos.length; i++) {
+                    media += this.notasModulos[i];
+                }
+                media = media / this.notasModulos.length;
+                return media;
+            },
+            suspensas: function () {
+                var suspensas = "";
+                for (var i = 0; i < this.notasModulos.length; i++) {
+                    if (this.notasModulos[i] < 5) {
+                        suspensas += this.notasModulos[i] + " ";
+                    }
+                }
+                return suspensas;
+            },
+            aprobadas: function () {
+                var aprobadas = "";
+                for (var i = 0; i < this.notasModulos.length; i++) {
+                    if (this.notasModulos[i] >= 5) {
+                        aprobadas += this.notasModulos[i] + " ";
+                    }
+                }
+                return aprobadas;
+            }
+        }
+        document.write("Nombre: " + alumno.getNombre()
+            + "<br>Apellidos: " + alumno.getApellidos()
+            + "<br>Id: " + alumno.getId()
+            + "<br>Modulos: " + alumno.mostrarModulos()
+            + "<br>Nota de Programacion: " + alumno.nota("Programacion")
+            + "<br>Nota de Base de datos: " + alumno.nota("Base de datos")
+            + "<br>Nota de Entornos de desarrollo: " + alumno.nota("Entornos de desarrollo")
+            + "<br>Media: " + alumno.media()
+            + "<br>Suspensas: " + alumno.suspensas()
+            + "<br>Aprobadas: " + alumno.aprobadas());
+    </script>
+
+
+
+    <!-- Ejercicio 2.Realiza el anterior para que los metodos sean funciones anonimas. 
+Usando la notacion () =>  -->
+
+
+
+    <!-- Ejercicio 3.	Crea un ejemplo que Muestra cada elemento.  -->
+
+
+
+
+
+    <!-- Ejercicio 4. Crea un objeto clase que sea un array de alumnos con los metodos 
+    (con notacion  anonima)
+
+1.	matricular(alumno) 
+2.	eliminar( alumnos)
+3.	numero(alumnos)
+4.	Mostrar(id) -->
+
+
+
+
+
+
+
+
+    <!-- Ejercicio 5.	Crea un objeto instituto con nombre , direccion e id de manera literal. -->
+
+
+
+
+
+
+    <!-- Ejercicio 6.	Añade al anterior una metodo cambiarnombre(direccion) y mostrar(id) de manera literal usando funciones anonimas. -->
+
+</body>
+
+</html>

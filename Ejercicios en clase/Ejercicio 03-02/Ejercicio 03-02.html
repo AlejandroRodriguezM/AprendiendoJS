@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 1/////////////
+    //////////////////////////////// -->
+    <script>
+        var radio = parseInt(window.prompt("Dime un numero"));
+
+        if (!isNaN(radio)) {
+            var circunferencia = 2 * Math.PI * radio ^ 2;
+            var area = Math.PI * radio ^ 2;
+
+            document.write("La circunferencia es: " + circunferencia + "<br>Y el area es de: " + area);
+        }
+        else {
+            document.write("No has introducido un numero");
+        }
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 2/////////////
+    //////////////////////////////// -->
+    <script>
+        var cateto1 = parseInt(window.prompt("Valor de cateto 1: "));
+        var cateto2 = parseInt(window.prompt("Valor de cateto 2: "));
+
+        if (!isNaN(cateto1) && !isNaN(cateto2)) {
+            var hipotenusa = Math.sqrt(cateto1 ^ 2 + cateto2 ^ 2);
+            document.write("La hipotenusa es: " + hipotenusa);
+        }
+        else {
+            document.write("No has introducido un numero");
+        }
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 3/////////////
+    //////////////////////////////// -->
+    <script>
+        document.write(Math.E + "<br>" + Math.LN2 + "<br>" + Math.LN10 + "<br>" + Math.LOG2E + "<br>" + Math.LOG10E);
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 4/////////////
+    //////////////////////////////// -->
+    <script>
+
+        var numero = parseInt(window.prompt("Introduce un numero: "));
+
+        if (!isNaN(numero)) {
+
+            var logaritmoNeperiano = Math.log(numero);
+            var logaritmoBase2 = Math.log2(numero);
+            var logaritmoBase10 = Math.log10(numero);
+
+            document.write("Logaritmo neperiano: " + logaritmoNeperiano + "<br>");
+            document.write("Logaritmo base 2: " + logaritmoBase2 + "<br>");
+            document.write("Logaritmo base 10: " + logaritmoBase10 + "<br>");
+        }
+        else {
+            document.write("No has introducido un numero");
+        }
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 5/////////////
+    //////////////////////////////// -->
+    <script>
+        var numero = parseInt(window.prompt("Dime un numero"));
+
+        if (!isNaN(numero)) {
+            var radian = (numero / 180) * Math.PI;
+            if (radian >= 0 && radian <= 360) {
+                document.write(radian)
+            }
+            else {
+                document.write("ERROR." + radian + " es invalido en el calculo.")
+            }
+        }
+        else {
+            document.write("<b style='color: red'>ERROR. Debes de introducir un numero</b>");
+        }
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 6/////////////
+    //////////////////////////////// -->
+    <script>
+        var numero = parseInt(window.prompt("Dime un numero"));
+
+        if (!isNaN(numero)) {
+            var radian = (numero / 180) * Math.PI;
+            if (radian >= 0 && radian <= 360) {
+                document.write(radian)
+            }
+            else {
+                document.write("ERROR." + radian + " es invalido en el calculo.")
+            }
+        }
+        else {
+            document.write("<b style='color: red'>ERROR. Debes de introducir un numero</b>");
+        }
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 7/////////////
+    //////////////////////////////// -->
+    <script>
+
+        var numero = parseInt(window.prompt("Dime un numero"));
+
+        if (!isNaN(numero)) {
+            if (numero >= 0 && numero <= 1) {
+                var radian = (numero / 180) * Math.PI;
+                document.write(Math.acos(radian) + "<br>" + Math.asin(radian) + "<br>" + Math.tan(radian));
+            }
+            else {
+                document.write("ERROR." + numero + " es invalido en el calculo.")
+            }
+        }
+        else {
+            document.write("<b style='color: red'>ERROR. Debes de introducir un numero</b>");
+        }
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 8/////////////
+    //////////////////////////////// -->
+    <script>
+        var numero = parseInt(window.prompt("Introduce un numero: "));
+
+        if (!isNaN(numero)) {
+
+            var techo = Math.ceil(numero);
+            var suelo = Math.floor(numero);
+            var redondeo = Math.round(numero);
+
+            document.write("Techo: " + techo + "<br>");
+            document.write("Suelo: " + suelo + "<br>");
+            document.write("Redondeo: " + redondeo + "<br>");
+        }
+        else {
+            document.write("No has introducido un numero");
+        }
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 9/////////////
+    //////////////////////////////// -->
+    <script>
+        var numero = parseInt(window.prompt("Introduce un numero: "));
+
+        if (!isNaN(numero)) {
+
+            var redondeo = Math.round(numero * 10) / 10;
+
+            document.write("Redondeo: " + redondeo + "<br>");
+        }
+        else {
+            document.write("No has introducido un numero");
+        }
+
+
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 10/////////////
+    //////////////////////////////// -->
+    <script>
+
+        var numero = parseInt(window.prompt("Introduce un numero: "));
+        var maximo = numero;
+        var minimo = numero;
+        while (numero != 0) {
+            numero = parseInt(window.prompt("Introduce un numero: "));
+            //Using MAth object
+            maximo = Math.max(maximo, numero);
+            minimo = Math.min(minimo, numero);
+        }
+
+        document.write("El numero maximo es: " + maximo + "<br>");
+        document.write("El numero minimo es: " + minimo + "<br>");
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 11/////////////
+    //////////////////////////////// -->
+    <script>
+
+        var numero = parseInt(window.prompt("Introduce un numero: "));
+        var aleatorio1 = Math.round(Math.random() * numero);
+        var aleatorio2 = Math.round(Math.random() * (aleatorio1 - numero)) + numero;
+        document.write("El numero aleatorio es: " + aleatorio1 + "<br>" + "El numero aleatorio es: " + aleatorio2);
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 12/////////////
+    //////////////////////////////// -->
+    <script>
+
+        var numero = parseInt(window.prompt("Introduce un numero: "));
+        var binario = numero.toString(2);
+        var octal = numero.toString(8);
+        var hexadecimal = numero.toString(16);
+        var exponencial = numero.toExponential(10);
+        var longitud = numero.toPrecision(8);
+
+        document.write("Binario: " + binario + "<br>");
+        document.write("Octal: " + octal + "<br>");
+        document.write("Hexadecimal: " + hexadecimal + "<br>");
+        document.write("Exponencial: " + exponencial + "<br>");
+        document.write("Longitud: " + longitud + "<br>");
+    </script>
+
+</body>
+
+</html>

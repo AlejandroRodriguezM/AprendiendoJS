@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        document.write("<h1>Ejercicio 1</h1>");
+        function ej1Trigonometrica(anguloEnGrados, funcion) {
+            let radianes = (Math.PI * anguloEnGrados) / 180;
+            if (funcion == "sen") { resultado = Math.sin(radianes); }
+            else if (funcion == "cos") { resultado = Math.cos(radianes); }
+            else if (funcion == "tan") { resultado = Math.tan(radianes); }
+            else { resultado = "Funcion no valida" + funcion + " no definida"; }
+            return resultado;
+        }
+        document.write("<p>El seno de 30 grados es: " + ej1Trigonometrica(30, "sen") + "</p>");
+
+        const trig = (angulo, funcion) => {
+            return eval("Math." +
+                funcion + "("
+                + eval((Math
+                    .PI * angulo) / 180) + ")");
+        }
+        document.getElementById("escribir").innerHTML = Ej1Trigonometica(100, "sen");
+        document.getElementById("escribir").innerHTML += "<br>" + trig(90, "sin") + "<br>";
+
+
+
+        //Crea una función Ej2JS que le pases una lista de valores y un id 
+        //y te cree una lista ordenada con ellos escrita en el id 
+        function ej2Lista(lista, id) {
+            //document.getElementById("escribir").innerHTML=lista+id; 
+
+            let arraylista = lista.split(",");
+            cadena = "<ol>";
+            var tamano = arraylista.length;
+            for (var i = 0; i < tamano; i++) {
+                cadena += "<li>" + arraylista[i] + "</li>";
+            }
+            cadena += "</ol>";
+
+            document.getElementById(id).innerHTML += cadena;
+        }
+
+        function ej2Listab(...Arg) {
+
+            cadena = "<ol>";
+            var tamano = Arg.length;
+            for (var i = 0; i < tamano - 1; i++) {
+                cadena += "<li>" + Arg[i] + "</li>";
+            }
+            cadena += "</ol>";
+            let id = Arg[tamano - 1];
+            document.getElementById(id).innerHTML += cadena;
+        }
+
+
+        const ej2Listac = (...Arg) => {
+
+            cadena = "<ol>";
+            var tamano = Arg.length;
+            for (var i = 0; i < tamano - 1; i++) {
+                cadena += "<li>" + Arg[i] + "</li>";
+            }
+            cadena += "</ol>";
+            let id = Arg[tamano - 1];
+            document.getElementById(id).innerHTML += cadena;
+        }
+
+
+        ej2Lista("Torremolinos,Real Madrid,Malaga", "escribir");
+        ej2Listab("Torremolinos", "Real Madrid", "Malaga", "MalagaB", "MalagaC", "Bin salam Malaga", "escribir");
+        ej2Listac("Torremolinos", "Real Madrid", "Malaga", "MalagaB", "MalagaC", "Bin salam Malaga", "escribir");
+
+
+
+        //Crea una función anónima que calcule el triple de un numero y asigna lo a una variable 
+        //y ejecutalo.
+        document.write("<h1>Ejercicio 3</h1>");
+
+        function triple1(numero) { return numero * 3; }
+        const triple2 = function (numero) { return numero * 3; }
+        const triple3 = (numero) => { return numero * 3; }
+        // const triple4 = (numero) =>  return numero*3; 
+
+
+        document.getElementById("escribir").innerHTML += "<br>triple1: " + triple1(10);
+        document.getElementById("escribir").innerHTML += "<br>triple2: " + triple2(10);
+        document.getElementById("escribir").innerHTML += "<br>triple3: " + triple3(10);
+        //document.getElementById("escribir").innerHTML+=triple4(10);
+
+        function cuadrado1(numero) { return numero * numero; }
+        const cuadrado2 = function (numero) { return numero * numero; }
+        const cuadrado3 = (numero) => { return numero * numero; }
+        const cuadrado4 = cuadrado3;
+
+        document.getElementById("escribir2").innerHTML += "<br>cuadrado1: " + cuadrado1(10);
+        document.getElementById("escribir2").innerHTML += "<br>cuadrado2: " + cuadrado2(10);
+        document.getElementById("escribir2").innerHTML += "<br>cuadrado3: " + cuadrado3(10);
+        document.getElementById("escribir2").innerHTML += "<br>cuadrado4: " + cuadrado4(10);
+
+        document.getElementById("escribir3").innerHTML += "Hola Mundo1" + "esto deberia ir lo ultimo";
+
+        (function (nombre) { document.getElementById("escribir3").innerHTML += "Hola Mundo1" + nombre; })("Alfonso");
+    </script>
+    <script>
+        ((nombre) => { document.getElementById("escribir3").innerHTML += "Hola Mundo1" + nombre; })("Pedro") 
+    </script>
+    <script>
+        //Crea una función anónima con flechas que calcule el cuadrado de un numero y 
+        //asigna lo a una variable y ejecutalo.
+        document.write("<h1>Ejercicio 4</h1>");
+        let cuadrado = (numero) => {
+            return numero * numero;
+        }
+        document.write(cuadrado(3));
+
+
+
+        //Crea una función anónima con flechas que escriba hola mundo y que se ejecute 
+        //automáticamente.
+        document.write("<h1>Ejercicio 5</h1>");
+        (() => { document.write("Hola Mundo"); })();
+    </script>
+    //Crea una función anónima con flechas que ponga en negrita el parámetro
+    //añadiéndole <strong> </strong> y usala con la función map
+    <script>
+        document.write("<h1>Ejercicio 6</h1>");
+        let negrita = (texto) => {
+            return "<strong>" + texto + "</strong>";
+        }
+        let lista = ["uno", "dos", "tres", "cuatro", "cinco"];
+        document.write(lista.map(negrita));
+    </script>
+    //Escribe una función que genere al azar 20 números enteros comprendidos
+    entre 0 y 9.
+    document.write("<h1>Ejercicio 7</h1>");
+    <script>
+        function aleatorio() {
+            return Math.floor(Math.random() * 10);
+        }
+    </script>
+    //Crea un función que te dibuje el cuadrado mágico 3x3 en una tabla con
+    el valor de entrada i
+    document.write("<h1>Ejercicio 8</h1>");
+    <script>
+        function cuadradoMagico(i) {
+            let cadena = "<table border=1>";
+            for (let j = 0; j < i; j++) {
+                cadena += "<tr>";
+                for (let k = 0; k < i; k++) {
+                    cadena += "<td>" + aleatorio() + "</td>";
+                }
+                cadena += "</tr>";
+            }
+            cadena += "</table>";
+            document.write(cadena);
+        }
+
+    </script>
+    <!-- Ejercicio 9.	Haz una función que se le pase un id y un color y cambie su color de texto. Debes usar el siguiente código 
+let obj = document.getElementById(Parametro); 
+obj.style.color = nombreColor; 
+Debes asociarlo a un combotext y un button para poder ver varios ejemplos.  -->
+    document.write("<h1>Ejercicio 9</h1>");
+    <script>
+
+        function cambiarColor(id, color) {
+            let obj = document.getElementById(id);
+            obj.style.color = color;
+        }
+
+    </script>
+    //Ejercicio 10. Observa esta función recursiva
+    <script>
+        function factorial(valor) {
+            if (valor == 1) return 1;
+            else return valor + factorial(valor - 1);
+        }
+    </script>
+    //Haz un ejercicio que calcule el factorial de un numero de manera
+    recursiva.
+    document.write("<h1>Ejercicio 11</h1>");
+    <script>
+
+        function factorial(numero) {
+            if (numero == 0) {
+                return 1;
+            } else {
+                return numero * factorial(numero - 1);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Ejercicio 1</h1>
+    <script>
+        let array = [];
+        suma = 0;
+        for (i = 0; i < 50; i++) {
+            valor = Math.random();
+            suma += valor;
+            array.push(valor);
+        }
+        document.write("El pequeño es: " + Math.min(...array) + "<br>");
+        document.write("El grande es: " + Math.max(...array) + "<br>");
+        document.write("La media es: " + suma / 50 + "<br>");
+    </script>
+
+
+    <h1>Ejercicio 2</h1>
+    <script>
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        function compareNumbers(a, b) {
+            return a - b;
+        }
+
+        let array2 = [];
+        for (i = 0; i < 50; i++) {
+            valor = getRandomIntInclusive(1, 10);
+            array2.push(valor);
+        }
+        array2.sort(compareNumbers).reverse();
+        document.write("El array es: " + array2 + "<br>");
+        document.write("La mediana es: " + array2[24] + "<br>");
+        let counterB = 1;
+        let counter = 0;
+        let item;
+        for (let i = 0; i < array2.length; i++) {
+            for (let j = i; j < array2.length; j++) {
+                if (array2[i] == array2[j]) {
+                    counter++;
+                }
+                if (counterB < counter) {
+                    counterB = counter;
+                    item = array2[i];
+                }
+            }
+            counter = 0;
+        }
+        document.write("El valor mas repetido es: " + item + "<br>");
+    </script>
+
+
+
+
+    <h1>Ejercicio 3</h1>
+    <p> Array X <input type="text" size="60" name="caja1" value="X1,X2,X3,X4,X5"> </p>
+    <p> <input type="button" name="button" value="Add Array" onclick="addArrays();"> </p>
+    <hr>
+    <p id="explica"></p>
+    <h2 id="tamano"></h2>
+    <br>
+    <script language="JavaScript">
+        var arrayX = new Array();
+        var arraymix = new Array();
+        function addArrays() {
+            arrayXstr = document.getElementsByName("caja1")[0].value;
+            arrayX = arrayXstr.split(',');
+            lX = arrayX.length;
+            for (var i = 0; i < lX; i++) { arraymix.push(arrayX[i]); }
+            contenidostr = "El contenido del array es " + arraymix.join('-');
+            tamanostr = "El tamano del array es " + arraymix.length;
+            document.getElementById("explica").innerHTML = contenidostr;
+            document.getElementById("tamano").innerHTML = tamanostr;
+        }       
+    </script>
+
+
+
+
+    <h1>Ejercicio 4</h1>
+    <p> Array X <input type="text" size="60" name="caja2" value="X1,X2,X3,X4,X5"> </p>
+    <p> <input type="button" name="button" value="Añadir al array" onclick="addArrays2();"> </p>
+    <hr>
+    <p id="explica2"></p>
+    <br>
+    <script>
+        var arrayX2 = new Array();
+        var arraymix2 = new Array();
+        function addArrays2() {
+            arrayXstr = document.getElementsByName("caja2")[0].value;
+            arrayX2 = arrayXstr.split(',');
+            lX = arrayX2.length;
+            for (var i = 0; i < lX; i++) {
+                arraymix2.push(arrayX2[i])
+            }
+            contenidostr = "El contenido del array es " + arraymix2.join('-');
+            document.getElementById("explica2").innerHTML = contenidostr;
+        } 
+    </script>
+
+
+
+    <h1>Ejercicio 5</h1>
+    <p> Array X <input type="text" size="60" name="caja3" value="X1,X2,X3,X4,X5"> </p>
+    <p> <input type="button" name="button" value="Añadir al array" onclick="addArrays3();"> </p>
+    <hr>
+    <p id="explica3"></p>
+    <br>
+    <script>
+        var arrayX3 = new Array();
+        var arraymix3 = new Array();
+        function addArrays3() {
+            arrayXstr = document.getElementsByName("caja3")[0].value;
+            arrayX3 = arrayXstr.split(',');
+            lX = arrayX3.length;
+            for (var i = 0; i < lX; i++) {
+                arraymix3.push(arrayX3[i])
+            }
+            arraymix3.sort();
+            contenidostr = "El contenido del array es " + arraymix3.join('-');
+            document.getElementById("explica3").innerHTML = contenidostr;
+        } 
+    </script>
+
+
+
+
+    <h1>Ejercicio 6</h1>
+    <p> Vector enteros <input type="text" size="60" name="vector" value="1,2,3,4,5"> </p>
+    <p> <input type="button" name="button" value="Calcular" onclick="vectores();"> </p>
+    <hr>
+    <p id="resultadoVe"></p>
+    <br>
+    <script>
+        function vectores() {
+            vector = document.getElementsByName("vector")[0].value;
+            vector = vector.split(",");
+            suma = 0;
+            media = 0;
+            maximo = 0;
+            minimo = 0;
+            for (i = 0; i < vector.length; i++) {
+                suma += parseInt(vector[i]);
+                if (i == 0) {
+                    maximo = vector[i];
+                    minimo = vector[i];
+                }
+                else {
+                    if (maximo < vector[i]) {
+                        maximo = vector[i];
+                    }
+                    if (minimo > vector[i]) {
+                        minimo = vector[i];
+                    }
+                }
+            }
+            media = suma / vector.length;
+            document.getElementById("resultadoVe").innerHTML = "La suma es: " + suma + "<br>La media es: " + media + "<br>El maximo es: " + maximo + "<br>El minimo es: " + minimo;
+        }
+    </script>
+
+
+
+    <h1>Ejercicio 7</h1>
+    <p> Vector 1 <input type="text" size="60" name="ar1" value="1,2,3,4,5"> </p>
+    <p> Vector 2 <input type="text" size="60" name="ar2" value="6,7,8,9,10"> </p>
+    <p> <input type="button" name="button" value="Calcular" onclick="concat();"> </p>
+    <hr>
+    <p id="resultConcat"></p>
+    <br>
+    <script>
+        function concat() {
+            ar1 = document.getElementsByName("ar1")[0].value.split(",");
+            ar2 = document.getElementsByName("ar2")[0].value.split(",");
+            ar1 = ar1.concat(ar2);
+            document.getElementById("resultConcat").innerHTML = "El vector concatenado es: " + ar1;
+        }
+    </script>
+
+
+
+
+
+    <h1>Ejercicio 8</h1>
+    <p> Vector 1 <input type="text" size="60" name="ar11" value="1,2,3,4,5"> </p>
+    <p> Vector 2 <input type="text" size="60" name="ar22" value="6,7,8,9,10"> </p>
+    <p> Vector 3 <input type="text" size="60" name="ar33" value="11,12,13,14,15"> </p>
+    <p> <input type="button" name="button" value="Calcular" onclick="concat3();"> </p>
+    <hr>
+    <p id="resultConcat3"></p>
+    <br>
+    <script>
+        //Modifica el anterior para Concatenar tres arrays, pero salteando los valores.
+        function concat3() {
+            ar1 = document.getElementsByName("ar11")[0].value.split(",");
+            ar2 = document.getElementsByName("ar22")[0].value.split(",");
+            ar3 = document.getElementsByName("ar33")[0].value.split(",");
+            resultado = [];
+            max = 0;
+            if (ar1.length > max)
+                max = ar1.length;
+            if (ar2.length > max)
+                max = ar2.length;
+            if (ar3.length > max)
+                max = ar3.length;
+            for (i = 0; i < max; i++) {
+                if (ar1[i] != undefined)
+                    resultado.push(ar1[i]);
+                if (ar2[i] != undefined)
+                    resultado.push(ar2[i]);
+                if (ar3[i] != undefined)
+                    resultado.push(ar3[i]);
+            }
+            document.getElementById("resultConcat3").innerHTML = "El vector concatenado es: " + resultado;
+        }
+    </script>
+
+
+
+
+    <h1>Ejercicio 9</h1>
+    <p> ID <input type="text" size="60" name="id"> </p>
+    <p> Nombre <input type="text" size="60" name="nombre"> </p>
+    <p> Apellidos <input type="text" size="60" name="apellidos"> </p>
+    <p> Fecha <input type="text" size="60" name="fecha"> </p>
+    <p> Puesto <input type="text" size="60" name="puesto"> </p>
+    <p> <input type="button" name="button" value="Ingresar" onclick="ingresarUser();"> </p>
+    <p id="result"></p>
+    <hr>
+    <h2>Mostrar usuario</h2>
+    <p> ID <input type="text" size="60" name="id2"> </p>
+    <p> <input type="button" name="button" value="Mostrar" onclick="mostrarUser();"> </p>
+    <p id="mostrarUser"></p>
+    <hr>
+    <h2>Mostrar todos</h2>
+    <p> <input type="button" name="button" value="Mostrar" onclick="mostrarTodos();"> </p>
+    <p id="mostrartodos"></p>
+    <hr>
+    <h2>Años hasta jubilacion</h2>
+    <p> <input type="button" name="button" value="Mostrar" onclick="mostrarJubilacion();"> </p>
+    <p id="jubilacion"></p>
+    <hr>
+    <br>
+    <script>
+        listaUser = [];
+        function comprobarSiExisteID(id) {
+            for (i = 0; i < listaUser.length; i += 5) {
+                if (listaUser[i] == id)
+                    return true;
+            }
+            return false;
+        }
+
+        function ingresarUser() {
+            if (comprobarSiExisteID(document.getElementsByName("id")[0].value)) {
+                document.getElementById("result").innerHTML = "El ID ya existe";
+            }
+            else {
+                listaUser.push(document.getElementsByName("id")[0].value);
+                listaUser.push(document.getElementsByName("nombre")[0].value);
+                listaUser.push(document.getElementsByName("apellidos")[0].value);
+                listaUser.push(document.getElementsByName("fecha")[0].value);
+                listaUser.push(document.getElementsByName("puesto")[0].value);
+                document.getElementById("result").innerHTML = "Usuario ingresado";
+            }
+        }
+
+        function mostrarUser() {
+            id = document.getElementsByName("id2")[0].value;
+            if (comprobarSiExisteID(id)) {
+                for (i = 0; i < listaUser.length; i += 5) {
+                    if (listaUser[i] == id) {
+                        document.getElementById("mostrarUser").innerHTML = "ID: " + listaUser[i] + "<br>Nombre: " + listaUser[i + 1] + "<br>Apellidos: " + listaUser[i + 2] + "<br>Fecha: " + listaUser[i + 3] + "<br>Puesto: " + listaUser[i + 4];
+                        break;
+                    }
+                }
+            }
+            else {
+                document.getElementById("mostrarUser").innerHTML = "El ID no existe";
+            }
+        }
+
+        function mostrarTodos() {
+            document.getElementById("mostrartodos").innerHTML = "";
+            for (i = 0; i < listaUser.length; i += 5) {
+                document.getElementById("mostrartodos").innerHTML += "ID: " + listaUser[i] + "<br>Nombre: " + listaUser[i + 1] + "<br>Apellidos: " + listaUser[i + 2] + "<br>Fecha: " + listaUser[i + 3] + "<br>Puesto: " + listaUser[i + 4] + "<br><br>";
+            }
+        }
+
+        function mostrarJubilacion() {
+            document.getElementById("jubilacion").innerHTML = "";
+            for (i = 0; i < listaUser.length; i += 5) {
+                document.getElementById("mostrartodos").innerHTML += "ID: " + listaUser[i] + "<br>Nombre: " + listaUser[i + 1] + "<br>Apellidos: " + listaUser[i + 2] + "<br>Años hasta jubilación: " + (67 - (2022 - parseInt(listaUser[i + 3]))) + "<br><br>";
+            }
+        }
+    </script>
+</body>
+
+</html>

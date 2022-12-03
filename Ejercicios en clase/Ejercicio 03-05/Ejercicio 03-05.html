@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 1/////////////
+    //////////////////////////////// -->
+
+    <body>
+        <div id="elementoaCambiar"></div>
+        <script>
+            document.getElementById("elementoaCambiar").innerHTML = "texto nuevo";
+            //EL div con id "elementoaCambiar" que se encuentra vacio, es llenado con el valor introducido en el document.getElementById, por eso la propiedad del div es ID
+            // para poder identificar cual div es
+        </script>
+
+    </body>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 2/////////////
+    //////////////////////////////// -->
+
+    <body>
+        <h1>Ejercicio 2</h1>
+        <div id="ej2"></div>
+        <script>
+            var origin = window.location.hash;
+            var origin2 = window.location.host;
+            var origin3 = window.location.hostname;
+            var origin4 = window.location.href;
+            var origin5 = window.location.pathname;
+            var origin6 = window.location.port;
+            var origin7 = window.location.search;
+            document.getElementById("ej2").innerHTML += origin + "<br>";
+            document.getElementById("ej2").innerHTML += origin2 + "<br>";
+            document.getElementById("ej2").innerHTML += origin3 + "<br>";
+            document.getElementById("ej2").innerHTML += origin4 + "<br>";
+            document.getElementById("ej2").innerHTML += origin5 + "<br>";
+            document.getElementById("ej2").innerHTML += origin6 + "<br>";
+            document.getElementById("ej2").innerHTML += origin7;
+        </script>
+
+    </body>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 3/////////////
+    //////////////////////////////// -->
+
+    <body>
+        <h2>The assign Property of Location Object</h2>
+        <button onclick="myFunction()">Load new document</button>
+        <script>
+            function myFunction() {
+                location.assign("https://www.iesplayamar.es");
+            }
+        </script>
+        <!-- //La propiedad assign() de Location Object carga un nuevo documento. En este caso es una direccion de una web -->
+    </body>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 4/////////////
+    //////////////////////////////// -->
+
+    <body>
+        <h2>The assign Property of Location Object</h2>
+        <button onclick="myFunction()">Load new document</button>
+        <script>
+            function myFunction() {
+                var x = prompt("Introduce la direccion de una web");
+                if (x.includes("https://")) {
+                    location.assign(x);
+
+                } else {
+                    location.assign("https://" + x);
+                }
+
+            }
+        </script>
+    </body>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 5/////////////
+    //////////////////////////////// -->
+
+    <body>
+        <h2>The assign Property of Location Object</h2>
+        <button onclick="myFunction()">Load new document</button>
+        <button onclick="myFunction2()">Reload</button>
+        <script>
+            function myFunction() {
+                var x = prompt("Introduce la direccion de una web");
+                if (x.includes("https://")) {
+                    location.assign(x);
+                } else {
+                    location.assign("https://" + x);
+                }
+            }
+
+            function myFunction2() {
+                window.reload();
+            }
+        </script>
+    </body>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 6/////////////
+    //////////////////////////////// -->
+
+    <body>
+        <h2>The assign Property of Location Object</h2>
+        <button onclick="myFunction()">Load new document</button>
+        <button onclick="myFunction2()">Reload</button>
+        <button onclick="myFunction3()">Replace</button>
+        <script>
+            function myFunction() {
+                var x = prompt("Introduce la direccion de una web");
+                if (x.includes("https://")) {
+                    window.location.assign(x);
+                } else {
+                    window.location.assign("https://" + x);
+                }
+            }
+
+            function myFunction2() {
+                window.location.reload();
+            }
+
+            function myFunction3() {
+                var url = "https://www.google.es";
+                window.location.replace(url);
+            }
+        </script>
+    </body>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 7/////////////
+    //////////////////////////////// -->
+
+    <body>
+        <p>El replace()método de la Location interfaz reemplaza el recurso actual
+            con el de la URL proporcionada. La diferencia con el assign()método es
+            que después de usar replace()la página actual no se guardará en la sesión
+            History, lo que significa que el usuario no podrá usar el botón Atrás para navegar hasta ella.
+        </p>
+    </body>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 8/////////////
+    //////////////////////////////// -->
+
+    <body>
+        <div id="navigator"></div>
+        <script>
+            var url = window.navigator.appCodeName;
+            var url2 = window.navigator.appName;
+            var url3 = window.navigator.appVersion;
+            var url4 = window.navigator.cookieEnabled;
+            var url5 = window.navigator.platform;
+            var url6 = window.navigator.userAgent;
+
+            document.getElementById("navigator").innerHTML = "appCodeName: " + url + "<br>" + "appName: " + url2 + "<br>" + "appVersion: " + url3 + "<br>" + "cookieEnabled: " + url4 + "<br>" + "platform: " + url5 + "<br>" + "userAgent: " + url6;
+        </script>
+
+    </body>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 9/////////////
+    //////////////////////////////// -->
+
+    <body>
+        <h1>The Window Navigator Object</h1>
+        <h2>The The geolocation Property</h2>
+        <p id="demo"></p>
+        <script>
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                document.getElementById("demo").innerHTML =
+                    "Geolocation is not supported by this browser.";
+            }
+            function showPosition(position) {
+                document.getElementById("demo").innerHTML =
+                    "Latitude: " + position.coords.latitude + "<br>" +
+                    "Longitude: " + position.coords.longitude;
+            }
+        </script>
+
+    </body>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 10/////////////
+    //////////////////////////////// -->
+
+    <body>
+        <h1>The Window Navigator Object</h1>
+        <h2>The The geolocation Property</h2>
+        <p id="demo"></p>
+        <button onclick="myPosition()">Mi posicion</button>
+        <script>
+            function myPosition() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    document.getElementById("demo").innerHTML =
+                        "Geolocation is not supported by this browser.";
+                }
+            }
+
+            function showPosition(position) {
+                window.location.assign("http://www.google.es/maps/@" + position.coords.latitude + "," + position.coords.longitude);
+            }
+        </script>
+
+    </body>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 11/////////////
+    //////////////////////////////// -->
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 12/////////////
+    //////////////////////////////// -->
+</body>
+
+</html>

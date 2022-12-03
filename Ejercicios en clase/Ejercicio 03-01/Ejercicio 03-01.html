@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 1/////////////
+    //////////////////////////////// -->
+    <script>
+        var nombre = window.prompt("Dime una palabra");
+        document.write("La palabra mide: " + nombre.length + " espacios");
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 2/////////////
+    //////////////////////////////// -->
+    <script>
+        var palabra = window.prompt("Dime una palabra");
+        var mitad = (palabra.length / 2);
+
+        document.write("La letra que se encuentra en la mitad es: " + palabra.charAt(mitad));
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 3/////////////
+    //////////////////////////////// -->
+    <script>
+        var palabra = window.prompt("Dime una palabra");
+        var mitad = (palabra.length / 2);
+
+        document.write("La letra que se encuentra en la mitad es: " + palabra.charAt(mitad) + "<br>El codigo unicode seria: " + palabra.charCodeAt(mitad));
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 4/////////////
+    //////////////////////////////// -->
+    <script>
+        var palabra = window.prompt("Dime una palabra");
+        var mitad = (palabra.length / 2);
+        document.write("La palabra mide: " + palabra.length + " espacios <br>El codigo unicode seria: " + palabra.charCodeAt(mitad));
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 5/////////////
+    //////////////////////////////// -->
+    <script>
+
+        var palabra1 = window.prompt("Dime una palabra");
+        var palabra2 = window.prompt("Dime otra palabra");
+        var resultado = palabra1.concat(palabra2);
+        document.write(resultado);
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 6/////////////
+    //////////////////////////////// -->
+    <script>
+
+        var numero = window.prompt("Escribe un numero");
+
+        document.write("El caracter es: " + String.fromCharCode(numero));
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 7/////////////
+    //////////////////////////////// -->
+    <script>
+        var palabra1 = window.prompt("Dime una palabra");
+        var palabra2 = window.prompt("Dime otra palabra");
+        var resultado = palabra2.indexOf(palabra1);
+        if (resultado == -1) {
+            document.write("<b style='color: red'>No se encuentra la palabra</b>");
+        } else {
+            document.write("La palabra " + palabra1 + " se encuentra en la posicion " + resultado + " de la palabra " + palabra2);
+        }
+
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 8/////////////
+    //////////////////////////////// -->
+    <script>
+
+        var palabra1 = window.prompt("Dime una palabra");
+        var palabra2 = window.prompt("Dime otra palabra");
+        var resultado = palabra2.indexOf(palabra1);
+        if (resultado == -1) {
+            document.write("<b style='color: red'>No se encuentra la palabra</b>");
+        } else {
+            document.write("La palabra " + palabra1 + " se encuentra en la posicion " + resultado + " de la palabra " + palabra2);
+        }
+
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 9/////////////
+    //////////////////////////////// -->
+    <script>
+
+        var palabra1 = window.prompt("Dime una palabra");
+        var palabra2 = window.prompt("Dime otra palabra");
+        var resultado = palabra2.lastIndexOf(palabra1);
+        if (resultado == -1) {
+            document.write("<b style='color: red'>No se encuentra la palabra</b>");
+        } else {
+            document.write("La palabra " + palabra1 + " se encuentra en la posicion " + resultado + " de la palabra " + palabra2);
+        }
+
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 10/////////////
+    //////////////////////////////// -->
+    <script>
+        cadena = "<br>Los temas son tema 1, tema 3, tema 5 y tema 6";
+        expresion = /(tema \d+)/i;
+        hallado = cadena.match(expresion);
+        document.write(cadena + "<br> expresion en " + hallado[1]);
+
+        //Expresion es una expresion regular que sirve para que el valor de expresion sea "tema 1". En hallado, se usa un match para buscar la palabra tema 1 en la cadena.
+
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 11/////////////
+    //////////////////////////////// -->
+    <script>
+        var palabra1 = window.prompt("Dime una palabra");
+        var palabra2 = window.prompt("Dime otra palabra");
+
+        palabra2 = palabra1.replace(palabra2);
+
+        document.write(palabra2);
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 12/////////////
+    //////////////////////////////// -->
+    <script>
+
+        var cadena1 = window.prompt("Dime una palabra");
+        var cadena2 = window.prompt("Dime otra palabra");
+        var resultado = cadena1.search(cadena2);
+
+        if (resultado == -1) {
+            document.write("<b style='color: red'>No se encuentra la palabra</b>");
+        } else {
+            document.write("La cadena " + cadena2 + " se encuentra en la posicion " + resultado + " de la cadena " + cadena1);
+        }
+
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 13/////////////
+    //////////////////////////////// -->
+    <script>
+        var palabra = window.prompt("Dime una palabra");
+        var resultado = palabra.slice(palabra.length / 2);
+        document.write(resultado);
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 14/////////////
+    //////////////////////////////// -->
+    <script>
+        // Toma una entrada con window.prompt() Divide una cadena en un array de subcadenas separados por palabras. split()
+        var cadena = window.prompt("Dime una cadena de palabras");
+        var resultado = cadena.split(" ");
+        document.write(resultado);
+
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 15/////////////
+    //////////////////////////////// -->
+    <script>
+        var palabra = window.prompt("Dime una palabra");
+        var resultado = palabra.substr(0, palabra.length / 2);
+        document.write(resultado);
+
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 16/////////////
+    //////////////////////////////// -->
+    <script>
+
+        var palabra = window.prompt("Dime una palabra");
+        var resultado = palabra.substring(0, palabra.length / 2);
+        document.write(resultado);
+
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 17/////////////
+    //////////////////////////////// -->
+    <script>
+
+        var palabra = window.prompt("Dime una palabra");
+        var resultado = palabra.toLowerCase();
+        var resultado2 = palabra.toUpperCase();
+        document.write(resultado + " " + resultado2);
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 18/////////////
+    //////////////////////////////// -->
+    <script>
+
+        var palabra = window.prompt("Dime una palabra");
+        var letra = window.prompt("Dime una letra");
+        var resultado = palabra.split(letra);
+        document.write(resultado.join("-" + "<b>" + letra + "</b>" + "-"));
+
+    </script>
+</body>
+
+</html>

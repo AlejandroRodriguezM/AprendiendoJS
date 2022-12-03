@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 1/////////////
+    //////////////////////////////// -->
+    <script>
+        var altura = parseInt(window.prompt("Dime la altura"));
+        var anchura = parseInt(window.prompt("Dime la anchura"));
+        var subVentana = window.open("nueva.html", "nueva", "height=" + altura + ",width=" + anchura);
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 2/////////////
+    //////////////////////////////// -->
+    <script>
+        var altura = parseInt(window.prompt("Dime la altura"));
+        var anchura = parseInt(window.prompt("Dime la anchura"));
+        var subVentana = window.open("nueva.html", "nueva", "height=" + altura + ",width=" + anchura);
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 3/////////////
+    //////////////////////////////// -->
+    <script>
+        var altura = parseInt(window.prompt("Dime la altura"));
+        var anchura = parseInt(window.prompt("Dime la anchura"));
+        var subVentana = window.open("nueva.html", "nueva", "height=" + altura + ",width=" + anchura);
+
+        if (subVentana.closed) {
+            document.write("La ventana se ha cerrado");
+        }
+        else {
+            document.write("La ventana se ha abierto");
+        }
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 4/////////////
+    //////////////////////////////// -->
+    <script>
+        var url = window.prompt("Dime la url");
+        var subVentana = window.open(url, "nueva", "height=300,width=300");
+        document.write("defaultStatus: " + subVentana.defaultStatus + "<br>");
+        document.write("length: " + subVentana.length + "<br>");
+        document.write("location: " + subVentana.location + "<br>");
+        document.write("name: " + subVentana.name + "<br>");
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 5/////////////
+    //////////////////////////////// -->
+    <script>
+        var mensaje = window.alert("ALERTA Te estan Robando el banco");
+        var mensaje2 = window.prompt("Estas de acuerdo?");
+        if (mensaje2 == "si") {
+            document.write("De acuerdo, te han robado, felicidades");
+        } else {
+            document.write("Pues claro que no. Llama a tu banco");
+        }
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 6/////////////
+    //////////////////////////////// -->
+    <script>
+        var contador = 0;
+        var intervalo = setInterval(contar, 1000);
+
+        function contar() {
+            contador++;
+            document.write("Hello" + "<br>");
+            if (contador == 10) {
+                clearInterval(intervalo);
+            }
+        }
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 7/////////////
+    //////////////////////////////// -->
+    <script>
+        var contador = 0;
+        const date = new Date();
+
+        var intervalo = setInterval(contar, 1000);
+
+        function contar() {
+            contador++;
+            document.write("<br>Hello: " + date.toLocaleTimeString());
+            if (contador == 10) {
+                clearInterval(intervalo);
+            }
+        }
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 8/////////////
+    //////////////////////////////// -->
+
+    <body>
+        <h1>The Window Object</h1>
+        <h2>The setInterval() and clearInterval() Methods</h2>
+        <button onclick="stopColor()">Stop </button>
+        <button onclick=" iniciarIntervalo()">Start </button>
+        <script>
+            function iniciarIntervalo() {
+                myInterval = setInterval(setColor, 500);
+            }
+            iniciarIntervalo();
+            function setColor() {
+                let x = document.body;
+                x.style.backgroundColor = x.style.backgroundColor == "yellow" ? "pink" : "yellow";
+            }
+            function stopColor() { clearInterval(myInterval); }
+        </script>
+    </body>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 9/////////////
+    //////////////////////////////// -->
+
+    <body>
+        <h1>The Window Object</h1>
+        <h2>The setInterval() and clearInterval() Methods</h2>
+        <button onclick="stopColor()">Stop </button>
+        <button onclick=" iniciarIntervalo()">Start </button>
+        <script>
+            var intervalo = parseInt(window.prompt("Escribe un intervalo de tiempo"));
+
+            function iniciarIntervalo() {
+                myInterval = setInterval(setColor, intervalo);
+            }
+
+            function setColor() {
+                let x = document.body;
+                x.style.backgroundColor = x.style.backgroundColor == "yellow" ? "pink" : "yellow";
+            }
+
+            function stopColor() {
+                clearInterval(myInterval);
+            }
+        </script>
+    </body>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 10/////////////
+    //////////////////////////////// -->
+
+    <body>
+        <h1>The Window Object</h1>
+        <h2>The setInterval() and clearInterval() Methods</h2>
+        <button onclick="stopColor()">Stop </button>
+        <button onclick=" iniciarIntervalo()">Start </button>
+        <script>
+            var intervalo = parseInt(window.prompt("Escribe un intervalo de tiempo"))
+            var color1 = window.prompt("Escribe un color")
+            var color2 = window.prompt("Escribe otro color")
+
+            function iniciarIntervalo() {
+                myInterval = setInterval(setColor, intervalo);
+            }
+
+            function setColor() {
+                let x = document.body;
+                x.style.backgroundColor = x.style.backgroundColor == color1 ? color2 : color1;
+            }
+
+            function stopColor() {
+                clearInterval(myInterval);
+            }
+        </script>
+    </body>
+</body>
+
+</html>

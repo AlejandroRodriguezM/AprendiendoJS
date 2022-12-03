@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 1/////////////
+    //////////////////////////////// -->
+    <script>
+        var dia = window.prompt("Que dia es hoy?");
+        var mes = window.prompt("Que mes es hoy?");
+        var anio = window.prompt("Que año es hoy?");
+
+        var fecha = new Date(anio, mes, dia);
+
+        document.write("Fecha: " + fecha + "<br>");
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 2/////////////
+    //////////////////////////////// -->
+    <script>
+        const tiempoTranscurrido = Date.now();
+        const hoy = new Date(tiempoTranscurrido);
+        
+        document.write("Fecha: " + hoy + "<br>");
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 3/////////////
+    //////////////////////////////// -->
+    <script>
+
+        var dia = window.prompt("¿Que dia fue tu cumpleaños?");
+        var mes = window.prompt("¿Que mes fue tu cumpleaños?");
+        var anio = window.prompt("¿Que año fue tu cumpleaños?");
+        var fecha = new Date(anio, (mes-1), dia);
+        var tiempoTranscurrido1 = Date.now();
+        var hoy1 = new Date(tiempoTranscurrido1);
+        var diferencia = hoy1 - fecha;
+        var dias = diferencia / (1000*60*60*24);
+
+        document.write("Dias vividos: " + dias + "<br>");
+
+    </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 4/////////////
+    //////////////////////////////// -->
+    <script>
+        var anioNacimiento = window.prompt("¿Que año naciste?");
+        var pais = window.prompt("¿De que pais eres?");
+        var sexo = window.prompt("¿Que sexo eres?");
+        var edadMedia = 0;
+        var edad = 0;
+        var tiempoTranscurrido2 = Date.now();
+        var hoy2 = new Date(tiempoTranscurrido2);
+        var anioActual = hoy2.getFullYear();
+        var diferencia = anioActual - anioNacimiento;
+        var edad = diferencia;
+        var edadMedia = 0;
+        var edadFaltante = 0;
+
+        if (pais == "Japon") {
+            if (sexo == "Mujer") {
+                edadMedia = 84.3;
+            } else {
+                edadMedia = 81.5;
+            }
+        } else if (pais == "Suiza") {
+            if (sexo == "Mujer") {
+                edadMedia = 83.4;
+            } else {
+                edadMedia = 81.8;
+            }
+        } else if (pais == "España") {
+            if (sexo == "Mujer") {
+                edadMedia = 83.2;
+            } else {
+                edadMedia = 80.7;
+            }
+        } else if (pais == "Italia") {
+            if (sexo == "Mujer") {
+                edadMedia = 83.0;
+            } else {
+                edadMedia = 80.9;
+            }
+        } else if (pais == "Irak") {
+            if (sexo == "Mujer") {
+                edadMedia = 72.4;
+            } else {
+                edadMedia = 69.9;
+            }
+        } else if (pais == "Guinea Ecuatorial") {
+            if (sexo == "Mujer") {
+                edadMedia = 62.2;
+            } else {
+                edadMedia = 60.9;
+            }
+        } else if (pais == "Somalia") {
+            if (sexo == "Mujer") {
+                edadMedia = 56.5;
+            } else {
+                edadMedia = 54.0;
+            }
+        } else {
+            document.write("No se encuentra el pais");
+        }
+
+        edadFaltante = edadMedia - edad;
+
+        document.write("Edad: " + edad + "<br>");
+    </script>
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 5/////////////
+    //////////////////////////////// -->
+    <script>
+        var n = 6; 
+        var time = {hour:18, minute:15}; Date.today().at(time);
+        var birthDayParty = {month: 1, day: 20, hour: 20, minute: 30};
+        document.write(Date.today() + "<br>"); // Returns today's date, with time set to 00:00 (start of day).
+        document.write(Date.today().next().friday() + "<br>"); // Returns the date of the next Friday.
+        document.write(Date.today().last().monday() + "<br>"); // Returns the date of the previous Monday.
+        document.write(new Date().next().march() + "<br>"); // Returns the date of the next March.
+        document.write(new Date().last().week() + "<br>"); // Returns the date one week ago.
+        document.write(Date.today().is().friday() + "<br>"); // Returns true|false if the day-of-week matches.
+        document.write(Date.today().is().fri() + "<br>"); // Abbreviated day names.
+        document.write(Date.today().is().november() + "<br>"); // Month names.
+        document.write(Date.today().is().nov() + "<br>"); // Abbreviated month names.
+        document.write(Date.today().is().weekday() + "<br>"); // Is today a weekday?
+        document.write(Date.today().addDays(1) + "<br>"); // Add one day (+1).
+        document.write(Date.today().addMonths(-3) + "<br>"); // Subtract three months (-3).
+        document.write(Date.today().add(1).day() + "<br>"); // Add one (+1) day. Supports all date parts
+        document.write(Date.today().add(-3).months() + "<br>"); // Subtract three (-3) months.
+        document.write((1).day().fromNow() + "<br>"); // One (1) day from now.
+        document.write((3).months().ago() + "<br>"); // Three (3) months ago.
+        document.write(n.months().fromNow() + "<br>"); // Six (6) months from now.
+        document.write(Date.monday() + "<br>"); // Returns Monday of the current week.
+        document.write(Date.mon() + "<br>"); // Abbreviated version of Date.monday()
+        document.write(Date.march() + "<br>"); // Returns March 1st of this year.
+        document.write(Date.mar() + "<br>"); // Abbreviated version of Date.march()
+        document.write(Date.today().first().thursday() + "<br>"); // Returns the first Thursday of the current month.
+        document.write(Date.today().second().thursday() + "<br>"); // Returns the second Thursday of the current month.
+        document.write(Date.march().third().thursday() + "<br>");  // Returns the third Thursday in March of the current year.
+        document.write(Date.october().fourth().sunday() + "<br>"); // Returns the fourth Sunday in October.
+        document.write(Date.today().fifth().sunday() + "<br>"); // Returns the fifth Sunday in the current month,
+        document.write(Date.october().final().sunday() + "<br>"); // Returns the final Sunday in October.
+        document.write(Date.january().first().monday() + "<br>"); // Returns the first Monday of the current year.
+        document.write(Date.december().final().friday() + "<br>"); // Returns the last Friday of the current year.
+        document.write(Date.today().at("6:15pm") + "<br>"); // Returns todays date at 6:15pm.
+        document.write(Date.today().at(time) + "<br>");  // Set time with a config object.
+        document.write(Date.today().set(birthDayParty) + "<br>"); // Set date and time with a config object.
+        Date.now();
+        </script>
+
+    <!-- 
+    /////////////////////////////////
+    ////////Ejercicio 6/////////////
+    //////////////////////////////// -->
+    <script>
+
+        var hoy3 = Date.today();
+        document.write(hoy3 + "<br>");
+
+        var proximoLunes = new Date();
+        proximoLunes.setDate(proximoLunes.getDate() + (1 + 7 - proximoLunes.getDay()) % 7 );
+        document.write(proximoLunes + "<br>");
+
+        var hoyNoche = new Date(2022 - 11 - 6, 23);
+        document.write(hoyNoche + "<br>");
+
+        var dentroDeUnAnio = new Date();
+        dentroDeUnAnio.setFullYear(dentroDeUnAnio.getFullYear() + 1);
+        document.write(dentroDeUnAnio + "<br>");
+
+        const cumple = new Date("2022-11-29");
+        var dia = cumple.getDay();
+        var mes = cumple.getMonth();
+        var anioCumple = cumple.getFullYear();
+        var cumpleHoy = new Date(anioCumple, mes, dia);
+        document.write(cumpleHoy + "<br>");
+
+        var primerLunesProximoMes = new Date();
+        primerLunesProximoMes.setMonth(primerLunesProximoMes.getMonth() + 1);
+        primerLunesProximoMes.setDate(primerLunesProximoMes.getDate() + (1 + 7 - primerLunesProximoMes.getDay()) % 7 );
+        document.write(primerLunesProximoMes + "<br>");
+
+        var queDia = window.prompt("¿Hoy es viernes?")
+        if(Date.today().is().friday()){
+            document.write("Hoy es viernes"+ "<br>");
+        }
+        else{
+            document.write("Hoy no es viernes"+ "<br>");
+        }
+
+        var queDia = window.prompt("¿El mes pasado fue septiembre?")
+        if(Date.today().add({months: -1}).is().september()){
+            document.write("Hace un mes fue septiembre"+ "<br>");
+        }
+        else{
+            document.write("Hace un mes no fue septiembre"+ "<br>");
+        }
+
+    </script>
+</body>
+
+</html>
