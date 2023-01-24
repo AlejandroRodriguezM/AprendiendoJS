@@ -1,12 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        function convertirMayusculas() {
+            document.getElementById("nombre").value = document.getElementById("nombre").value.toUpperCase();
+        }
+    </script>
+    <script src="funciones.js"></script>
     <title>Document</title>
 </head>
+
 <body>
+    <h1>Propiedad VALUE de un objeto INPUT de tipo TEXT </h1>
+    <!-- //make form dont refresh -->
+    <form id="formulario" action="">
+        <p> <label for="nombre">Nombre y Apellidos: </label>
+            <input type="text" id="nombre" name="nombre" value="" size="30" onblur="convertirMayusculas()">
+            Introduce tu Nombre y Apellidos y haz click fuera del campo.
+        </p>
+        <input type="checkbox" id="aprobar" name="aprobarn" value="Si" />¿Te gustaria Aprobar?
+        <br>
+        <button onclick="mostrarDatos(event)">ejercicio3</button>
+        <br>
+        <button onclick="nombreRandom(event)">ejercicio4</button>
+        <br>
+        <button onclick="checkBoxFunction(event)">ejercicio5</button>
+    </form>
+    <div id="ej3"> </div>
+    <div id="ej4"> </div>
     
 </body>
+
 </html>

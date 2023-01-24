@@ -1,12 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        function convertirMayusculas() {
+            document.getElementById("nombre").value = document.getElementById("nombre").value.toUpperCase();
+        }
+    </script>
     <title>Document</title>
+
 </head>
+
 <body>
-    
+    <h1>Propiedad VALUE de un objeto INPUT de tipo TEXT </h1>
+    <form id="formulario" action="pagina.php">
+        <p> <label for="nombre">Nombre y Apellidos: </label>
+            <input type="text" id="nombre" name="nombre" value="" size="30" onblur="convertirMayusculas()">
+            Introduce tu Nombre y Apellidos y haz click fuera del campo.
+        </p>
+        <input type="checkbox" id="aprobar" name="aprobarn" value="Si" />¿Te gustaria Aprobar?
+        <button onclick="ejercicio3()">ejercicio3</button>
+        <button onclick="ejercicio4()">ejercicio4</button>
+        <button onclick="ejercicio5()">ejercicio5</button>
+        <button onclick="ejercicio6()">ejercicio6</button>
+        <button onclick="ejercicio7()">ejercicio7</button>
+        <button onclick="ejercicio8()">ejercicio8</button>
+    </form>
+    <div id="ej3"> </div>
+    <div id="ej4"> </div>
+    <div id="ej5"> </div>
+    <div id="ej6"> </div>
 </body>
+
 </html>
