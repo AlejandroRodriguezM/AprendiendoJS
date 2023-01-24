@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="alumno.js"></script>
+    <p id="nombre"></p>
+    <p id="apellidos"></p>
+    <p id="id"></p>
+    <p id="modulos"></p>
+    <p id="nota"></p>
+    <p id="media"></p>
+    <p id="suspensas"></p>
+    <p id="aprobadas"></p>
+    <script>
+        const alumno1 = new Alumno("Alejandro", "Rodriguez", "987654D", ["Servidores", "Cliente", "Diseño"], [8, 9, 7]); 
+        document.getElementById("nombre").innerHTML = "Nombre: " + alumno1.getNombre();
+        document.getElementById("apellidos").innerHTML = "Apellidos: " + alumno1.getApellidos();
+        document.getElementById("id").innerHTML = "ID: " + alumno1.getId();
+        document.getElementById("modulos").innerHTML = "Módulos: " + alumno1.mostrarModulos();
+        document.getElementById("nota").innerHTML = "Nota en servidores " + alumno1.nota("Servidores");
+        document.getElementById("media").innerHTML = "Media: " + alumno1.media();
+        document.getElementById("suspensas").innerHTML = "Suspensas: " + alumno1.suspensas().join(", ");
+        document.getElementById("aprobadas").innerHTML = "Aprobadas: " + alumno1.aprobadas().join(", ");
+    </script>
+</body>
+
+</html>

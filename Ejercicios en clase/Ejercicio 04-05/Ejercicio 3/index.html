@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="alumno.js"></script>
+    <script src="grupoAlumnos.js"></script>
+    <p id="numero"></p>
+    <p id="alumno"></p>
+    <p id="eliminado"></p>
+    <script>
+        const alumno1 = new Alumno("Alejandro", "Rodriguez", "987654D", ["Servidores", "Cliente", "Diseño"], [8, 9, 7]);
+        const alumno2 = new Alumno("Test", "Prueba", "123456D", ["Servidores", "Cliente", "Diseño"], [7, 8, 9]);
+        const grupoAlumnos = new GrupoAlumnos();
+        grupoAlumnos.matricular(alumno1);
+        grupoAlumnos.matricular(alumno2);
+        document.getElementById("numero").innerHTML = "Numero de alumnos: " + grupoAlumnos.numero();
+
+        const alumno = grupoAlumnos.mostrar("987654D");
+        
+        if (alumno) {
+            document.getElementById("alumno").innerHTML = "Alumno con ID: 987654D" + "<br>Nombre: " + alumno.nombre + "<br>Apellido: " + alumno.apellidos + "<br>ID: " + alumno.id;
+        } else {
+            document.getElementById("alumno").innerHTML = "Alumno con ID 987654D no existe";
+        }
+        grupoAlumnos.eliminar(alumno1);
+        document.getElementById("eliminado").innerHTML = "Numero de alumnos despues de eliminar a alumno1: " + grupoAlumnos.numero();
+    </script>
+</body>
+
+</html>

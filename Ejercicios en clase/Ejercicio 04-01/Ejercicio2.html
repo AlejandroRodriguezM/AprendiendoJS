@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form action="">
+        <input type="button" value="calcular" onclick="calculoArray()">
+    </form>
+    <div id="numeros"></div>
+    <div id="mayorAmenor"></div>
+    <div id="moda"></div>
+
+    <script>
+        function numRandom() {
+            var num = [];
+            for (var i = 0; i < 5; i++) {
+                num[i] = Math.floor(Math.random() * 10 + 1);
+            }
+            return num;
+        }
+
+        function calculoArray(){
+            var num = numRandom();
+            document.getElementById("numeros").innerHTML = "El array de numeros es: " + num;
+
+            //ordenar de mayor a menor
+            var numOrdenado = num.sort(function(a, b){
+                console.log("Comparacion: " + a, b);
+                console.log("Resultado: " + (a-b));
+                console.log("SORT " + (a-b));
+                return a-b});
+            document.getElementById("mayorAmenor").innerHTML = "La lista ordenada: " + numOrdenado;
+
+            //moda
+            var numModa = 0;
+            var numRepeticiones = 0;
+            for (let i = 0; i < num.length; i++) {
+                var contador = 0;
+                for (let j = 0; j < num.length; j++) {
+                    if (num[i] == num[j]) {
+                        contador++;
+                    }
+                }
+                if (contador > numRepeticiones) {
+                    numModa = num[i];
+                    numRepeticiones = contador;
+                    if(contador == 1){
+                        numModa = "No hay moda";
+                    }
+                }
+            }
+            document.getElementById("moda").innerHTML = "La moda es: " + numModa;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="formularioBusqueda" action="">
+        <p>
+            <input type="text" id="entrada" name="cEntrada">
+            <input type="button" id="mostrarDatos" name="enviar" value="Mostrar datos" onclick="mostrarDatos()">
+        </p>
+    </form>
+    <div id="Ejercicio1"></div>
+    <script>
+        function mostrarDatos() {
+            let valor1 = document.getElementById("entrada").value;
+            let valor2 = document.formularioBusqueda.cEntrada.value;
+            let valor3 = document.formularioBusqueda.elements[0].value;
+            let valor4 = document.forms["formularioBusqueda"].elements["cEntrada"].value;
+            let valor5 = document.forms["formularioBusqueda"].cEntrada.value;
+
+            let ejercicio1 = document.getElementById("Ejercicio1");
+            ejercicio1.innerHTML = "Valor 1: " + valor1 + "<br>" +
+                "Valor 2: " + valor2 + "<br>" +
+                "Valor 3: " + valor3 + "<br>" +
+                "Valor 4: " + valor4 + "<br>" +
+                "Valor 5: " + valor5;
+        }
+    </script>
+</body>
+
+</html>

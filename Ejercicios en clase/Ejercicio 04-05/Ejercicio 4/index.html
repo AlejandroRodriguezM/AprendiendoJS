@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- add scripts -->
+    <script src="alumno.js"></script>
+    <script src="AlumnoFP.js"></script>
+    <script src="AlumnoFPDual.js"></script>
+
+    <!-- add paragraphs -->
+    <div id="alumnos-info"></div>
+
+    <!-- add scripts -->
+    <script>
+        // Crear una instancia de la clase AlumnoFP
+        let alumnoFP = new AlumnoFP("Alejandro", "Rodriguez", "54321", ["Matemáticas", "Física"], [9, 7], "Empresa XYZ");
+        //hacerFCT
+        alumnoFP.hacerFCT("Empresa ABC")
+        // Crear una instancia de la clase AlumnoFPDual
+        let alumnoFPDual = new AlumnoFPDual("John", "Doe", "12345", ["Matemáticas", "Física"], [9, 7], "Empresa XYZ", "Empresa Dual XYZ");
+        //hacerFCTDual
+        alumnoFPDual.hacerFCTDual("Empresa Dual ABC")
+
+        let alumnoInfo = document.getElementById("alumnos-info");
+
+        let texto1 = document.createElement("h1");
+        texto1.innerHTML = "Alumno 1";
+        alumnoInfo.appendChild(texto1);
+
+        let nombre1 = document.createElement("p");
+        nombre1.innerHTML = "Nombre: " + alumnoFP.nombre;
+        alumnoInfo.appendChild(nombre1);
+
+        let apellidos1 = document.createElement("p");
+        apellidos1.innerHTML = "Apellidos: " + alumnoFP.apellidos;
+        alumnoInfo.appendChild(apellidos1);
+
+        let id1 = document.createElement("p");
+        id1.innerHTML = "ID: " + alumnoFP.id;
+        alumnoInfo.appendChild(id1);
+
+        let modulos1 = document.createElement("p");
+        modulos1.innerHTML = "Módulos: " + alumnoFP.nombreModulos;
+        alumnoInfo.appendChild(modulos1);
+
+        let notas1 = document.createElement("p");
+        notas1.innerHTML = "Notas: " + alumnoFP.notasModulos;
+        alumnoInfo.appendChild(notas1);
+
+        let empresaFCT1 = document.createElement("p");
+        empresaFCT1.innerHTML = "Empresa FCT: " + alumnoFP.empresaFCT;
+        alumnoInfo.appendChild(empresaFCT1);
+        
+        let texto2 = document.createElement("h1");
+        texto2.innerHTML = "Alumno 2";
+        alumnoInfo.appendChild(texto2);
+
+        let nombre2 = document.createElement("p");
+        nombre2.innerHTML = "Nombre: " + alumnoFPDual.nombre;
+        alumnoInfo.appendChild(nombre2);
+
+        let apellidos2 = document.createElement("p");
+        apellidos2.innerHTML = "Apellidos: " + alumnoFPDual.apellidos;
+        alumnoInfo.appendChild(apellidos2);
+
+        let id2 = document.createElement("p");
+        id2.innerHTML = "ID: " + alumnoFPDual.id;
+        alumnoInfo.appendChild(id2);
+
+        let modulos2 = document.createElement("p");
+        modulos2.innerHTML = "Módulos: " + alumnoFPDual.nombreModulos;
+        alumnoInfo.appendChild(modulos2);
+
+        let notas2 = document.createElement("p");
+        notas2.innerHTML = "Notas: " + alumnoFPDual.notasModulos;
+        alumnoInfo.appendChild(notas2);
+
+        let empresaFCT2 = document.createElement("p");
+        empresaFCT2.innerHTML = "Empresa FCT: " + alumnoFPDual.empresaFCT;
+        alumnoInfo.appendChild(empresaFCT2);
+
+        let empresaFCTDual2 = document.createElement("p");
+        empresaFCTDual2.innerHTML = "Empresa FCT Dual: " + alumnoFPDual.empresaFCTDual;
+        alumnoInfo.appendChild(empresaFCTDual2);
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="button" value="Mostrar" onclick="calculoNumero()">
+    </form>
+    <div id="max"></div>
+    <div id="min"></div>
+    <div id="media"></div>
+
+    <script>
+        function numRandom() {
+            var num = [];
+            for (var i = 0; i < 50; i++) {
+                num[i] = Math.floor(Math.random() * 100);
+            }
+            return num;
+        }
+
+        function calculoNumero() {
+            var num = numRandom();
+            var numMayor = 0;
+            var numMenor = 0;
+            var media = 0;
+
+            for (let i = 0; i < num.length; i++) {
+
+                media += num[i];
+
+                if (num[i] > numMayor) {
+                    numMayor = num[i];
+                }
+                if (num[i] < numMayor) {
+                    numMenor = num[i];
+                }
+            }
+            media = media / num.length;
+
+            document.getElementById("max").innerHTML = "El numero mayor es: " + numMayor;
+            document.getElementById("min").innerHTML = "El numero menor es: " + numMenor;
+            document.getElementById("media").innerHTML = "La media es: " + media;
+        }
+    </script>
+
+
+</body>
+
+</html>

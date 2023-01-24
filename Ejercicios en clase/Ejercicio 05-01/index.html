@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="metodos.js"></script>
+</head>
+
+<body>
+    <form action="" method="post" id="idformulario" name="nameformulario">
+        <div>
+            <fieldset>
+                <legend> Datos Personales </legend>
+                <p> Nombre: <input id="name_control" type="text" name="name_control" autofocus required
+                        value="Manolo" /> </p>
+                <p> Contraseña: <input id="pass_control" type="password" name="pass_control" required /></p>
+                <p> Correo Electrónico: <input id="email_control" type="email" name="email_control" required /></p>
+                <br />
+            </fieldset>
+            <fieldset>
+                <legend> Gustos </legend>
+                <br />
+                <p> URL: <input id="url_control" type="url" name="url_control"
+                        placeholder="Escripe la URL de tu página web personal" />
+                </p>
+                <p> Fecha: <input id="date_control" type="date" name="date_control" /> </p>
+                <p> Tiempo: <input id="time_control" type="time" name="time_control" /> </p>
+                <p> Número (min -10, max 10): <input id="number_control" type="number" name="number_control" min="-10"
+                        max="10" value="0" />
+                </p>
+                <p> Teléfono: <input id="tel_control" type="tel" name="tel_control" /></p>
+                <p> Término de búsqueda: <input id="search_control" type="search" name="search_control" /></p>
+                <p> Color Favorito: <input id="color_control" type="color" name="color_control" /></p>
+
+                <br /><br />
+            </fieldset>
+            <fieldset>
+                <legend> Informatica </legend>
+                <br />
+                <p> Sistema operativo:
+                    <select id="sistema_control" name="sistema_control">
+                        <option value="windows">Windows</option>
+                        <option value="linux">Linux</option>
+                        <option value="macos">Macos</option>
+                    </select>
+                </p>
+
+                <p> Que lenguaje de programación web conoces? </p>
+                <input id="si" name="python_control" type="radio" value="si" checked /> Si
+                <input id="no" name="python_control" type="radio" value="no" /> No
+                <p> Comentarios: </p>
+                <p> <textarea id="comentario_control" name="comentario_control" rows="4" cols="50"></textarea> </p>
+
+                <br /><br />
+                <input type="button" value="Submit!" />
+            </fieldset>
+        </div>
+    </form>
+
+    <h2> Ejercicio2 </h2>
+    <div id="Ejercicio2"> </div>
+    <input type="button" value="Ver Contenido" onclick="metodo1()" />
+
+    <h2> Ejercicio3 </h2>
+    <div id="Ejercicio3"> </div>
+    <input type="button" value="Ver Contenido" onclick="metodo2()" />
+
+    <h2> Ejercicio4 </h2>
+    <div id="Ejercicio4"> </div>
+    <input type="button" value="Ver Contenido" onclick="metodo3()" />
+
+    <h2> Ejercicio5 </h2>
+    <div id="Ejercicio5"> </div>
+    <input type="button" value="Rellenar datos" onclick="metodo4()" />
+
+    <h2> Ejercicio6 </h2>
+    <div id="Ejercicio6"> </div>
+    <input type="button" value="Comprobar no vacio" onclick="metodo5()" />
+</body>
+
+</html>
