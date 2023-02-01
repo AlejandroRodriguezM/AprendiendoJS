@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>El burbujeo de eventos es un concepto en el manejo de eventos en JavaScript. Se refiere al proceso en el que un
+        evento, una vez disparado en un elemento, es propagado hacia afuera a través de sus elementos padres. Por
+        ejemplo, si un evento es disparado en un botón dentro de un formulario, el evento también será notificado al
+        formulario y, eventualmente, al documento completo.</p>
+        <a href="pagina.html" onclick = "alertar(); return false">Pulsa aquí</a>
+        <script>
+            function alertar() {
+                alert("Has pulsado el enlace");
+            }
+        </script>
+</body>
+
+</html>
