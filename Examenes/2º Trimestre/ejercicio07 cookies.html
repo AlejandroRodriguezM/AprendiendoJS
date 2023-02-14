@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio7</title>
+</head>
+
+<body>
+    <h1>Alejandro Rodriguez Mena</h1>
+    <h2>Ejercicio 7</h2>
+    <h2>Ejercicio 07 cookies </h2>
+    <label>Nombre</label> <input type="text" id="Nombre"> <br>
+    <label>Valor</label> <input type="text" id="Valor"> <br>
+
+    <button onclick="addcookie()">Ejercicio1 Add Cookie</button> <br>
+    <button onclick="vercookies()">Ejercicio2 ver todas las cookies </button> <br>
+    <button onclick="borrarcookie()">Ejercicio3 borrar la cookies </button> <br>
+    <button onclick="BuscarCookieNombre()">Ejercicio4 ver Cookie Nombre </button> <br>
+    <button onclick="borrartodaslascookies()">Ejercicio5 Borrar todas las cookies </button> <br>
+    <p> Cookies Guardadas :</p>
+    <p id="CookiesGuardadas"> </p>
+
+
+    <script>
+        function addcookie() {
+            // ejemplo de cookie hola=1;adios=2
+            var nombre = document.getElementById("Nombre").value;
+            var valor = document.getElementById("Valor").value;
+            var cookie = nombre + "=" + valor;
+            document.cookie = cookie;
+            document.getElementById("CookiesGuardadas").innerHTML = document.cookie;
+        }
+
+        function vercookies() {
+            // ejemplo de cookie hola=1;adios=2
+
+            var cookies = document.cookie;
+            document.getElementById("CookiesGuardadas").innerHTML = cookies;
+        }
+
+        function borrarcookie() {
+            // ejemplo de cookie caducada hola=1;expires='Mon, 1 Jan 2000 00:00:00 GMT'
+            var nombre = document.getElementById("Nombre").value;
+            var valor = document.getElementById("Valor").value;
+            var cookie = nombre + "=" + valor + ";expires='Mon, 1 Jan 2000 00:00:00 GMT'";
+            document.cookie = cookie;
+            document.getElementById("CookiesGuardadas").innerHTML = document.cookie;
+
+        }
+
+        function BuscarCookieNombre() {
+            // puedes usar split("=") y .split(";");  para convertir en arrays  la lista de cookies y recorrerlo con un bucle
+
+            var nombre = document.getElementById("Nombre").value;
+            var cookies = document.cookie;
+            var arraycookies = cookies.split(";");
+            var encontrado = false;
+            var i = 0;
+            while (i < arraycookies.length && !encontrado) {
+                var arraynombrevalor = arraycookies[i].split("=");
+                if (arraynombrevalor[0] == nombre) {
+                    encontrado = true;
+                    document.getElementById("CookiesGuardadas").innerHTML = arraycookies[i];
+                }
+                i++;
+            }
+            if (!encontrado) {
+                document.getElementById("CookiesGuardadas").innerHTML = "No existe la cookie";
+            }
+        }
+
+        function borrartodaslascookies() {
+            // es una combinacion de los dos ultimos
+            var cookies = document.cookie;
+            var arraycookies = cookies.split(";");
+            var i = 0;
+
+            while (i < arraycookies.length) {
+                var arraynombrevalor = arraycookies[i].split("=");
+                var nombre = arraynombrevalor[0];
+                var valor = arraynombrevalor[1];
+                var cookie = nombre + "=" + valor + ";expires='Mon, 1 Jan 2000 00:00:00 GMT'";
+                document.cookie = cookie;
+                i++;
+            }
+            document.getElementById("CookiesGuardadas").innerHTML = document.cookie;
+
+            
+        }
+
+
+    </script>
+</body>
+
+</html>

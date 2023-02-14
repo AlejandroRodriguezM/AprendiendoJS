@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5 forms</title>
+    <style>
+        div {
+            margin-right: auto;
+            margin-left: auto;
+            width: 400px;
+            text-align: left;
+        }
+
+        .datagrid table {
+            border-collapse: collapse;
+            text-align: left;
+            width: 100%;
+        }
+
+        .datagrid {
+            font: normal 12px/150% Arial, Helvetica, sans-serif;
+            background: #fff;
+            overflow: hidden;
+            border: 2px solid #991821;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
+            border-radius: 6px;
+        }
+
+        .datagrid table td,
+        .datagrid table th {
+            padding: 4px 10px;
+        }
+
+        .datagrid table thead th {
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #991821), color-stop(1, #80141C));
+            background: -moz-linear-gradient(center top, #991821 5%, #80141C 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#991821', endColorstr='#80141C');
+            background-color: #991821;
+            color: #FFFFFF;
+            font-size: 15px;
+            font-weight: bold;
+            border-left: 1px solid #B01C26;
+        }
+
+        .datagrid table thead th:first-child {
+            border: none;
+        }
+
+        .datagrid table tbody td {
+            color: #80141C;
+            border-left: 1px solid #F7CDCD;
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+        .datagrid table tbody .alt td {
+            background: #F7CDCD;
+            color: #80141C;
+        }
+
+        .datagrid table tbody td:first-child {
+            border-left: none;
+        }
+
+        .datagrid table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .datagrid table tfoot td div {
+            border-top: 1px solid #991821;
+            background: #F7CDCD;
+        }
+
+        .datagrid table tfoot td {
+            padding: 0;
+            font-size: 12px
+        }
+
+        .datagrid table tfoot td div {
+            padding: 2px;
+        }
+
+        .datagrid table tfoot td ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: right;
+        }
+
+        .datagrid table tfoot li {
+            display: inline;
+
+        }
+
+        .datagrid table tfoot li a {
+            text-decoration: none;
+            display: inline-block;
+            padding: 2px 8px;
+            margin: 1px;
+            color: #FFFFFF;
+            border: 1px solid #991821;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #991821), color-stop(1, #80141C));
+            background: -moz-linear-gradient(center top, #991821 5%, #80141C 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#991821', endColorstr='#80141C');
+            background-color: #991821;
+        }
+
+        .datagrid table tfoot ul.active,
+        .datagrid table tfoot ul a:hover {
+            text-decoration: none;
+            border-color: #80141C;
+            color: #FFFFFF;
+            background: none;
+            background-color: #991821;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Alejandro Rodriguez Mena</h1>
+        <h2>Ejercicio 5</h2>
+        <input type="button" value="Mostrar" onclick="mostrarValores1()" />
+        <div id="mostrarAqui" class='datagrid' style="width: 1300px;">
+            <h3>Valores del Formulario </h3>
+
+
+        </div>
+
+        <script>
+
+            function mostrarValores1() {
+                // Aqui va el codigo del ejercicio debeis usar 
+                //document.forms[]
+                //document.forms[].elements[]
+
+                let form1 = document.forms["form1"];
+                let form2 = document.forms["form2"];
+                let form3 = document.forms["form3"];
+
+                let mostrarAqui = document.getElementById("mostrarAqui");
+
+                mostrarAqui.innerHTML = `<table style='width:1500px !important;'>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Contraseña</th>
+                        <th>Correo</th>
+                        <th>URL</th>
+                        <th>Fecha</th>
+                        <th>Tiempo</th>
+                        <th>Número</th>
+                        <th>Teléfono</th>
+                        <th>Color</th>
+                        <th>Fecha</th>
+                        <th>Mes</th>
+                        <th>Semana</th>
+                        <th>Texto</th>
+                        <th>Archivo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>${form1.elements[0].value}</td>
+                        <td>${form1.elements[1].value}</td>
+                        <td>${form1.elements[2].value}</td>
+                        <td>${form2.elements[0].value}</td>
+                        <td>${form2.elements[1].value}</td>
+                        <td>${form2.elements[2].value}</td>
+                        <td>${form2.elements[3].value}</td>
+                        <td>${form2.elements[4].value}</td>
+                        <td>${form3.elements[0].value}</td>
+                        <td>${form3.elements[1].value}</td>
+                        <td>${form3.elements[2].value}</td>
+                        <td>${form3.elements[3].value}</td>
+                        <td>${form3.elements[4].value}</td>
+                        <td>${form3.elements[5].value}</td>
+                    </tr>
+                </tbody>
+            </table>`;
+            }
+
+        </script>
+
+
+
+
+
+
+    </div>
+    <div>
+        <form id="form1">
+            <fieldset>
+                <legend> Datos Personales </legend>
+                <p> Nombre: <input type="text" name="name_control" autofocus value="pepe" required /> </p>
+                <p> Contraseña: <input type="password" name="pass_control" value="pass" required /></p>
+                <p> Correo Electrónico: <input type="email" name="email_control" value="pass@peas.com" required /></p>
+                <br />
+            </fieldset>
+        </form>
+        <form id="form2">
+            <fieldset>
+                <legend> Gustos </legend>
+                <br />
+                <p> URL: <input type="url" name="url_control" value="http://peas.com"
+                        placeholder="Escripe la URL de tu página web personal" /> </p>
+                <p> Fecha: <input type="date" name="date_control" value="10//01//2023" /> </p>
+                <p> Tiempo: <input type="time" name="time_control" value="10:01" /> </p>
+                <p> Número (min -10, max 10): <input type="number" value="1" name="number_control" min="-10" max="10"
+                        value="0" /></p>
+                <p> Teléfono: <input type="tel" name="tel_control" /></p>
+                <p> Término de búsqueda: <input type="search" name="search_control" /></p>
+                <p> Color Favorito: <input type="color" name="color_control" /></p>
+                <br /><br />
+            </fieldset>
+        </form>
+        <form id="form3">
+            <fieldset>
+                <legend> Informatica </legend>
+                <br />
+                <p> Sistema operativo:
+                    <select name="sistema_control">
+                        <option value="windows">Windows</option>
+                        <option value="linux">Linux</option>
+                        <option value="macos">Macos</option>
+                    </select>
+                </p>
+                <p> Que lenguaje de programación web conoces? </p>
+                <input name="lenguaje_control" type="checkbox" value="html5" checked /> Html5
+                <input name="lenguaje_control" type="checkbox" value="ccs3" checked /> Css3
+                <input name="lenguaje_control" type="checkbox" value="javascript" /> JavaScript
+                <input name="lenguaje_control" type="checkbox" value="php" /> Php
+                <input name="lenguaje_control" type="checkbox" value="python" /> Python </p>
+                <p> Sabes utilizar Python? </p>
+                <p> <input name="python_control" type="radio" value="si" checked /> Si <input name="python_control"
+                        type="radio" value="no" /> No </p>
+                <p> Comentarios: </p>
+                <p> <textarea name="comentario_control" rows="4" cols="50"></textarea> </p>
+                <p>
+
+                    <br /><br />
+                    <input type="submit" value="Submit!" />
+
+            </fieldset>
+    </div>
+    </form>
+
+
+
+</body>
+
+</html>

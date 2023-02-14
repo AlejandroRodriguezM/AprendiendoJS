@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio3</title>
+</head>
+
+<body>
+    <h1>Alejandro Rodriguez Mena</h1>
+    <h2>Ejercicio 3</h2>
+    <h2>Ejercicio 3 Objetos</h2>
+    <p> Toma el documento Ejercicio3.html e Crea un objeto trabajador con los siguientes valores metodos y propiedades
+    </p>
+    <p> 1. Propiedades: Nombre, Apellidos, id, HorarioEntrada (array de numeros ) HorarioSalida ( array de numeros ),
+        Sueldo
+    </p>
+    <p> 2. Metodos:
+    </p>
+    <p> 1. set y get de las propiedades Nombre, Apellidos,id,Sueldo
+    </p>
+    <p> 2. Constructor(Nombre, Apellidos,Sueldo) (por defecto horario entrada y salida son todos de 7 a 9)
+    </p>
+    <p> 3. MostrarHorario(): Devuelve un string con el horario
+    </p>
+    <p> 4. Entrada(Dia) : muestra la hora de entrada de ese dia (xx No hacer)
+    </p>
+    <p> 5. MejorDia(): te devuelve el dia que menos trabaja. (xx No hacer)
+    </p>
+    <p> 6. Imprimir (id_componente) Muestra en el componente con id_componente toda la información del trabajador
+    </p>
+    <p></p>
+    <br>
+    <input type="button" onclick="crearTrabajador()" value="Crear Trabajador"> <br>
+    <input type="button" onclick="imprimirTrabajador()" value="imprimir Trabajador"> <br>
+    <input type="button" onclick="VerHorarioTrabajador()" value="Ver Horario Trabajador"><br>
+
+    <br><br>
+    <div id="informacion-trabajador"></div>
+
+
+    <script>
+        class Trabajador {
+            constructor(nombre, apellidos, sueldo, id = null, horarioEntrada = [7, 7, 7, 7, 7], horarioSalida = [9, 9, 9, 9, 9]) {
+                this.nombre = nombre;
+                this.apellidos = apellidos;
+                this.id = id;
+                this.horarioEntrada = horarioEntrada;
+                this.horarioSalida = horarioSalida;
+                this.sueldo = sueldo;
+            }
+
+            // getters and setters
+            get nombre() {
+                return this._nombre;
+            }
+
+            set nombre(value) {
+                this._nombre = value;
+            }
+
+            get apellidos() {
+                return this._apellidos;
+            }
+
+            set apellidos(value) {
+                this._apellidos = value;
+            }
+
+            get id() {
+                return this._id;
+            }
+
+            set id(value) {
+                this._id = value;
+            }
+
+            get sueldo() {
+                return this._sueldo;
+            }
+
+            set sueldo(value) {
+                this._sueldo = value;
+            }
+
+            // metodos
+            mostrarHorario() {
+                let horario = "";
+                for (let i = 0; i < this.horarioEntrada.length; i++) {
+                    horario += `Dia ${i + 1}: ${this.horarioEntrada[i]} - ${this.horarioSalida[i]} <br>`;
+                }
+                return horario;
+            }
+
+            imprimir(idComponente) {
+                document.getElementById(idComponente).innerHTML = `
+                <p>Nombre: ${this.nombre}</p>
+                <p>Apellidos: ${this.apellidos}</p>
+                <p>Id: ${this.id}</p>
+                <p>Sueldo: ${this.sueldo}</p>
+                <p>Horario: ${this.mostrarHorario()}</p>
+                `;
+            }
+
+        }
+
+        let trabajador;
+
+        function crearTrabajador() {
+            trabajador = new Trabajador("Juan", "Perez", 1000);
+            trabajador.id = 1;
+            }
+
+        function imprimirTrabajador() {
+            trabajador.imprimir("informacion-trabajador");
+        }
+
+        function VerHorarioTrabajador() {
+            document.getElementById("informacion-trabajador").innerHTML = trabajador.mostrarHorario();
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio4</title>
+</head>
+
+<body>
+    <h1>Alejandro Rodriguez Mena</h1>
+    <h2>Ejercicio 4</h2>
+    <h2>Ejercicio 4 Objetos</h2>
+    <p> Usando el modelo de javascript ECMA2015.
+    </p>
+    <p> Realiza el mismo ejemplo que el anterior
+    </p>
+    <p> pero añadele una clase hija llamada becario
+        que tenga una metodo y una propiedad adicional llamada
+    </p>
+    <p>fecha_entrada, fecha_Salida y establecer_entrada y Salida.
+    </p>
+    <p></p>
+    <br>
+    <input type="button" onclick="crearTrabajador()" value="Crear Trabajador"> <br>
+    <input type="button" onclick="imprimirTrabajador()" value="imprimir Trabajador"> <br>
+    <input type="button" onclick="VerHorarioTrabajador()" value="Ver Horario Trabajador"><br>
+
+    <input type="button" onclick="crearBecario()" value="Crear becario"><br>
+    <input type="button" onclick="imprimirBecario()" value="imprimir becario"><br>
+    <input type="button" onclick=" VerFechasBecario()" value="Ver Horario becario"><br>
+
+    <br><br>
+    <div> información del Trabajador</div>
+    <div id="informacion-trabajador"></div>
+    <br><br>
+    <div> información del becario</div>
+    <div id="informacion-becario"></div>
+
+
+    <script>
+        class Trabajador {
+            constructor(nombre, apellidos, sueldo, id = null, horarioEntrada = [7, 7, 7, 7, 7], horarioSalida = [9, 9, 9, 9, 9]) {
+                this.nombre = nombre;
+                this.apellidos = apellidos;
+                this.id = id;
+                this.horarioEntrada = horarioEntrada;
+                this.horarioSalida = horarioSalida;
+                this.sueldo = sueldo;
+            }
+
+            // getters and setters
+            get nombre() {
+                return this._nombre;
+            }
+
+            set nombre(value) {
+                this._nombre = value;
+            }
+
+            get apellidos() {
+                return this._apellidos;
+            }
+
+            set apellidos(value) {
+                this._apellidos = value;
+            }
+
+            get id() {
+                return this._id;
+            }
+
+            set id(value) {
+                this._id = value;
+            }
+
+            get sueldo() {
+                return this._sueldo;
+            }
+
+            set sueldo(value) {
+                this._sueldo = value;
+            }
+
+            // metodos
+            mostrarHorario() {
+                let horario = "";
+                for (let i = 0; i < this.horarioEntrada.length; i++) {
+                    horario += `Dia ${i + 1}: ${this.horarioEntrada[i]} - ${this.horarioSalida[i]} <br>`;
+                }
+                return horario;
+            }
+
+            imprimir(idComponente) {
+                document.getElementById(idComponente).innerHTML = `
+                <p>Nombre: ${this.nombre}</p>
+                <p>Apellidos: ${this.apellidos}</p>
+                <p>Id: ${this.id}</p>
+                <p>Sueldo: ${this.sueldo}</p>
+                <p>Horario: ${this.mostrarHorario()}</p>
+                `;
+            }
+        }
+
+        let trabajador;
+
+        function crearTrabajador() {
+            trabajador = new Trabajador("Juan", "Perez", 1000);
+            trabajador.id = 1;
+        }
+
+        function imprimirTrabajador() {
+            trabajador.imprimir("informacion-trabajador");
+        }
+
+        function VerHorarioTrabajador() {
+            document.getElementById("informacion-trabajador").innerHTML = trabajador.mostrarHorario();
+        }
+
+        class Becario extends Trabajador {
+            constructor(nombre, apellidos, sueldo, id, horarioEntrada, horarioSalida, fechaEntrada, fechaSalida) {
+                super(nombre, apellidos, sueldo, id, horarioEntrada, horarioSalida);
+                this.fechaEntrada = fechaEntrada;
+                this.fechaSalida = fechaSalida;
+            }
+
+            establecerEntrada(fecha) {
+                this.fechaEntrada = fecha;
+            }
+
+            establecerSalida(fecha) {
+                this.fechaSalida = fecha;
+            }
+        }
+
+        let becario;
+
+        function crearBecario() {
+            becario = new Becario("Maria", "Gomez", 500, 2, [8, 8, 8, 8, 8], [12, 12, 12, 12, 12], "2022-01-01", "2022-07-01");
+        }
+
+        function imprimirBecario() {
+            becario.imprimir("informacion-becario");
+        }
+
+        function VerFechasBecario() {
+            document.getElementById("informacion-becario").innerHTML = `
+            <p>Fecha de entrada: ${becario.fechaEntrada}</p>
+            <p>Fecha de salida: ${becario.fechaSalida}</p>
+            `;
+        }
+
+    </script>
+</body>
+
+</html>

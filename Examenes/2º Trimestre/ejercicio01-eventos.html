@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1</title>
+</head>
+<body>
+    <h1>Alejandro Rodriguez Mena</h1>
+    <h2>Ejercicio 1</h2>
+    <h1>Ejercicio 1 Eventos</h1>
+    Todos los eventos se deben asociar de manera W3C.
+    <h2>Ejercicio 1.1 </h2>
+    <div> Crea un evento que Muestra el resultado de sumar 1000+1000 en el campo Resultado</div>
+    <button id="boton" onclick="ej11()">Muestra el resultado de sumar 1000+1000 </button>
+    <p id="Resultado">Resultado: </p>
+
+    <h2>Ejercicio 1.2 </h2>
+    <div>Copia el texto del texto 1 en el texto 2 TECLA por TECLA</div>
+    Texto Origen <input type="text" id="textoOrigen" onkeyup="ej12()">  
+    Texto destino <input type="text" id="textoDestino">  
+
+    <h2>Ejercicio 1.3 </h2>
+    <div> Crea una imagen que cuando Se presiona un botón del ratón cambie por otra (pierde.jpg)
+        y cuando se levante se vuelva a poner la anterior
+    </div>
+    <img id="imagen" src="gana.jpg" width="100" onmousedown="ej13()" onmouseup="ej15()"> 
+
+    <br>
+    <h2>Ejercicio 1.4 </h2>
+    Si se pulsa en el boton crecer cuando se entra a la imagen esta se hace un 10% mayor<br>
+    Si se pulsa en el boton decrecer cuando se entra a la imagen esta se hace un 10% más pequeña     <br>
+    <img id="imagen2" src="gana.jpg" width="100" onmouseenter="ej14()"> <br>
+    <button id="botoncrecer" onclick="ej14()">Crecer</button>
+    <button id="botonDecrecer" onclick="ej14()">DeCrecer</button>
+
+    <script>
+        function ej11(){
+            document.getElementById("Resultado").innerHTML = "Resultado: " + (1000+1000);
+        }
+
+        function ej12(){
+            var origen = document.getElementById("textoOrigen").value;
+            var destino = "";
+            for (var i = 0; i < origen.length; i++) {
+                destino += origen.charAt(i) + " ";
+            }
+            document.getElementById("textoDestino").value = destino;
+        }
+
+        function ej13(){
+            document.getElementById("imagen").src = "pierde.jpg";
+        }
+
+        function ej14() {
+            var imagen = document.getElementById("imagen2");
+            var boton = event.target;
+            if (boton.id == "botoncrecer") {
+                console.log(1)
+                imagen.style.width = imagen.offsetWidth * 1.1 + "px";
+
+            } else if (boton.id == "botonDecrecer") {
+                imagen.style.width = imagen.offsetWidth * 0.9 + "px";
+            }
+          }
+
+        function ej15(){
+            //no hay ejercicio 1.5 en el examen
+        }
+    </script>
+</body>
+</html>

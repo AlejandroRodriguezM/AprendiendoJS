@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio6</title>
+
+    <style>
+        .caja {
+            margin: auto;
+            border: 1px solid red;
+            border-radius: 8px;
+            width: 800px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Alejandro Rodriguez Mena</h1>
+    <h2>Ejercicio 6</h2>
+    <div class="caja">
+        <h1> Ejercicio 6 Arrays</h1>
+        <input type="number" id="d11" value="5">
+        <input type="number" id="d12" value="5">
+        <input type="number" id="d13" value="5">
+        <input type="number" id="d14" value="5">
+        <br>
+        <input type="number" id="d21" value="5">
+        <input type="number" id="d22" value="5">
+        <input type="number" id="d23" value="5">
+        <input type="number" id="d24" value="5">
+        <br>
+        <input type="number" id="d31" value="5">
+        <input type="number" id="d32" value="5">
+        <input type="number" id="d33" value="5">
+        <input type="number" id="d34" value="5">
+        <br>
+        <input type="number" id="d41" value="5">
+        <input type="number" id="d42" value="5">
+        <input type="number" id="d43" value="5">
+        <input type="number" id="d44" value="5">
+
+        <br><br>
+        <button onclick="InsertarArray()"> Insertar Array </button> Inserta los valores del form en array matriz<br>
+        <button onclick="DibujarArray()"> Dibujar Array </button> Dibuja los valores del array matriz <br>
+        <button onclick="HallarDeterminante2x2()"> Hallar Determinante 2x2</button>Hallar el Determinante de los
+        primeros 4 valores<br>
+        <button onclick="HallarDeterminante3x3()"> Hallar Determinante 3x3</button> Hallar el Determinante de los
+        primeros 9 valores <br>
+        <button onclick="HallarDeterminante4x4()"> Hallar Determinante 4x4</button> Hallar el Determinante de los
+        primeros 16 valores<br>
+        <br>
+        <p> Para hallar el determinante se multiplican por diagonales<br>
+            y se suman los que van adelante y se restan los que van hacia atras</p>
+        <img src="matriz.jpg" width="80%">
+
+        <p id="Comunicado"></p>
+
+    </div>
+
+    <script>
+
+        var matriz = Array(4);
+        for (i = 0; i < 4; i++) {
+            matriz[i] = Array(4);
+        }
+        function InsertarArray() {
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 4; j++) {
+                    const inputId = "d" + (i + 1) + (j + 1);
+                    matriz[i][j] = Number(document.getElementById(inputId).value);
+                }
+            }
+            document.getElementById("Comunicado").textContent = "Valores insertados en la matriz";
+        }
+
+        function InsertarArray() {
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 4; j++) {
+                    const inputId = "d" + (i + 1) + (j + 1);
+                    matriz[i][j] = Number(document.getElementById(inputId).value);
+                }
+            }
+            document.getElementById("Comunicado").textContent = "Valores insertados en la matriz";
+        }
+
+        function DibujarArray() {
+            let html = "<table>";
+            for (let i = 0; i < 4; i++) {
+                html += "<tr>";
+                for (let j = 0; j < 4; j++) {
+                    html += "<td>" + matriz[i][j] + "</td>";
+                }
+                html += "</tr>";
+            }
+            html += "</table>";
+            document.getElementById("Comunicado").innerHTML = html;
+        }
+
+        function HallarDeterminante2x2() {
+            const det = matriz[0][0] * matriz[1][1] - matriz[0][1] * matriz[1][0];
+            document.getElementById("Comunicado").textContent = "Determinante de la submatriz 2x2: " + det;
+        }
+
+        function HallarDeterminante3x3() {
+            const det = matriz[0][0] * matriz[1][1] * matriz[2][2]
+                + matriz[0][1] * matriz[1][2] * matriz[2][0]
+                + matriz[0][2] * matriz[1][0] * matriz[2][1]
+                - matriz[0][2] * matriz[1][1] * matriz[2][0]
+                - matriz[0][1] * matriz[1][0] * matriz[2][2]
+                - matriz[0][0] * matriz[1][2] * matriz[2][1];
+            document.getElementById("Comunicado").textContent = "Determinante de la submatriz 3x3: " + det;
+        }
+
+        function HallarDeterminante4x4() {
+            const a = matriz[0][0], b = matriz[0][1], c = matriz[0][2], d = matriz[0][3];
+            const e = matriz[1][0], f = matriz[1][1], g = matriz[1][2], h = matriz[1][3];
+            const i = matriz[2][0], j = matriz[2][1], k = matriz[2][2], l = matriz[2][3];
+            const m = matriz[3][0], n = matriz[3][1], o = matriz[3][2], p = matriz[3][3];
+
+            const det = a * f * k * p + a * g * l * n + a * h * j * o
+                + b * e * l * o + b * g * i * p + b * h * k * m
+                + c * e * j * p + c * f * l * m + c * h * i * n
+                + d * e * k * n + d * f * i * o + d * g * j * m
+                - d * e * j * o - d * f * k * m - d * g * i * n
+                - c * e * l * n - c * f * i * p - c * g * j * m
+                - b * e * k * p - b * f * l * o - b * g * i * n
+                - a * f * l * o - a * g * j * p - a * h * k * n;
+            document.getElementById("Comunicado").textContent = "Determinante de la submatriz 4x4: " + det;
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

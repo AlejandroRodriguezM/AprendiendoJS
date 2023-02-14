@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Expresiones Regulares 8</title>
+    <style>
+        .formulario {
+            margin: auto;
+            border: 1px solid red;
+            border-radius: 8px;
+            width: 800px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Alejandro Rodriguez Mena</h1>
+    <h2>Ejercicio 8</h2>
+
+    <div class="formulario">
+        <h2> Ejercicio8 Expresiones regulares </h2>
+
+        <p> Nombre: <input type="text" id="textopeq" name="textopeq" value="2" /> </p>
+
+        <br />
+
+        <p> Comentarios: </p>
+        <p>
+            <textarea id="textogrande" name="textogrande" rows="15" cols="100">
+    Malaga es una ciudad y municipio español, capital de la provincia homónima,
+     situada en la comunidad autónoma de Andalucía. Con una población de 578 460 habitantes al 1 de enero de 2020,8​ es la segunda ciudad más poblada de Andalucía y la sexta de España, así como la mayor de entre las que no son capitales autonómicas.9​  contactohola@hola.com
+
+Además, es la zona urbana más densamente poblada de la conurbación formada 
+ por el conjunto de localidades que se sitúan a lo largo de 160 km de la Costa del Sol
+ y el centro de un área metropolitana que abarca otros 12 municipios que suman 987813
+  habitantes censados. Se estima que conforma la quinta área metropolitana de España. Más informacion en el 719931123
+
+ Está situada en el extremo oeste del mar Mediterráneo y en el sur de la
+  península ibérica, a unos 100 km al este del estrecho de Gibraltar
+  (https://es.wikipedia.org/wiki/Gibraltar#Lugares). 
+  Su término municipal ocupa una extensión de 398,25 km² que se extienden
+   sobre los montes de Málaga y el valle del Guadalhorce. 
+ 
+ Se emplaza en el centro de una bahía rodeada de sistemas montañosos: la
+  Sierra de Mijas y los Montes de Málaga. La atraviesan los ríos Guadalmedina y Guadalhorce.   hola@hola.com
+ Teléfonos importantes 952433421, 952433422, 951433422 si no puedes 
+ llamar a sevilla 954433422 o a Madrid 912433422
+ Fundada por los fenicios (www.Feniciios.org)en el siglo viii a. C., mas
+  no menos en el año 0900 ac es una de las ciudades más antiguas de Europa.
+  Fue un municipio primero federado, luego de derecho latino del Imperio romano
+  y una próspera medina andalusí cuatro veces capital de su propio reino, 
+ que fue incorporada a la Corona de Castilla en 1487. 
+
+ En 1810, las tropas napoleónicas penetraron de nuevo en el Sur de España, 
+ siendo la ciudad ocupada hasta 1812.
+
+ El liberal Torrijos y sus hombres fueron fusilados en la playa de San Andrés en 1831. 
+ Fábrica de La Constancia de la que solo queda la chimenea data de 1847.
+ Si deseas saber mas llama al 6264543432
+ 
+ Durante el siglo xix experimentó una destacable actividad industrial y 
+ revolucionaria que la situó como primera ciudad industrial de España
+  (http://www.vivaspain.com) y la hizo merecedora de los títulos «Siempre denodada»
+   y «La primera en el peligro de la libertad». 
+   Malaga fue Escenario de uno de los episodios más sangrientos de la guerra civil española en 1937 con la Desbandá
+   La costa del sol fue protagonista de la explosión del boom turístico de las décadas de 1960 y 1970,
+    constituye en la actualidad un notable centro de entretenimiento, económico, cultural 
+    y nodo de comunicaciones en el litoral mediterráneo
+ </textarea>
+        </p>
+
+        <br /><br />
+
+    </div>
+
+    <div class="formulario">
+        <h2> Ejercicio 1 </h2>
+        <p> Modifica este ejercicio para que encuentre las palabras con acento y la ñ tambien </p>
+        <button id="ejercicio1"> Ejercicio1 </button>
+        <p id="ejercicio1p"> </p>
+
+        <h2> Ejercicio 2 </h2>
+        <p>Busca las palabras que contengan un acento </p>
+        <button id="ejercicio2b"> Ejercicio2</button>
+        <p id="ejercicio2p"> </p>
+
+        <h2> Ejercicio 3 </h2>
+        <button id="ejercicio3b"> Ejercicio4 </button>
+        <p> ejercicio3 busca los años del siglo 20 o 19 que aparezcan en el texto </p>
+        <p id="ejercicio3p"> </p>
+
+        <h2> Ejercicio 4 </h2>
+        <button id="ejercicio4b"> Ejercicio4 </button>
+        <p> ejercicio4 busca los numeros de telefono de manera que
+        <ol>
+            <li>si es de Málaga empieza por 951 debe aparecer Málaga delante
+            </li>
+            <li> si es de Córdoba empieza por 957 debe aparecer Córdoba delante
+            </li>
+            <li> si es de Sevilla empieza por 954 debe aparecer Sevilla delante
+            </li>
+            <li> si es un movil empieza por 6 o 7 debe aparecer Movil delante
+            </li>
+            <li>si es de otro sitio debe poner España delante del número </li>
+        </ol>
+        </p>
+        <p id="ejercicio4p"> </p>
+
+
+
+
+
+    </div>
+
+    <script>
+        // Ejercicio 1 Modifica este ejercicio que busca todas las palabras 
+        // para que encuentre las palabras con vocales con acentos
+        // Ejercicio 1
+        document.getElementById("ejercicio1").addEventListener("click", function () {
+            const texto = document.getElementById("textogrande").value;
+            const palabrasConAcento = texto.match(/[a-zA-Z]*[áéíóúÁÉÍÓÚñÑ][a-zA-Z]*/g);
+            document.getElementById("ejercicio1p").innerHTML = `Palabras con acento o ñ: ${palabrasConAcento}`;
+        });
+
+        // Ejercicio 2
+        document.getElementById("ejercicio2b").addEventListener("click", function () {
+            const texto = document.getElementById("textogrande").value;
+            const palabrasConAcento = texto.match(/[a-zA-Z]*[áéíóúñ][a-zA-Z]*/g);
+            document.getElementById("ejercicio2p").innerHTML = `Palabras con acento: ${palabrasConAcento}`;
+        });
+
+        // Ejercicio 3
+        document.getElementById("ejercicio3b").addEventListener("click", function () {
+            const texto = document.getElementById("textogrande").value;
+            const annos = texto.match(/(19|20)\d{2}/g);
+            document.getElementById("ejercicio3p").innerHTML = `Años del siglo 19 o 20: ${annos}`;
+        });
+
+        // ejercicio4 busca los telefonos como se pide en clase
+        document.getElementById('ejercicio4b').addEventListener('click', ejercicio4);
+        function ejercicio4() {
+            const texto = document.getElementById('textogrande').value;
+            const telefonos = texto.match(/\b\d{9}\b/g); // Buscar números de 9 dígitos completos
+
+            let resultado = '';
+
+            if (telefonos) {
+                telefonos.forEach(telefono => {
+                    if (telefono.startsWith('951')) {
+                        resultado += 'Málaga ' + telefono + '\n';
+                    } else if (telefono.startsWith('957')) {
+                        resultado += 'Córdoba ' + telefono + '\n';
+                    } else if (telefono.startsWith('954')) {
+                        resultado += 'Sevilla ' + telefono + '\n';
+                    } else if (telefono.startsWith('6') || telefono.startsWith('7')) {
+                        resultado += 'Móvil ' + telefono + '\n';
+                    } else {
+                        resultado += 'España ' + telefono + '\n';
+                    }
+                });
+            } else {
+                resultado = 'No se encontraron números de teléfono';
+            }
+
+            document.getElementById('ejercicio4p').innerText = resultado;
+        }
+    </script>
+</body>
+
+</html>

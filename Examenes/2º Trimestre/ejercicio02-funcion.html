@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio2</title>
+</head>
+
+<body>
+    <h1>Alejandro Rodriguez Mena</h1>
+    <h2>Ejercicio 2</h2>
+    <h2>Ejercicio 2 Funciones</h2>
+    <label>Año</label>
+    <input type="text" id="year">
+    <label>Mes</label>
+    <input type="text" id="mes">
+    <label>Dia</label>
+    <input type="text" id="dia"><br><br>
+    <button onclick="calcularDias()">Escribe la fecha Funcion Tradicional</button>
+    <p id="fechaIntroducida">Fecha : </p>
+    <button onclick="calcularDiasAnonima()">Escribe la fecha Funcion Anonima</button>
+    <p id="fechaIntroducidaanonima">Fecha: </p>
+    <button onclick="calcularDiasLambda()">Escribe la fecha funcion flechas</button>
+    <p id="fechaIntroducidaflechas">Fecha: </p>
+    <button onclick="calcularDiasLambdaparametros('#444','negrita')">Escribe funcion flechas parametros </button>
+    <p id="fechaIntroducidaflechasparametros">Fecha: </p>
+    <script>
+        /* Define calculardias de manera tracional*/
+        function calcularDias() {
+            const year = document.getElementById('year').value;
+            const mes = document.getElementById('mes').value;
+            const dia = document.getElementById('dia').value;
+            const fecha = new Date(year, mes - 1, dia);
+            document.getElementById('fechaIntroducida').innerHTML = "Fecha: " + fecha;
+        }
+
+        /* Define calculardias  de manera anonima*/
+        const calcularDiasAnonima = function () {
+            const year = document.getElementById('year').value;
+            const mes = document.getElementById('mes').value;
+            const dia = document.getElementById('dia').value;
+            const fecha = new Date(year, mes - 1, dia);
+            document.getElementById('fechaIntroducidaanonima').innerHTML = "Fecha: " + fecha;
+        }
+
+        /* Define calculardias  de manera anonima con flechas*/
+        const calcularDiasLambda = () => {
+            const year = document.getElementById('year').value;
+            const mes = document.getElementById('mes').value;
+            const dia = document.getElementById('dia').value;
+            const fecha = new Date(year, mes - 1, dia);
+            document.getElementById('fechaIntroducidaflechas').innerHTML = "Fecha: " + fecha;
+        }
+
+        /* Define calculardias  de manera anonima con flechas con parametros*/
+        const calcularDiasLambdaparametros = (color, font) => {
+            const year = document.getElementById('year').value;
+            const mes = document.getElementById('mes').value;
+            const dia = document.getElementById('dia').value;
+            const fecha = new Date(year, mes - 1, dia);
+            const fechaElem = document.getElementById('fechaIntroducidaflechasparametros');
+            fechaElem.style.color = color;
+            fechaElem.style.fontWeight = font;
+            fechaElem.innerHTML = "Fecha: " + fecha;
+        }
+
+    </script>
+</body>
+
+</html>
