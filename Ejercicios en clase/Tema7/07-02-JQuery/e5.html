@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Por Alejandro Rodriguez Mena -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
+        integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <h3> Ej1</h3>
+    <pre>$('div').has('span').append("un div con un p");          // el elemento div contiene elementos  span </pre>
+    <div id="myId1">div myId1: </div>
+    <div id="myId2"> div myId2: </div>
+    <div id="myId3"> div myId1: <p> </p>
+    </div>
+    <h3> Ej2</h3>
+    <pre>      $('span').not('#sp1').append("un span de una clase no #sp1");          // el elemento div.foo contiene elementos <p></pre>
+    <br>
+    <span id="sp1"> span0 </span> <br>
+    <span> span1 </span> <br>
+    <span> span2 </span> <br>
+    <span> span3 </span> <br>
+    <span> span4 </span> <br>
+    <span> span5 </span> <br>
+    <span> span6 </span> <br>
+    <br>
+    <h3> Ej3</h3>
+    <pre>    $('h2').not('.bar').append("un h2 que no es de la clase bar");             // el elemento h1 no posse la clase 'bar'</pre>
+
+    <h2 class="bar"> h1 1 </h2>
+    <h2 class="bar"> h1 2 </h2>
+    <h2 class="go"> h1 3 </h2>
+    <h2 class="go"> h1 3 </h2>
+
+
+    <pre> $('ul li').first().append("primer elemento li");             // el primer item de una lista sordenada        </pre>
+    <ol>
+        <li> 1 </li>
+        <li> 2 </li>
+        <li> 3 </li>
+        <li> 4 </li>
+        <li> 5 </li>
+    </ol>
+
+    <pre> $('ul li').filter('.current').append("Elemento li clase current");;  // un item clase current de una lista sordenada              </pre>
+    <ol>
+        <li> 1 </li>
+        <li> 2 </li>
+        <li> 3 </li>
+        <li> 4 </li>
+        <li class="current"> 5 </li>
+    </ol>
+    <br>
+
+    <h3> Ej4</h3>
+    <pre>  $('table tr:odd td').eq(1).append("segunda celda de filas pares"); </pre>
+    <table border="2" width="300px" height="100px">
+        <tr>
+            <td>1 </td>
+            <td> 2 </td>
+        </tr>
+        <tr>
+            <td> 3</td>
+            <td>4 </td>
+        </tr>
+        <tr>
+            <td> 5</td>
+            <td>6 </td>
+        </tr>
+        <tr>
+            <td> 7</td>
+            <td>8 </td>
+        </tr>
+    </table>
+
+
+
+    <script>
+        let cadena = "";
+        $(function () {
+
+            // Ej1
+            $('div').has('p').append("un div con un p");
+            // Ej2
+            $('span').not('#sp1').append("un span de una clase no #sp1");
+            // Ej3
+            $('h2').not('.bar').append("un h2 que no es de la clase bar");
+            // Ej4
+            $('ol li').first().append("primer elemento li");
+            // Ej5
+            $('ol li').filter('.current').append("Elemento li clase current");
+            // Ej6
+            $('table tr:odd td').eq(1).append("segunda celda de filas pares");
+            // Ej7
+
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>

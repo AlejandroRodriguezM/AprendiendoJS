@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<!--Por Alejandro Rodriguez Mena-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1 - DOM</title>
+</head>
+
+<body>
+
+    <h1> Ejercicio 1</h1>
+    <input type="button" id="b1" value="Numero de enlaces de la pagina" /> <br>
+    Debes usar getElementsByTagName en etiqueta "a" y length
+    <div id="ej1"> Numero de enlaces de la pagina: </div>
+    <script>
+        document.getElementById("b1").addEventListener("click", ej11);
+        function ej11() {
+            document.getElementsByTagName("a").length;
+        };
+
+    </script>
+
+    <h1> Ejercicio 2</h1>
+    <input type="button" id="b2" value="Direccion del penultimo enlace" /> <br>
+    Debes usar getElementsByTagName en etiqueta "a" y length-2
+    <div id="ej2">Direccion del penultimo enlace: </div>
+    <script>
+        document.getElementById("b2").addEventListener("click", ej22);
+        function ej22() {
+            document.getElementsByTagName("a")[document.getElementsByTagName("a").length - 2].href;
+        };
+    </script>
+
+    <h1> Ejercicio 3</h1>
+    <input type="button" id="b3" value="Numero de enlaces que apuntan a http://prueba" /> <br>
+    Debes usar getElementsByTagName en etiqueta "a" y un for que cuente los que hacen href
+    <div id="ej3">Numero de enlaces que apuntan a http://prueba : </div>
+    <script>
+        document.getElementById("b3").addEventListener("click", ej33);
+        function ej33() {
+            var enlaces = document.getElementsByTagName("a");
+            var contador = 0;
+            for (var i = 0; i < enlaces.length; i++) {
+                if (enlaces[i].href == "http://prueba") {
+                    contador++;
+                }
+            }
+            document.getElementById("ej3").innerHTML = "Numero de enlaces que apuntan a http://prueba : " + contador;
+        };
+    </script>
+
+    <h1> Ejercicio 4</h1>
+    <input type="button" id="b4" value="Numero de enlaces del tercer parrafo" /> <br>
+    Debes usar getElementsByTagName en etiqueta "p" escoger el p correcto y hacer un getElementsByTagName sobre a
+    <div id="ej4">Numero de enlaces del tercer parrafo : </div>
+    <br><br>
+    <p>Lorem ipsum dolor sit amet, <a href="http://prueba">consectetuer adipiscing elit</a>.
+        Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue,
+        commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et,
+        luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor,
+        pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem,
+        semper quis, faucibus ut, rhoncus non, mi. <a href="http://prueba2">Fusce porta</a>.
+        Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at
+        posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        Duis scelerisque. Donec lacus neque, vehicula in, eleifend vitae, venenatis ac, felis.
+        Donec arcu. Nam sed tortor nec ipsum aliquam ullamcorper. Duis accumsan metus eu urna.
+        Aenean vitae enim. Integer lacus. Vestibulum venenatis erat eu odio. Praesent id metus.</p>
+    <p>Aenean at nisl. Maecenas egestas dapibus odio. Vestibulum ante ipsum primis in faucibus orci
+        luctus et ultrices posuere cubilia Curae; Proin consequat auctor diam.
+        <a href="http://prueba">Ut bibendum blandit est</a>. Curabitur vestibulum.
+        Nunc malesuada porttitor sapien. Aenean a lacus et metus venenatis porta.
+        Suspendisse cursus, sem non dapibus tincidunt, lorem magna porttitor felis,
+        id sodales dolor dolor sed urna. Sed rutrum nulla vitae tellus. Sed quis eros
+        nec lectus tempor lacinia. Aliquam nec lectus nec neque aliquet dictum.
+        Etiam <a href="http://prueba3">consequat sem quis massa</a>. Donec aliquam euismod diam.
+        In magna massa, mattis id, pellentesque sit amet, porta sit amet, lectus. Curabitur posuere.
+        Aliquam in elit. Fusce condimentum, arcu in scelerisque lobortis, ante arcu scelerisque mi,
+        at cursus mi risus sed tellus.
+    </p>
+    <p>Donec sagittis, nibh nec ullamcorper tristique, pede velit feugiat massa, at sollicitudin justo
+        tellus vitae justo. Vestibulum aliquet, nulla sit amet imperdiet suscipit,
+        nunc erat laoreet est, a <a href="http://prueba">aliquam leo odio sed sem</a>.
+        Quisque eget eros vehicula diam euismod tristique. Ut dui. Donec in metus sed
+        risus laoreet sollicitudin. Proin et nisi non arcu sodales hendrerit. In sem.
+        Cras id augue eu lorem dictum interdum. Donec pretium.
+        Proin <a href="http://penultimoenlace">egestas</a> adipiscing ligula.
+        Duis iaculis laoreet turpis. Mauris mollis est sit amet diam. Curabitur hendrerit,
+        eros quis malesuada tristique, ipsum odio euismod tortor,
+        a vestibulum nisl mi at odio. <a href="http://ultimoEnlace">Sed non lectus
+            non est pellentesque</a> auctor.</p>
+
+
+    <script type="text/javascript">
+        document.getElementById("b1").addEventListener("click", ej11);
+        document.getElementById("b2").addEventListener("click", ej12);
+        document.getElementById("b3").addEventListener("click", ej13);
+        document.getElementById("b4").addEventListener("click", ej14);
+
+        function ej11() {
+            var enlaces = document.getElementsByTagName("a");
+            document.getElementById("ej1").innerHTML = "Numero de enlaces de la pagina: " + enlaces.length;
+        }
+
+        function ej12() {
+            var enlaces = document.getElementsByTagName("a");
+            document.getElementById("ej2").innerHTML = "Direccion del penultimo enlace: " + enlaces[enlaces.length - 2].href;
+        }
+
+        function ej13() {
+            var enlaces = document.getElementsByTagName("a");
+            var contador = 0;
+            for (var i = 0; i < enlaces.length; i++) {
+                if (enlaces[i].href == "http://prueba") {
+                    contador++;
+                }
+            }
+            document.getElementById("ej3").innerHTML = "Numero de enlaces que apuntan a http://prueba : " + contador;
+        }
+
+        function ej14() {
+            var parrafos = document.getElementsByTagName("p");
+            var enlaces = parrafos[2].getElementsByTagName("a");
+            document.getElementById("ej4").innerHTML = "Numero de enlaces del tercer parrafo : " + enlaces.length;
+        }
+    </script>
+
+
+</body>
+
+</html>

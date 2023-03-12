@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--Por Alejandro Rodriguez Mena-->
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>05-04</title>
+</head>
+
+<body>
+	<!-- Ejercicio 1.	Copia el ejemplo de bubling y comprueba que se ejecutan tanto el padre como el 
+abuelo. Crea los siguiente ejercicios con addEventListener().  -->
+	<h1>Ejercicio 1</h1>
+	<div id="abuelo">
+		<ul id="padre">
+			<li id="hijo1"> Hola </li>
+			<li id="hijo2"> Crack </li>
+			<li id="hijo3"> de </li>
+			<li id="hijo4"> la </li>
+			<li id="hijo5"> Programación </li>
+		</ul>
+	</div>
+	<script>
+		const elementoAbuelo = document.getElementById("abuelo")
+		const elementoPadre = document.getElementById("padre")
+		const hijo1 = document.getElementById("hijo1")
+		const hijo2 = document.getElementById("hijo2")
+		const hijo3 = document.getElementById("hijo3")
+		const hijo4 = document.getElementById("hijo4")
+		const hijo5 = document.getElementById("hijo5")
+		// Agregamos un detector de eventos al elemento principal
+		elementoAbuelo.addEventListener('click', () => { console.log("Se hizo clic en abuelo") })
+		// Agregamos un detector de eventos al elemento principal
+		elementoPadre.addEventListener('click', () => { console.log('Se hizo clic en padre') })
+		// Agregamos un detector de eventos a todos los elementos secundarios
+		hijo1.addEventListener('click', (e) => {
+			e.stopPropagation() // Impedimos que el evento se propague más
+			console.log('Se hizo clic en hijo1')
+		})
+		hijo2.addEventListener('click', (e) => {
+			e.stopPropagation() // Impedimos que el evento se propague más
+			console.log('Se hizo clic en hijo2')
+		})
+		hijo3.addEventListener('click', (e) => {
+			e.stopPropagation() // Impedimos que el evento se propague más
+			console.log('Se hizo clic en hijo3')
+		})
+		hijo4.addEventListener('click', (e) => {
+			e.stopPropagation() // Impedimos que el evento se propague más
+			console.log('Se hizo clic en hijo4')
+		})
+		hijo5.addEventListener('click', (e) => {
+			e.stopPropagation() // Impedimos que el evento se propague más
+			console.log('Se hizo clic en hijo5')
+		})
+	</script>
+
+
+	<!-- Ejercicio 2. Crea un input text  con el evento  onblur Un elemento pierde el foco  que emita 
+un msg alert. -->
+	<!-- Ejercicio 3. Añadele tambien el evento onfocus para que tambien avise de su focus -->
+	<h1>Ejercicio 2 y 3</h1>
+	<input type="text" id="ej2">
+	<script>
+		document.getElementById("ej2").addEventListener("blur", f1);
+		//Si se pone este otro se queda cargando hasta el infinito
+		//document.getElementById("ej2").addEventListener("focus", f2);
+
+		function f1() {
+			alert("Has salido del campo");
+		}
+
+		function f2() {
+			alert("Has entrado en el campo");
+		}
+	</script>
+
+	<!-- Ejercicio 4. Crea una imagen que cuando se cargue indique que se ha cargado bien con el evento 
+onload -->
+	<!-- Ejercicio 5. Crea una imagen con el evento onclick la imagen se debe hacer más pequeña (un 85%) -->
+	<!-- Ejercicio 6. Ejercicio 6.	añadele al anterior ejercicio otro evento para que crezca al suceder el evento ondblclick (un 115%) -->
+	<!-- Ejercicio 7. crea una imagen con error para que se active el evento error y Que salte un Mensaje -->
+	<h1>Ejercicio 4, 5, 6 y 7</h1>
+	<img src="http-protocolo-peticion.png" id="ej4">
+	<script>
+		document.getElementById("ej4").addEventListener("load", f3);
+		document.getElementById("ej4").addEventListener("click", f4);
+		document.getElementById("ej4").addEventListener("dblclick", f5);
+		document.getElementById("ej4").addEventListener("error", f6);
+
+		function f3() {
+			alert("La imagen se ha cargado");
+		}
+
+		function f4() {
+			document.getElementById("ej4").style.width = "35%";
+		}
+
+		function f5() {
+			document.getElementById("ej4").style.width = "50%";
+		}
+
+		function f6() {
+			alert("Error al cargar");
+		}
+	</script>
+	<h1>Ejercicio 8</h1>
+	<input type="text" id="ej8">
+	<div id="txt"></div>
+	<script>
+		document.getElementById("ej8").addEventListener("change", f8);
+
+		function f8() {
+			document.getElementById("txt").innerHTML = document.getElementById("ej8").value;
+		}
+	</script>
+</body>
+
+</html>
+
+
+
+<!-- Ejercicio 8. crea un  input text con el evento onchange . El contenido del control se debe ver en 
+un div exterior  -->
+<label for="inputText">Ingresa un texto:</label>
+<input type="text" id="inputText" onchange="showInputValue()">
+<div id="output"></div>
+
+<script>
+	function showInputValue() {
+		const inputValue = document.getElementById("inputText").value;
+		document.getElementById("output").innerHTML = `El valor ingresado es: ${inputValue}`;
+	}
+</script>
+
+
+
+<!-- Ejercicio 9. Modifica el anterior ejemplo para que pase con los eventos  keydown,  keyup y  
+keypress -->
+<label for="inputText">Ingresa un texto:</label>
+<input type="text" id="inputText" onchange="showInputValue()" onkeydown="showInputValue()" onkeyup="showInputValue()"
+	onkeypress="showInputValue()">
+<div id="output"></div>
+
+<script>
+	function showInputValue() {
+		const inputValue = document.getElementById("inputText").value;
+		document.getElementById("output").innerHTML = `El valor ingresado es: ${inputValue}`;
+	}
+</script>
+
+
+<!-- Ejercicio 10. Crea un  input text con el evento select . El contenido seleccionado debe aparecer 
+en un div fuera.  -->
+<label for="inputText">Selecciona un texto:</label>
+<input type="text" id="inputText" onselect="showSelectedValue()">
+<div id="output"></div>
+
+<script>
+	function showSelectedValue() {
+		const selectedValue = document.getSelection().toString();
+		document.getElementById("output").innerHTML = `El texto seleccionado es: ${selectedValue}`;
+	}W
+</script>
+
+
+<!-- Ejercicio 11.	Crea una imagen que cuando 
+1.	Se presiona un botón del ratón ( mousedown) cambie por otra
+2.	si se genera el evento onmouseup se ponga la imagen original
+3.	si se produce mousemove  Se mueve el ratón la imagen se mueve tambien
+4.	si se genera el evento  onmouseout la imagen se hace un 10% más pequeña
+5.	si se genera el evento  onmouseover la imagen se hace un 5% mayor -->
+
+
+
+
+<!-- Ejercicio 12. Añade los eventos resize y unload para que nos salte un alert al document.body  -->

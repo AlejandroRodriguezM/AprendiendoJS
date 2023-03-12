@@ -1,0 +1,333 @@
+<!DOCTYPE HTML>
+<!--Por Alejandro Rodriguez Mena-->
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Expresiones Regulares </title>
+    <style>
+        .formulario {
+            margin-right: auto;
+            margin-left: auto;
+            width: 400px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Ejercicio 1. Copia el siguiente codigo y explica con tus pablabras como funciona -->
+
+    <div class="formulario">
+        <fieldset>
+            <legend> Expresiones regulares </legend>
+            <p> Nombre: <input type="text" id="textopeq" name="textopeq" value="2" /></p> <br />
+            <p> Comentarios: </p>
+            <p> <textarea id="textogrande" name="textogrande" rows="10" cols="70">
+Málaga (Andalucia) es una ciudad y municipio español, capital de la provincia homónima, 
+situada en la comunidad autónoma de Andalucía (España). Con una población de 578 460 
+habitantes al 1 de enero de 2020,8  es la segunda ciudad más poblada de Andalucía y 
+la sexta de España, así como la mayor de entre las que no son capitales autonómicas.9   
+contactohola@hola.com
+
+Además, es la zona urbana más densamente poblada de la conurbación formada por el 
+conjunto de localidades que se sitúan a lo largo de 160 km de la Costa del Sol 10 11  
+y el centro de un área metropolitana que abarca otros 12 municipios que suman 987813 
+habitantes censados. Se estima que conforma la quinta área metropolitana de España.12 13 
+
+Está situada en el extremo oeste del mar Mediterráneo y en el sur de la península 
+ibérica, a unos 100 km al este del estrecho de Gibraltar(Reino unido)  
+(https://es.wikipedia.org/wiki/Gibraltar#Lugares). 
+Su término municipal ocupa una extensión de 398,25 km² que se extienden sobre los 
+montes de Málaga y el valle del Guadalhorce. 
+
+Se emplaza en el centro de una bahía rodeada de sistemas montañosos: la Sierra de Mijas y 
+los Montes de Málaga. La atraviesan los ríos Guadalmedina y Guadalhorce. hola@hola.com
+Teléfonos importantes 952433421, 952433422, 951433422 si no puedes llamar a sevilla 
+954433422 o a Madrid 912433422
+Fundada por los fenicios (www.Feniciios.org)en el siglo viii a. C., mas no menos en el 
+año 0900 ac es una de las ciudades más antiguas de Europa. Fue un municipio primero federado, 
+luego de derecho latino del Imperio romano y una próspera medina andalusí cuatro veces capital 
+de su propio reino, que fue incorporada a la Corona de Castilla en 1487. 
+
+Durante el siglo xix experimentó una destacable actividad industrial y revolucionaria que 
+la situó como primera ciudad industrial de España (http://www.vivaspain.com) y la hizo 
+merecedora de los títulos "Siempre denodada" y "La primera en el peligro de la libertad". 
+Escenario de uno de los episodios más sangrientos de la guerra civil española y protagonista 
+de la explosión del boom turístico de las décadas de 1960 y 1970, constituye en la actualidad 
+un notable centro de entretenimiento, económico, cultural y nodo de comunicaciones en el 
+litoral mediterráneo.
+ </textarea> </p> <br /><br />
+            <button id="b2"> Ejercicio2 </button>
+            <button id="b3"> Ejercicio3 </button>
+            <button id="b4"> Ejercicio4 </button>
+            <button id="b5"> Ejercicio5 </button>
+            <button id="b6"> Ejercicio6 </button>
+            <button id="b7"> Ejercicio7 </button>
+            <button id="b8"> Ejercicio8 </button>
+            <button id="b9"> Ejercicio9 </button>
+            <button id="b10"> Ejercicio10 </button>
+            <button id="b11"> Ejercicio11 </button>
+            <button id="b12"> Ejercicio12 </button>
+            <button id="b13"> Ejercicio13 </button>
+            <button id="b14"> Ejercicio14 </button>
+        </fieldset>
+    </div>
+
+    <h2> Ejercicios Salida </h2>
+    <p id="ejercicioid"> </p>
+    <script>
+        document.getElementById('b2').addEventListener('click', ejercicio1);
+        function ejercicio2() {
+            var textocompleto = document.getElementsByName('textogrande')[0].value;
+            let yearRegExp = new RegExp('[0-9]{4}', 'g');
+            anos = textocompleto.matchAll(yearRegExp);
+            //yearRegExp.exec(textocompleto);
+            //document.getElementById('ejercicio3id').innerHTML=anos;
+
+            let cadenatmp = "<ol>";
+            for (const elemento of anos) { cadenatmp += "<li>" + elemento + "</li>"; }
+            cadenatmp += "</ol>";
+            document.getElementById('ejercicioid').innerHTML = cadenatmp;
+        }
+    </script>
+
+    <!-- Ejercicio 2. Añade un botón y una funcion al ejercicio anterior para que busque cadenas 
+de tamaño 4 que empiecen por vocales -->
+    <script>
+        document.getElementById('b3').addEventListener('click', ejercicio3);
+        function ejercicio3() {
+            var textocompleto = document.getElementsByName('textogrande')[0].value;
+            let yearRegExp = new RegExp('[aeiouAEIOU][a-zA-Z]{3}', 'g');
+            anos = textocompleto.matchAll(yearRegExp);
+            //yearRegExp.exec(textocompleto);
+            //document.getElementById('ejercicio3id').innerHTML=anos;
+
+            let cadenatmp = "<ol>";
+            for (const elemento of anos) { cadenatmp += "<li>" + elemento + "</li>"; }
+            cadenatmp += "</ol>";
+            document.getElementById('ejercicioid').innerHTML = cadenatmp;
+        }
+    </script>
+    <!-- Ejercicio 3. Añade un botón y una funcion al ejercicio anterior para que al pulsar 
+    en el boton correspondiente busque cadenas al principio de párrafo.  -->
+    <script>
+        document.getElementById('b4').addEventListener('click', ejercicio4);
+        function ejercicio4() {
+            var textocompleto = document.getElementsByName('textogrande')[0].value;
+            let yearRegExp = new RegExp('^[a-zA-Z]{4}', 'gm');
+            anos = textocompleto.matchAll(yearRegExp);
+            //yearRegExp.exec(textocompleto);
+            //document.getElementById('ejercicio3id').innerHTML=anos;
+
+            let cadenatmp = "<ol>";
+            for (const elemento of anos) { cadenatmp += "<li>" + elemento + "</li>"; }
+            cadenatmp += "</ol>";
+            document.getElementById('ejercicioid').innerHTML = cadenatmp;
+        }
+    </script>
+    <!-- Ejercicio 4.	Añade un botón y una funcion al ejercicio anterior para que al pulsar
+        en el boton correspondiente busque cadenas al final de párrafo.  -->
+    <script>
+        document.getElementById('b5').addEventListener('click', ejercicio5);
+        function ejercicio5() {
+            var textocompleto = document.getElementsByName('textogrande')[0].value;
+            let yearRegExp = new RegExp('[a-zA-Z]{4}$', 'gm');
+            anos = textocompleto.matchAll(yearRegExp);
+            //yearRegExp.exec(textocompleto);
+            //document.getElementById('ejercicio3id').innerHTML=anos;
+
+            let cadenatmp = "<ol>";
+            for (const elemento of anos) { cadenatmp += "<li>" + elemento + "</li>"; }
+            cadenatmp += "</ol>";
+            document.getElementById('ejercicioid').innerHTML = cadenatmp;
+        }
+    </script>
+
+
+    <!-- Ejercicio 5.	Añade un botón y una funcion al ejercicio anterior  para que al pulsar en 
+el boton correspondiente busque cadenas entre comillas -->
+    <script>
+        document.getElementById('b6').addEventListener('click', ejercicio6);
+        function ejercicio6() {
+            var textocompleto = document.getElementsByName('textogrande')[0].value;
+            let yearRegExp = new RegExp('"[a-zA-Z]{4}"', 'gm');
+            anos = textocompleto.matchAll(yearRegExp);
+            //yearRegExp.exec(textocompleto);
+            //document.getElementById('ejercicio3id').innerHTML=anos;
+
+            let cadenatmp = "<ol>";
+            for (const elemento of anos) { cadenatmp += "<li>" + elemento + "</li>"; }
+            cadenatmp += "</ol>";
+            document.getElementById('ejercicioid').innerHTML = cadenatmp;
+        }
+    </script>
+
+
+    <!-- Ejercicio 6.	Añade un botón y una funcion al ejercicio anterior  para que al pulsar en el 
+boton correspondiente  Reemplace cada 'o' o 'a' por @ -->
+    <script>
+        document.getElementById('b7').addEventListener('click', ejercicio7);
+        function ejercicio7() {
+            var textocompleto = document.getElementsByName('textogrande')[0].value;
+            let yearRegExp = new RegExp("[oa]", "gm");
+            textocompleto = textocompleto.replace(yearRegExp, "@");
+            //yearRegExp.exec(textocompleto);
+            //document.getElementById('ejercicio3id').innerHTML=anos;
+
+            document.getElementById('ejercicioid').innerHTML = textocompleto;
+        }
+    </script>
+
+
+    <!-- Ejercicio 7. Añade un botón y una funcion al ejercicio anterior  para que al pulsar en el 
+boton correspondiente  busque todos numeros de telefono de Malaga  (empiezan por 952 o 951)  -->
+    <script>
+        document.getElementById('b8').addEventListener('click', ejercicio8);
+        function ejercicio8() {
+            var textocompleto = document.getElementsByName('textogrande')[0].value;
+            let yearRegExp = new RegExp("952[0-9]{6}|951[0-9]{6}", "gm");
+            anos = textocompleto.matchAll(yearRegExp);
+            //yearRegExp.exec(textocompleto);
+            //document.getElementById('ejercicio3id').innerHTML=anos;
+
+            let cadenatmp = "<ol>";
+            for (const elemento of anos) { cadenatmp += "<li>" + elemento + "</li>"; }
+            cadenatmp += "</ol>";
+            document.getElementById('ejercicioid').innerHTML = cadenatmp;
+        }
+    </script>
+
+    <!-- Ejercicio 8. Añade un botón y una funcion al ejercicio anterior  para que al pulsar en el 
+boton correspondiente  busque todos emails. Busca en internet la expresion regular de un email -->
+
+    <script>
+        document.getElementById('b9').addEventListener('click', ejercicio9);
+        function ejercicio9() {
+            var textocompleto = document.getElementsByName('textogrande')[0].value;
+            let yearRegExp = new RegExp("[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}", "gm");
+            anos = textocompleto.matchAll(yearRegExp);
+            //yearRegExp.exec(textocompleto);
+            //document.getElementById('ejercicio3id').innerHTML=anos;
+
+            let cadenatmp = "<ol>";
+            for (const elemento of anos) { cadenatmp += "<li>" + elemento + "</li>"; }
+            cadenatmp += "</ol>";
+            document.getElementById('ejercicioid').innerHTML = cadenatmp;
+        }
+    </script>
+
+    <!-- Ejercicio 9. Añade un botón y una funcion al ejercicio anterior  para que al pulsar en el 
+boton correspondiente  busque todas las urls Busca en internet la expresion regular de una url -->
+
+    <script>
+        document.getElementById('b10').addEventListener('click', ejercicio10);
+        function ejercicio10() {
+            var textocompleto = document.getElementsByName('textogrande')[0].value;
+            let yearRegExp = new RegExp("https?://[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}", "gm");
+            anos = textocompleto.matchAll(yearRegExp);
+            //yearRegExp.exec(textocompleto);
+            //document.getElementById('ejercicio3id').innerHTML=anos;
+
+            let cadenatmp = "<ol>";
+            for (const elemento of anos) { cadenatmp += "<li>" + elemento + "</li>"; }
+            cadenatmp += "</ol>";
+            document.getElementById('ejercicioid').innerHTML = cadenatmp;
+        }
+    </script>
+
+    <!-- Ejercicio 10. Añade un botón y una funcion al ejercicio anterior  para que al pulsar en el 
+boton correspondiente  se eliminen todos los saltos de linea -->
+
+    <script>
+        document.getElementById('b11').addEventListener('click', ejercicio11);
+        function ejercicio11() {
+            var textocompleto = document.getElementsByName('textogrande')[0].value;
+            let yearRegExp = new RegExp("", "gm");
+            textocompleto = textocompleto.replace(yearRegExp, "");
+            //yearRegExp.exec(textocompleto);
+            //document.getElementById('ejercicio3id').innerHTML=anos;
+
+            document.getElementById('ejercicioid').innerHTML = textocompleto;
+        }
+    </script>
+
+
+    <!-- Ejercicio 11. Añade un botón y una funcion al ejercicio anterior  para que al pulsar en el 
+boton correspondiente  se listen todas las palabras (sin numeros) -->
+    <script>
+        document.getElementById('b12').addEventListener('click', ejercicio12);
+        function ejercicio12() {
+            var textocompleto = document.getElementsByName('textogrande')[0].value;
+            let yearRegExp = new RegExp("[a-zA-Z]+", "gm");
+            anos = textocompleto.matchAll(yearRegExp);
+            //yearRegExp.exec(textocompleto);
+            //document.getElementById('ejercicio3id').innerHTML=anos;
+
+            let cadenatmp = "<ol>";
+            for (const elemento of anos) { cadenatmp += "<li>" + elemento + "</li>"; }
+            cadenatmp += "</ol>";
+            document.getElementById('ejercicioid').innerHTML = cadenatmp;
+        }
+    </script>
+
+
+    <!-- Ejercicio 12. Añade un botón y una funcion al ejercicio anterior  para listar todos los 
+numero o todas las palabras de tamaño mayor que 3  -->
+    <script>
+        document.getElementById('b13').addEventListener('click', ejercicio13);
+        function ejercicio13() {
+            var textocompleto = document.getElementsByName('textogrande')[0].value;
+            let yearRegExp = new RegExp("[0-9]+|[a-zA-Z]{4,}", "gm");
+            anos = textocompleto.matchAll(yearRegExp);
+            //yearRegExp.exec(textocompleto);
+            //document.getElementById('ejercicio3id').innerHTML=anos;
+
+            let cadenatmp = "<ol>";
+            for (const elemento of anos) { cadenatmp += "<li>" + elemento + "</li>"; }
+            cadenatmp += "</ol>";
+            document.getElementById('ejercicioid').innerHTML = cadenatmp;
+        }
+    </script>
+
+
+    <!-- Ejercicio 13. Añade un botón y una funcion al ejercicio anterior  para listar todos los 
+articulos definidos con la palabra que va detras -->
+    <script>
+        document.getElementById('b14').addEventListener('click', ejercicio14);
+        function ejercicio14() {
+            var textocompleto = document.getElementsByName('textogrande')[0].value;
+            let yearRegExp = new RegExp("el|la|los|las", "gm");
+            anos = textocompleto.matchAll(yearRegExp);
+            //yearRegExp.exec(textocompleto);
+            //document.getElementById('ejercicio3id').innerHTML=anos;
+
+            let cadenatmp = "<ol>";
+            for (const elemento of anos) { cadenatmp += "<li>" + elemento + "</li>"; }
+            cadenatmp += "</ol>";
+            document.getElementById('ejercicioid').innerHTML = cadenatmp;
+        }
+    </script>
+
+
+    <!-- Ejercicio 14. Añade un botón que encuentre los elementos entre parentesis en el texto  -->
+
+    <script>
+        document.getElementById('b15').addEventListener('click', ejercicio15);
+        function ejercicio15() {
+            var textocompleto = document.getElementsByName('textogrande')[0].value;
+            let yearRegExp = new RegExp("\\([a-zA-Z0-9]+\\)", "gm");
+            anos = textocompleto.matchAll(yearRegExp);
+            //yearRegExp.exec(textocompleto);
+            //document.getElementById('ejercicio3id').innerHTML=anos;
+
+            let cadenatmp = "<ol>";
+            for (const elemento of anos) { cadenatmp += "<li>" + elemento + "</li>"; }
+            cadenatmp += "</ol>";
+            document.getElementById('ejercicioid').innerHTML = cadenatmp;
+        }
+    </script>
+
+</body>
+
+</html>

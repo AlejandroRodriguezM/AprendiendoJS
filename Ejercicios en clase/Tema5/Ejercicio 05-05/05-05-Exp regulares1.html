@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<!--Por Alejandro Rodriguez Mena-->
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05-05 JS Expresiones regulares1</title>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Ejercicio 1</h2>
+  <h4>Crea un un html debidamente formateado para Contestar a las siguientes preguntas</h4>
+
+
+  <h2>Ejercicio 2</h2>
+  <h4>Explica que es una Expresión regular con tus palabras</h4>
+  <p>Expresiones regulares: son un sistema para buscar o reemplazar texto utilizando patrones.</p>
+
+
+
+  <h2>Ejercicio 3</h2>
+  <h4>Para que sirven las expresiones regulares</h4>
+  <p> se utilizan para definir filtros con los métodos exec() y test() de RegExp, y con match(), matchAll(), replace(),
+    replaceAll() (en-US), search() y split() métodos de String</p>
+
+
+
+  <h2>Ejercicio 4</h2>
+  <h4>Explica que es una Expresion regular realizada con literales. Tras la explicación ejecuta el siguiente código</h4>
+  <p>Expresiones regulares literales: consiste en un patrón encerrado entre barras ascendentes
+    sin comillas</p>
+  <script>
+    let re1 = /b+ca/;
+    re.exec('acbbbcabaabbbceee');
+  </script>
+
+
+
+  <h2>Ejercicio 5</h2>
+  <h4>Explica que es una Expresion regular realizada con contructor. Tras la explicación ejecuta
+    el siguiente código</h4>
+  <p>El uso de la función constructora proporciona una compilación en tiempo de ejecución de la
+    expresión regular. Usa la función constructora cuando sepas que el patrón de la expresión
+    regular cambiará, o no conoces el patrón y lo obtienes de otra fuente, como la entrada del
+    usuario.</p>
+  <script>  let re2 = /ab+c/; re.exec('ababaabbbceee');  </script>
+
+
+
+  <h2>Ejercicio 6</h2>
+  <h4> Ejecuta el ejemplo 2 del codigo entregado para ver que pasa entre los dos tipos de
+    Expresion regular</h4>
+
+  <h2>Ejercicio 7</h2>
+  <h4>¿Que diferencias hay entre ambas?</h4>
+
+  <h2>Ejercicio 8</h2>
+  <h4>¿Que son Patrones simples?</h4>
+  <p>Los patrones simples se construyen con caracteres para los que deseas encontrar una
+    coincidencia directa</p>
+
+  <h2>Ejercicio 9 y 10</h2>
+  <h4>¿Que son Caracteres especiales?</h4>
+  <p>Son caracteres que tienen un significado, se utilizan para realizar busquedas</p>
+
+  <h2>Ejercicio 11</h2>
+  <h4>Describe que son patrones compuestos y que significan brevemente estos valores <br>
+    • Caracteres Especiales <br>
+    • Aserciones <br>
+    • Grupos y rangos <br>
+    • Cuantificadores <br>
+    • Escapes de propiedades Unicode</h4>
+  <ul>
+    <li>Patrones compuestos <br>Cuando se utilizan caracteres especiales</li>
+    <li>Caracteres Especiales <br> Son caracteres que tienen un significado, se utilizan para realizar busquedas</li>
+    <li>Grupos y rangos <br> Los grupos son distintos patrones de busqueda entre corchetes cada uno y separados por
+      comas. <br>
+      Puedes especificar un rango de caracteres mediante el uso de un guión </li>
+    <li>Cuantificadores <br> Indica el número de caracteres o expresiones que deben coincidir.</li>
+    <li>Escapes de propiedades Unicode <br> Distinguen según las propiedades de los caracteres Unicode, por
+      ejemplo, letras mayúsculas y minúsculas, símbolos matemáticos y
+      de puntuaciónsafsad</li>
+  </ul>
+
+  <h2>Ejercicio 12</h2>
+  <h4>¿Que son Caracteres de escape?</h4>
+  <p>Si necesitas usar literalmente cualquiera de los caracteres especiales lo debes escapar colocando una barra
+    invertida delante de él</p>
+
+  <h2>Ejercicio 13</h2>
+  <h4>Ejecuta el ejemplo 4 del codigo entregado para ver que pasa entre los dos tipos de Expresion regular</h4>
+  <p>
+    Ingresa tu número de teléfono (con el código de área) y luego haz clic en "Comprobar".
+    <br>
+    El formato esperado es como ###-###-####.
+  </p>
+  <form action="#">
+    <input id="phone">
+    <button onclick="testInfo(document.getElementById('phone'));">Comprobar</button>
+  </form>
+  <script>
+    var re = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
+    function testInfo(phoneInput) {
+      var OK = re.exec(phoneInput.value);
+      if (!OK) {
+        console.error(phoneInput.value + ' isn\'t a phone number with area code!');
+      } else {
+        console.log('Gracias, tu número de teléfono es ' + OK[0]);
+      }
+    }
+  </script>
+
+  <h2>Ejercicio 14</h2>
+  <h4>Como son las dos formas de ejecutar una expresion regular?</h4>
+
+  <h2>Ejercicio 15</h2>
+  <h4>Crea la siguiente tabla rellena en tu html</h4>
+  <table>
+    <tr style="background-color: rgb(134, 170, 71);">
+      <th>Método</th>
+      <th>Devuelve</th>
+      <th>Descripción</th>
+    </tr>
+    <tr style="background-color: blanchedalmond;">
+      <td>RegExp.exec(String)</td>
+      <td>Array</td>
+      <td>Ejecuta una búsqueda por una coincidencia en una cadena. Devuelve un arreglo de información o null en una
+        discrepancia.
+      </td>
+    </tr>
+    <tr style="background-color: blanchedalmond;">
+      <td>RegExp.test(String)</td>
+      <td>Booleano</td>
+      <td>Prueba una coincidencia en una cadena. Devuelve true o false.</td>
+    </tr>
+    <tr style="background-color:rgb(111, 228, 230)">
+      <td>String.match(RegExp)</td>
+      <td>Array</td>
+      <td>Devuelve un arreglo que contiene todas las coincidencias, incluidos los grupos de captura, o null si no se
+        encuentra ninguna coincidencia.</td>
+    </tr>
+    <tr style="background-color:rgb(111, 228, 230)">
+      <td>String.matchAll(RegExp)</td>
+      <td>Array</td>
+      <td>Devuelve un iterador que contiene todas las coincidencias, incluidos los grupos de captura.</td>
+    </tr>
+    <tr style="background-color:rgb(111, 228, 230)">
+      <td>String.search(RegExp)</td>
+      <td>numero (índice)</td>
+      <td>Prueba una coincidencia en una cadena. Devuelve el índice de la coincidencia, o -1 si la búsqueda falla.</td>
+    </tr>
+
+    <tr style="background-color:rgb(111, 228, 230)">
+      <td>String.replace(RegExp)</td>
+      <td>String</td>
+      <td>Ejecuta una búsqueda por una coincidencia en una cadena y reemplaza la subcadena coincidente con una subcadena
+        de reemplazo.</td>
+    </tr>
+    <tr style="background-color:rgb(111, 228, 230)">
+      <td>String.replaceAll(RegExp)</td>
+      <td>String</td>
+      <td>Ejecuta una búsqueda de todas las coincidencias en una cadena y reemplaza las subcadenas coincidentes con una
+        subcadena de reemplazo.</td>
+    </tr>
+    <tr style="background-color:rgb(111, 228, 230)">
+      <td>String.split(RegExp)</td>
+      <td>Array</td>
+      <td>Utiliza una expresión regular o una cadena fija para dividir una cadena en un arreglo de subcadenas.
+      </td>
+    </tr>
+  </table>
+
+  <h2>Ejercicio 16</h2>
+  <h4>Ejecuta el siguiente codigo para entender el matchAll <br>
+    const regexp = /t(e)(st(\d?))/g; <br>
+    const str = 'test1test2'; <br>
+    const array = [...str.matchAll(regexp)]; <br>
+    console.log(array[0]); // expected output: Array ["test1", "e", "st1", "1"] <br>
+    console.log(array[1]); // expected output: Array ["test2", "e", "st2", "2"]</h4>
+  <script>
+    const regexp = /t(e)(st(\d?))/g;
+    const str = 'test1test2';
+    const array = [...str.matchAll(regexp)];
+    console.log(array[0]); // expected output: Array ["test1", "e", "st1", "1"]
+    console.log(array[1]); // expected output: Array ["test2", "e", "st2", "2"]
+  </script>
+
+  <h2>Ejercicio 17</h2>
+  <h4>Ejecuta el siguiente codigo para entender el match
+
+    const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';
+    const regex = /[A-Z]/g;
+    const found = paragraph.match(regex);
+    console.log(found); // expected output: Array ["T", "I"]
+    const regex = /[A-Z]/;
+    const found = paragraph.match(regex);
+    console.log(found); // expected output: Array ["T"]</h4>
+
+  <script>
+    const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';
+    const regex1 = /[A-Z]/g;
+    const found1 = paragraph.match(regex1);
+    console.log(found1); // expected output: Array ["T", "I"]
+    const regex2 = /[A-Z]/;
+    const found2 = paragraph.match(regex2);
+    console.log(found2); // expected output: Array ["T"]
+  </script>
+
+  <h2>Ejercicio 18</h2>
+  <h4>Ejecuta el ejemplo 4 del codigo entregado para ver que pasa con match y matchAll
+
+    https://blog.tildeloop.com/posts/javascript-the-difference-between-match-and-matchall</h4>
+
+  <p>
+    Ingresa tu número de teléfono (con el código de área) y luego haz clic en "Comprobar".
+    <br>
+    El formato esperado es como ###-###-####.
+  </p>
+  <form action="#">
+    <input id="phone2">
+    <button onclick="testInfo(document.getElementById('phone2'));">Comprobar</button>
+  </form>
+  <script>
+    var re = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
+    function testInfo(phoneInput) {
+      var OK = re.exec(phoneInput.value);
+      if (!OK) {
+        console.error(phoneInput.value + ' isn\'t a phone number with area code!');
+      } else {
+        console.log('Gracias, tu número de teléfono es ' + OK[0]);
+      }
+    }
+  </script>
+
+  <h2>Ejercicio 19</h2>
+  <h4>¿Que hacen las banderas o flags?</h4>
+  <p>Los flags son uno o varios carácteres especiales que se escriben en un string tras la segunda barra / delimitadora
+    de una expresión regular, o en el segundo parámetro del new RegExp():</p>
+
+  <h2>Ejercicio 20</h2>
+  <h4>¿Donde se ponen en la expresion Regular?</h4>
+
+  <h2>Ejercicio 21</h2>
+  <h4>Crea esta tabla en tu documento que sirven las banderas siguientes</h4>
+  <table>
+    <tr style="background-color: yellow;">
+      <th>Bandera</th>
+      <th>Descripción</th>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>Genera índices para coincidencias de subcadenas.
+      </td>
+    </tr>
+    <tr>
+      <th>g</th>
+      <td>Búsqueda global.</td>
+    </tr>
+    <tr>
+      <th>i</th>
+      <td>Búsqueda que no distingue entre mayúsculas y minúsculas.</td>
+    </tr>
+  </table>
+
+  <h2>Ejercicio 22</h2>
+  <h4>Ejecuta el ejemplo 5 del codigo entregado para ver que pasa con las flags</h4>
+
+</body>
+
+</html>

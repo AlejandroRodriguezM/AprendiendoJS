@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<!--Por Alejandro Rodriguez Mena-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 3 - DOM</title>
+
+  <style>
+    .importante {
+      color: brown;
+    }
+
+    .resaltado {
+      color: orange;
+    }
+
+    .normal {
+      color: blue;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h2> Ejercicio 1. Añade un parrafo con el texto "Hola que tal" al final del body </h2>
+  <br> <input type="button" id="b1" value="Añade Hola que tal  " />
+
+  <script>
+    var b1 = document.getElementById("b1");
+    b1.addEventListener("click", function () {
+      var parrafo = document.createElement("p");
+      var texto = document.createTextNode("Hola que tal");
+      parrafo.appendChild(texto);
+      document.body.appendChild(parrafo);
+    });
+  </script>
+
+
+  <h2> Ejercicio 2. El elimina el ultimo elemento del objeto con id parrafosaborrar</h2>
+  <br> <input type="button" id="b2" value="El elimina el ultimo elemento de parrafosaborrar" />
+  <script>
+    var b2 = document.getElementById("b2");
+    b2.addEventListener("click", function () {
+      var parrafosaborrar = document.getElementById("parrafosaborrar");
+      var ultimo = parrafosaborrar.lastChild;
+      parrafosaborrar.removeChild(ultimo);
+    });
+  </script>
+
+  <h2> Ejercicio 3. Reemplaza el ultimo nodo del objeto Listah1 por otro h1 con un texto de tu eleccion </h2>
+  <br> <input type="button" id="b3" value="Reemplaza ultimo h1 de Listah1" />
+  <script>
+    var b3 = document.getElementById("b3");
+    b3.addEventListener("click", function () {
+      var Listah1 = document.getElementById("Listah1");
+      var ultimo = Listah1.lastChild;
+      var nuevo = document.createElement("h1");
+      var texto = document.createTextNode("Nuevo h1");
+      nuevo.appendChild(texto);
+      Listah1.replaceChild(nuevo, ultimo);
+    });
+  </script>
+
+
+  <h2> Ejercicio 4. añade una nueva option al select con el contenido Valor </h2>
+  <br> <input type="button" id="b4" value="nueva option al select " />
+  <script>
+    var b4 = document.getElementById("b4");
+    b4.addEventListener("click", function () {
+      var selectej4 = document.getElementById("selectej4");
+      var option = document.createElement("option");
+      var texto = document.createTextNode("Valor");
+      option.appendChild(texto);
+      selectej4.appendChild(option);
+    });
+  </script>
+
+  <h2> Ejercicio 5. Modifica el anterior</h2>
+  Añade una nueva option al select con el contenido Valor i y el id Valor i Debes sacarlo del ultimo option del select
+  con lastChild
+  <br> <input type="button" id="b5" value="nueva option al select con contador" />
+  <br>
+  <h1> Texto del Ejercicio</h1>
+  <h2> Ejercicio 1</h2>
+  <select id="selectej4">
+    <option value="1"> Valor 1</option>
+    <option value="2"> Valor 2</option>
+  </select>
+
+  <p>Lorem ipsum dolor sit amet, <a class="importante" href="http://www.prueba.com">consectetuer adipiscing elit</a>.
+    Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies,
+    turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam
+    vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem,
+    semper quis, faucibus ut, rhoncus non, mi. <a class="importante" href="http://prueba2">Fusce porta</a>. Duis
+    pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum
+    dolor sit amet, consectetuer adipiscing elit. Duis scelerisque. Donec lacus neque, vehicula in, eleifend vitae,
+    venenatis ac, felis. Donec arcu. Nam sed tortor nec ipsum aliquam ullamcorper. Duis accumsan metus eu urna. Aenean
+    vitae enim. Integer lacus. Vestibulum venenatis erat eu odio. Praesent id metus.</p>
+  <p class="importante">Aenean at nisl. Maecenas egestas dapibus odio. Vestibulum ante ipsum primis in faucibus orci
+    luctus et ultrices posuere cubilia Curae; Proin consequat auctor diam. <a href="http://prueba">Ut bibendum blandit
+      est</a>. Curabitur vestibulum. Nunc malesuada porttitor sapien. Aenean a lacus et metus venenatis porta.
+    Suspendisse cursus, sem non dapibus tincidunt, lorem magna porttitor felis, id sodales dolor dolor sed urna. Sed
+    rutrum nulla vitae tellus. Sed quis eros nec lectus tempor lacinia. Aliquam nec lectus nec neque aliquet dictum.
+    Etiam <a href="http://prueba3">consequat sem quis massa</a>. Donec aliquam euismod diam. In magna massa, mattis id,
+    pellentesque sit amet, porta sit amet, lectus. Curabitur posuere. Aliquam in elit. Fusce condimentum, arcu in
+    scelerisque lobortis, ante arcu scelerisque mi, at cursus mi risus sed tellus.</p>
+  <p>Donec sagittis, nibh nec ullamcorper tristique, <span class="importante">pede velit feugiat massa</span>, at
+    sollicitudin justo tellus vitae justo. Vestibulum aliquet, nulla sit amet imperdiet suscipit, nunc erat laoreet est,
+    a <a href="http://prueba">aliquam leo odio sed sem</a>. Quisque eget eros vehicula diam euismod tristique. Ut dui.
+    Donec in metus sed risus laoreet sollicitudin. Proin et nisi non arcu sodales hendrerit. In sem. Cras id augue eu
+    lorem dictum interdum. Donec pretium. Proin <a href="http://prueba4">egestas</a> adipiscing ligula. Duis iaculis
+    laoreet turpis. Mauris mollis est sit amet diam. Curabitur hendrerit, eros quis malesuada tristique, ipsum odio
+    euismod tortor, a vestibulum nisl mi at odio. <a class="importante" href="http://prueba5">Sed non lectus non est
+      pellentesque</a> auctor.</p>
+  <div id="parrafosaborrar">
+    <p> esto se va a borrar</p>
+    <p> esto se va a borrar</p>
+    <p> esto se va a borrar</p>
+  </div>
+  <div id="Listah1">
+    <h1> H1 Numero 1 </h1>
+    <h1> H1 Numero 2 </h1>
+    <h1> H1 Numero 3 </h1>
+    <h1> H1 Numero 4 </h1>
+  </div>
+
+  <select id="selectej4">
+    <option value="1"> Valor 1</option>
+    <option value="2"> Valor 2</option>
+  </select>
+
+  <script type="text/javascript">
+    document.getElementById("b1").addEventListener("click", ej41);
+    document.getElementById("b2").addEventListener("click", ej42);
+    document.getElementById("b3").addEventListener("click", ej43);
+    document.getElementById("b4").addEventListener("click", ej44);
+
+    function ej41() {
+      // 
+      var parrafo = document.createElement("p");
+      parrafo.innerHTML = "Hola que tal"
+      document.body.appendChild(parrafo);
+
+    }
+
+
+    function ej42() {
+      /// Debes usar getElementById removeChild lastChild 
+
+
+    }
+
+
+    /// Debes usar getElementById createElement lastChild y replaceChild
+
+
+
+    function ej44() {
+      /// Debes usar getElementById createElement  lastChild  setAttribute y appendChild
+
+    } 
+  </script>
+</body>
+
+</html>

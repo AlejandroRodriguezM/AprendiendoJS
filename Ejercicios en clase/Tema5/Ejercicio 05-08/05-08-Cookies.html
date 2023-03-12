@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<!--Por Alejandro Rodriguez Mena-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- Ejercicio 1.	Realiza el ejemplo para grabar una cookie del siguiente ejemplo -->
+  <button id="b1"> Ejercicio1 add cookie</button>
+  <h2> Ejercicios Salida </h2>
+  <p id="ejercicio2id"> </p>
+  <script>
+    document.getElementById('b0').addEventListener('click', ejercicio0);
+    function ejercicio0() {
+      document.cookie = "ejemplo=1";
+      document.getElementById('ejercicio2id').innerHTML = document.cookie;
+    }
+  </script>
+
+
+  <!-- Ejercicio 2. Crea un script  un  botones y un texto. el primer boton tome datos del texto 
+y los vaya guardando en cookies -->
+  <button id="b12"> Ejercicio1 add cookie</button>
+  <button id="b2"> Ejercicio2 add cookie</button>
+  <input type="text" id="textId" value="ejemplo">
+  <h2> Ejercicios Salida </h2>
+  <p id="ejercicio21id"> </p>
+  <script>
+    document.getElementById('b1').addEventListener('click', ejercicio1);
+    function ejercicio1() {
+      var text = document.getElementById('textId').value;
+      document.cookie = text;
+      document.getElementById('ejercicio21id').innerHTML = document.cookie;
+    }
+    document.getElementById('b2').addEventListener('click', ejercicio21);
+    function ejercicio2() {
+      var text = document.getElementById('textId').value;
+      document.cookie = text;
+      document.getElementById('ejercicio21id').innerHTML = document.cookie;
+    }
+  </script>
+
+
+
+  <!-- Ejercicio 3. Crea un script  que muestra el contenido de las cookies como una lista -->
+  <script>
+    var cadenacokies = document.cookie;
+    var arraycookies = cadenacokies.split(';');
+    var salida = "";
+    for (i = 0; i < arraycookies.length; i++) {
+      salida = salida + arraycookies[i] + "<br>";
+    }
+    document.getElementById('ejercicio3id').innerHTML = salida;
+  </script>
+
+
+
+  <!-- Ejercicio 4. Modifica el anterior para añadir un select que vaya guardando cada cookie 
+cuando se crea para añadir elementos a un select  -->
+  <script>
+    select = document.getElementById('selectElementId');
+    var opt = document.createElement('option');
+    opt.value = i;
+    opt.innerHTML = i;
+    select.appendChild(opt);
+  </script>
+
+
+
+  <!-- Ejercicio 5. Crea un boton que borre la ultima cookie añadida -->
+  <script>
+    var fechaCookieOld = "expires=Thu, 01 Jan 1970 00:00:00 GMT"; arraycookies = cadenacokies.split(';');
+    cookie = arraycookies[0];
+    document.cookie = cookie + ";" + fechaCookieOld + ";"
+  </script>
+  <!-- ---------------------------------------------------------------- -->
+  <button id="deleteCookieButton">Delete Last Cookie</button>
+
+  <script>
+    document.getElementById("deleteCookieButton").addEventListener("click", function () {
+      let allCookies = document.cookie.split(";");
+      let lastCookie = allCookies[allCookies.length - 1];
+      let cookieName = lastCookie.split("=")[0];
+      document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    });
+  </script>
+
+
+  <!-- Ejercicio 6. Añade una cookie con un valor de expiracion de un mes -->
+  <button id="addCookieButton">Add Cookie</button>
+
+  <script>
+    document.getElementById("addCookieButton").addEventListener("click", function () {
+      let expirationDate = new Date();
+      expirationDate.setMonth(expirationDate.getMonth() + 1);
+      let expirationDateString = expirationDate.toUTCString();
+      document.cookie = "newCookie=value; expires=" + expirationDateString + "; path=/;";
+    });
+  </script>
+
+
+
+
+
+  <!-- Ejercicio 7. Modifica el anterior para añadir un boton que elemine la cookie del escogida 
+en el select y tambien del select -->
+  <script>
+    var opcionSeleccionada = document.getElementById("selectId");
+    var value = opcionSeleccionada.value;
+    cookie = value + "=0";
+    var fechaCookieOld = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    document.cookie = cookie + ";" + fechaCookieOld + ";"
+  </script>
+
+  <script>
+    // escoger valor select
+    var opcionSeleccionada = document.getElementById("selectId");
+    var value = opcionSeleccionada.value;
+    var text = opcionSeleccionada.options[opcionSeleccionada.selectedIndex].text;
+  </script>
+
+  <script>
+    // eliminar valor select
+    selectCookiesObj = document.getElementById('selectCookies');
+    var opcionseleccionada = selectCookiesObj.value;
+    selectCookiesObj.remove(opcionseleccionada);
+  </script>
+
+
+
+
+
+  <!-- Ejercicio 8. Crea un script que muestre el contenido de las cookies como una lista 
+considerando que puede haber fechas de expiracion explicitas y los atributos max-age, 
+domain, path -->
+
+
+
+
+
+
+
+</body>
+
+</html>

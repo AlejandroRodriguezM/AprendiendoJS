@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Por Alejandro Rodriguez Mena -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
+    integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <form id="form1">
+    <input type="text" value="Hola1" id="text1" /><br>
+    <input type="text" value="Hola2" id="text2" /><br>
+    <input type="text" value="Hola3" id="text3" /><br>
+    <input type="text" value="Hola4" id="text4" /><br>
+    <input type="text" value="Hola5" id="text5" /><br>
+
+    <input type="checkbox" checked="true" id="checkbox1" /> De acuerdo <br>
+    <input type="radio" value="RadioNo" id="radio5" />No
+    <input type="radio" value="RadioSi" id="radio5" />Si <br>
+
+  </form>
+  <h2>1. Ver el Valor del primer input text </h2>
+  <div id="ej1"></div>
+
+  <script>
+    // Seleccione el elemento de entrada con el ID "text1"
+    var input1 = document.getElementById("text1");
+
+    // Obtenga el valor del elemento de entrada
+    var valorInput1 = input1.value;
+
+    // Seleccione el elemento div con ID "ej1" y actualice su contenido
+    var divEj1 = document.getElementById("ej1");
+    divEj1.innerHTML = "El valor del primer input es: " + valorInput1;
+  </script>
+
+
+
+  <h2>2. Visualizar el valor de todos los input text sabiendo que los valores
+    son: hola1, hola2, hola3, hola4, hola5</h2>
+  <div id="ej2"> </div>
+  <script>
+    // Seleccione todos los elementos de entrada de tipo "text"
+    var inputsText = document.querySelectorAll("input[type='text']");
+
+    // Iterar a través de la lista de elementos de entrada
+    for (var i = 0; i < inputsText.length; i++) {
+      // Obtener el valor del elemento de entrada actual
+      var valorInput = inputsText[i].value;
+
+      // Crear un nuevo elemento div para mostrar el valor del elemento de entrada actual
+      var nuevoDiv = document.createElement("div");
+      nuevoDiv.innerHTML = "El valor del input " + (i + 1) + " es: " + valorInput;
+
+      // Agregar el nuevo elemento div a la página
+      document.body.appendChild(nuevoDiv);
+    }
+  </script>
+
+
+
+
+  <h2> 3. Cambiar el Valor del todos los input text a adios+i </h2>
+  <input type="button" value="Cambiar Adiosi" id="b3" /><br>
+  <div id="ej3"> </div>
+  <script>
+    // Seleccione todos los elementos de entrada de tipo "text"
+    var inputsText = document.querySelectorAll("input[type='text']");
+
+    // Iterar a través de la lista de elementos de entrada
+    for (var i = 0; i < inputsText.length; i++) {
+      // Establecer el valor del elemento de entrada actual en "adios"
+      inputsText[i].value = "adios";
+    }
+  </script>
+
+
+
+
+
+  <h2>4. Cambiar el Valor del checkbox</h2>
+  <input type="button" value="Cambiar chechbox" id="b4" /><br>
+  <div id="ej4"> </div>
+
+  <script>
+    document.getElementById("b4").addEventListener("click", function () {
+      // Seleccione el elemento de entrada con el ID "checkbox1"
+      var checkbox1 = document.getElementById("checkbox1");
+
+      // Obtenga el valor del elemento de entrada
+      var valorCheckbox1 = checkbox1.checked;
+      checkbox1.checked = false;
+      // Seleccione el elemento div con ID "ej4" y actualice su contenido
+      var divEj4 = document.getElementById("ej4");
+      divEj4.innerHTML = "El valor del checkbox es: " + valorCheckbox1;
+    });
+  </script>
+
+
+
+
+  <h2>5. Cambiar el Valor de Radio button si está seleccionado sí, cambiar a no y viceversa</h2>
+  <input type="button" value="Cambiar Radio" id="b5" /><br>
+  <div id="ej5"> </div>
+
+  <script>
+    document.getElementById("b5").addEventListener("click", function () {
+      // Seleccione el elemento de entrada con el ID "radio5"
+      var radio5 = document.getElementById("radio5");
+
+      // Obtenga el valor del elemento de entrada
+      var valorRadio5 = radio5.value;
+      if (valorRadio5 == "RadioSi") {
+        radio5.value = "RadioNo";
+      } else {
+        radio5.value = "RadioSi";
+      }
+      // Seleccione el elemento div con ID "ej5" y actualice su contenido
+      var divEj5 = document.getElementById("ej5");
+      divEj5.innerHTML = "El valor del radio es: " + valorRadio5;
+    });
+  </script>
+</body>
+
+</html>

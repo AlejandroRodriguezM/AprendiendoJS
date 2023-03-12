@@ -1,0 +1,176 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Ejercicio 3 - DOM</title>
+
+  <style>
+    .importante {
+      color: brown;
+    }
+
+    .resaltado {
+      color: orange;
+    }
+
+    .normal {
+      color: blue;
+    }
+  </style>
+
+</head>
+
+<body>
+  <p>Lorem ipsum dolor sit amet, <a class="importante" href="http://www.prueba.com">consectetuer adipiscing elit</a>.
+    Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies,
+    turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam
+    vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem,
+    semper quis, faucibus ut, rhoncus non, mi. <a class="importante" href="http://prueba2">Fusce porta</a>. Duis
+    pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum
+    dolor sit amet, consectetuer adipiscing elit. Duis scelerisque. Donec lacus neque, vehicula in, eleifend vitae,
+    venenatis ac, felis. Donec arcu. Nam sed tortor nec ipsum aliquam ullamcorper. Duis accumsan metus eu urna. Aenean
+    vitae enim. Integer lacus. Vestibulum venenatis erat eu odio. Praesent id metus.</p>
+
+  <p class="importante">Aenean at nisl. Maecenas egestas dapibus odio. Vestibulum ante ipsum primis in faucibus orci
+    luctus et ultrices posuere cubilia Curae; Proin consequat auctor diam. <a href="http://prueba">Ut bibendum blandit
+      est</a>. Curabitur vestibulum. Nunc malesuada porttitor sapien. Aenean a lacus et metus venenatis porta.
+    Suspendisse cursus, sem non dapibus tincidunt, lorem magna porttitor felis, id sodales dolor dolor sed urna. Sed
+    rutrum nulla vitae tellus. Sed quis eros nec lectus tempor lacinia. Aliquam nec lectus nec neque aliquet dictum.
+    Etiam <a href="http://prueba3">consequat sem quis massa</a>. Donec aliquam euismod diam. In magna massa, mattis id,
+    pellentesque sit amet, porta sit amet, lectus. Curabitur posuere. Aliquam in elit. Fusce condimentum, arcu in
+    scelerisque lobortis, ante arcu scelerisque mi, at cursus mi risus sed tellus.</p>
+
+  <p>Donec sagittis, nibh nec ullamcorper tristique, <span class="importante">pede velit feugiat massa</span>, at
+    sollicitudin justo tellus vitae justo. Vestibulum aliquet, nulla sit amet imperdiet suscipit, nunc erat laoreet est,
+    a <a href="http://prueba">aliquam leo odio sed sem</a>. Quisque eget eros vehicula diam euismod tristique. Ut dui.
+    Donec in metus sed risus laoreet sollicitudin. Proin et nisi non arcu sodales hendrerit. In sem. Cras id augue eu
+    lorem dictum interdum. Donec pretium. Proin <a href="http://prueba4">egestas</a> adipiscing ligula. Duis iaculis
+    laoreet turpis. Mauris mollis est sit amet diam. Curabitur hendrerit, eros quis malesuada tristique, ipsum odio
+    euismod tortor, a vestibulum nisl mi at odio. <a class="importante" href="http://prueba5">Sed non lectus non est
+      pellentesque</a> auctor.</p>
+
+  Campo 1 <input type="text" value=""> Campo 2 <input type="text" value=""> Campo 3 <input type="text" value="">
+
+  <h2> Ejercicio 1. Todos los enlaces deben cambiarse por un protocolo mas seguro: "https://" </h2>
+  Debes usar getElementsByTagName en etiqueta "a" y recorrer con un for todos los enlaces para con getAttribute('href')
+  sustituir http por https
+  <br> <input type="button" id="b1" value="http: por https:  " />
+  <script>
+
+
+  </script>
+
+  <h2> Ejercicio 2. Todos los enlaces deben cambiarse por un protocolo mas seguro: "https://" </h2>
+  Los parrafos cuyo class="importante" se modifica por class="resaltado"
+  y el resto de parrafos por class="normal"<br>
+  Pista:
+  Debes usar getElementsByTagName en etiqueta "p" y
+  recorrer con un for todos los p dependiendo de getAttribute('class'),
+  sustituir la clase adecuada con setAttribute('class','resaltado')
+  <br> <input type="button" id="b2" value="Cambiar clases" />
+
+  <h2> Ejercicio 3. Cambiar id de los enlaces </h2>
+  Enlaces les añade el atributo "id" con un valor autogenerado que sea igual a enlace+i, donde i empieza en 0.
+  se debe añadir tambien a su value
+  <br> Pista: Igual que el anterior pero con setAttribute('id','importante'+i)
+
+  <br> <input type="button" id="b3" value="Cambiar id enlaces" />
+
+  <h2> Ejercicio 4. Cambiar texto de los input text </h2>
+  <br>Pista: Igual que el Ejercicio 2 pero seleccionando los input
+  <br> y comprobando que los inputs son de tipo texto inputs[i].getAttribute('type')=="text")
+  <br>y con inputs[i].setAttribute('value', 'importante'+j);
+  <br> <input type="button" id="b4" value="Añadir importante en los input text" />
+
+
+  <script type="text/javascript">
+    document.getElementById("b1").addEventListener("click", ej21);
+    document.getElementById("b2").addEventListener("click", ej22);
+    document.getElementById("b3").addEventListener("click", ej23);
+    document.getElementById("b4").addEventListener("click", ej24);
+
+    function ej21() {
+      // Todos los enlaces deben cambiarse por un protocolo mas seguro: "https://"
+      // Debes usar  getElementsByTagName en etiqueta "a" y  recorrer con un for todos los enlaces
+      // para con getAttribute('href') sustituir http por https
+
+      var enlaces = document.getElementsByTagName("a");
+      for (var i = 0; i < enlaces.length; i++) {
+        var enlace = enlaces[i];
+        var href = enlace.getAttribute("href");
+        href = href.replace("http", "https");
+        enlace.setAttribute("href", href);
+      }
+
+
+
+
+    }
+
+    function ej22() {
+      // Los parrafos cuyo class="importante" se modifica por class="resaltado"
+      // y el resto de parrafos por class="normal"
+      // Pista: Debes usar  getElementsByTagName en etiqueta "p" y
+      // recorrer con un for todos los p dependiendo de getAttribute('class'),
+      // sustituir la clase adecuada con setAttribute('class','resaltado')
+
+      var parrafos = document.getElementsByTagName("p");
+      for (var i = 0; i < parrafos.length; i++) {
+        var parrafo = parrafos[i];
+        var clase = parrafo.getAttribute("class");
+        if (clase == "importante") {
+          parrafo.setAttribute("class", "resaltado");
+        } else {
+          parrafo.setAttribute("class", "normal");
+        }
+      }
+
+
+
+
+
+    }
+
+    function ej23() {
+      // Enlaces les anade el atributo "id" con un valor
+      // autogenerado que sea igual a enlace+i, donde i empieza en 0
+      // se debe añadir tambien a su value
+      // Pista: Igual que el anterior pero con setAttribute('id','importante'+i)
+
+      var enlaces = document.getElementsByTagName("a");
+      for (var i = 0; i < enlaces.length; i++) {
+        var enlace = enlaces[i];
+        enlace.setAttribute("id", "enlace" + i);
+        enlace.setAttribute("value", "enlace" + i);
+      }
+
+
+
+
+    }
+
+
+    function ej24() {
+      /*
+      <br>Pista: Igual que el Ejercicio 2 pero seleccionando los input 
+    <br> y comprobando que los inputs son de tipo texto inputs[i].getAttribute('type')=="text")
+    <br>y con inputs[i].setAttribute('value', 'importante'+j);
+      */
+
+      var inputs = document.getElementsByTagName("input");
+      for (var i = 0; i < inputs.length; i++) {
+        var input = inputs[i];
+        if (input.getAttribute("type") == "text") {
+          input.setAttribute("value", "importante" + i);
+        }
+      }
+
+    }
+
+  </script>
+
+</body>
+
+</html>

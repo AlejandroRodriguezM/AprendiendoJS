@@ -1,0 +1,345 @@
+<!DOCTYPE HTML>
+<!--Por Alejandro Rodriguez Mena-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- Crea controles en los siguiente ejercicios con addEventListener(). 
+Ejercicio 1. Realiza el ejemplo 2 y modificalo para que se muestre en un div en vez de en un 
+log y una cadena que explique como funciona -->
+  <script>
+    function printResult(result) {
+      document.getElementById("result").innerHTML += result + "<br>";
+    }
+
+    let personList = `First_Name: Estrella, Last_Name: Lopez
+                        First_Name: Paco, Last_Name: Gomez
+                        First_Name: Juan, Last_Name: Benitez
+                        First_Name: Jose, Last_Name: Blas
+                        First_Name: Ana, Last_Name: Flores`;
+
+    let regexpNames = /First_Name: (\w+), Last_Name: (\w+)/mg;
+    let personListmatch = regexpNames.exec(personList);
+
+    do {
+      printResult(`Hola ${personListmatch[1]} ${personListmatch[2]}`);
+    } while ((personListmatch = regexpNames.exec(personList)) !== null);
+  </script>
+
+  <div id="result"></div>
+
+
+  <!-- Ejercicio 2. Nos han encargado un script que extraiga las imagenes precios y descripciones 
+de idealista para hacer webscraping. un ejemplo del codigo se encuentra en el archivo 
+const axios = require('axios');-->
+  <script> //esta es la función para hacer webscraping
+    async function webScraping(url) {
+      try {
+        const response = await axios.get(url);
+        return response.data;
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    let htmlContent = webScraping('https://www.idealista.com');
+    console.log(htmlContent);
+  </script>
+
+  <!-- extraiga las imagenes precios y descripciones de idealista -->
+  <script>
+    const axios = require('axios');
+    const cheerio = require('cheerio');
+
+    async function webScraping(url) {
+      try {
+        const response = await axios.get(url);
+        return response.data;
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    async function extractData(url) {
+      let htmlContent = await webScraping(url);
+      let $ = cheerio.load(htmlContent);
+      let items = [];
+
+      $('div.item').each(function (i, element) {
+        let image = $(element).find('img').attr('src');
+        let price = $(element).find('span.price').text();
+        let description = $(element).find('span.description').text();
+        items.push({
+          image: image,
+          price: price,
+          description: description
+        });
+      });
+
+      return items;
+    }
+
+    let items = extractData('https://www.example.com/items');
+    console.log(items);
+  </script>
+
+  <!-- Busca todos los precios que aparecen en el codigo y muestrame el precio medio  -->
+  <script>
+    const axios = require('axios');
+    const cheerio = require('cheerio');
+
+    async function webScraping(url) {
+      try {
+        const response = await axios.get(url);
+        return response.data;
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    async function extractData(url) {
+      let htmlContent = await webScraping(url);
+      let $ = cheerio.load(htmlContent);
+      let prices = [];
+
+      $('span.price').each(function (i, element) {
+        let price = $(element).text();
+        prices.push(price);
+      });
+
+      return prices;
+    }
+
+    async function findAveragePrice(url) {
+      let prices = await extractData(url);
+      let sum = 0;
+      for (let i = 0; i < prices.length; i++) {
+        sum += parseFloat(prices[i]);
+      }
+      let average = sum / prices.length;
+      console.log(`El precio promedio es: ${average}`);
+    }
+
+    findAveragePrice('https://www.idealista.com/items');
+  </script>
+
+  <!-- Ejercicio 4. Modifica el ejercicio 2 para que se busquen las descripciones de los pisos 
+con grupos por nombre  -->
+  <script>
+    const axios = require('axios');
+    const cheerio = require('cheerio');
+
+    async function webScraping(url) {
+      try {
+        const response = await axios.get(url);
+        return response.data;
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    async function extractData(url) {
+      let htmlContent = await webScraping(url);
+      let $ = cheerio.load(htmlContent);
+      let flats = [];
+
+      $('.item-link').each(function (i, element) {
+        let name = $(element).text();
+        let description = $(element).next().text();
+        flats.push({
+          name: name,
+          description: description
+        });
+      });
+
+      return flats;
+    }
+
+    async function groupByName(url) {
+      let flats = await extractData(url);
+      let groups = {};
+      for (let i = 0; i < flats.length; i++) {
+        let name = flats[i].name;
+        let description = flats[i].description;
+        if (!groups[name]) {
+          groups[name] = [];
+        }
+        groups[name].push(description);
+      }
+      console.log(groups);
+    }
+
+    groupByName('https://www.idealista.com/alquiler-viviendas/');
+  </script>
+
+  <!-- Ejercicio 5. Realiza el ejemplo 3 y modificalo para que se muestre una cadena que explique 
+como funciona -->
+  <script>
+    cadena = "<strong> Aserciones tipo x(?=y) </strong> " + "<br>";
+    cadena += "a(?=l) vocales que NO tienen delante una l <br>";
+    const cadenadebusqueda1 = `La zapatilla y la gominola eran muy bonitas . Los niños jugaban en el parque de detras de la casa bailando ese antiguo juego infantil coreano que habia salido en una serie muy gore de la plataforma netflix. El como se habia llegado a ese punto de discordancia en la mente de los niños habia sido un misterio`;
+    const regexp16 = /[aeiou](?=l)/g;
+    cadena += cadenadebusqueda1 + "<br>";
+    cadena += regexp16.toString() + "<br>";
+    cadena += cadenadebusqueda1.match(regexp16).join(",") + "<br><br>";
+  </script>
+
+  <!-- Modificado -->
+  <script>
+    let cadena1 = "<strong> Aserciones tipo x(?=y) </strong>" + "<br>";
+    cadena1 += "Esta expresión regular busca una vocal (aeiou) que tenga detrás una 'l'<br>";
+    const cadenadebusqueda2 = `La zapatilla y la gominola eran muy bonitas . Los niños jugaban en el parque de detras de la casa bailando ese antiguo juego infantil coreano que habia salido en una serie muy gore de la plataforma netflix. El como se habia llegado a ese punto de discordancia en la mente de los niños habia sido un misterio`;
+    const regexp18 = /[aeiou](?=l)/g;
+    cadena1 += "<br><strong>Texto a buscar:</strong><br>" + cadenadebusqueda2 + "<br>";
+    cadena1 += "<br><strong>Expresión regular:</strong><br>" + regexp18.toString() + "<br>";
+    cadena1 += "<br><strong>Resultado:</strong><br>" + cadenadebusqueda2.match(regexp18).join(",") + "<br><br>";
+
+    let resultado = document.getElementById("resultado");
+    resultado.innerHTML = cadena1;
+  </script>
+  <div id="resultado"></div>
+
+
+  <!-- Ejercicio 6. Modifica el ejercicio 5 para que encuentre vocales que NO tienen 
+    DELANTE una l -->
+  <script>
+    cadena = "<strong> Aserciones tipo x(?!y) </strong> " + "<br>";
+    cadena += "a(?!l) vocales que NO tienen delante una l <br>";
+    const cadenadebusqueda3 = `La zapatilla y la gominola eran muy bonitas . Los niños jugaban en el parque de detras de la casa bailando ese antiguo juego infantil coreano que habia salido en una serie muy gore de la plataforma netflix. El como se habia llegado a ese punto de discordancia en la mente de los niños habia sido un misterio`;
+    const regexp = /[aeiou](?!l)/g;
+    cadena += cadenadebusqueda3 + "<br>";
+    cadena += regexp.toString() + "<br>";
+    cadena += cadenadebusqueda3.match(regexp).join(",") + "<br><br>";
+  </script>
+
+  <!-- Modificado -->
+  <script>
+    let cadena = "<strong> Aserciones tipo x(?!y) </strong>" + "<br>";
+    cadena += "Esta expresión regular busca una vocal (aeiou) que NO tenga detrás una 'l'<br>";
+    const cadenadebusqueda = `La zapatilla y la gominola eran muy bonitas . Los niños jugaban en el parque de detras de la casa bailando ese antiguo juego infantil coreano que habia salido en una serie muy gore de la plataforma netflix. El como se habia llegado a ese punto de discordancia en la mente de los niños habia sido un misterio`;
+    const regexp15 = /[aeiou](?!l)/g;
+    cadena += "<br><strong>Texto a buscar:</strong><br>" + cadenadebusqueda + "<br>";
+    cadena += "<br><strong>Expresión regular:</strong><br>" + regexp15.toString() + "<br>";
+    cadena += "<br><strong>Resultado:</strong><br>" + cadenadebusqueda.match(regexp15).join(",") + "<br><br>";
+
+    let resultado = document.getElementById("resultado");
+    resultado.innerHTML = cadena;
+  </script>
+  <div id="resultado1"></div>
+
+  <!-- Ejercicio 7. Modifica el ejercicio 5 para que  encuentre las cadenas que terminan en s o l 
+que NO tienen DELANTE una vocal -->
+  <script>
+    function replacer(str, p1, p2, offset, s) { return str + " - " + p1 + " , " + p2; }
+
+    var newString = "XXzzzz XXzzz XXzzzzzzzzz XXzzzz".replace(/(X*)(z*)/, replacer);
+
+    console.log(newString); 
+  </script>
+
+  <!-- Modificado -->
+  <script>
+    let cadena3 = "<strong> Aserciones tipo x(?!y) </strong>" + "<br>";
+    cadena += "Esta expresión regular busca una vocal (aeiou) que NO tenga detrás una 'l'<br>";
+    const cadenadebusqueda10 = `La zapatilla y la gominola eran muy bonitas . Los niños jugaban en el parque de detras de la casa bailando ese antiguo juego infantil coreano que habia salido en una serie muy gore de la plataforma netflix. El como se habia llegado a ese punto de discordancia en la mente de los niños habia sido un misterio`;
+    const regexp19 = /[aeiou](?!l)/g;
+    cadena += "<br><strong>Texto a buscar:</strong><br>" + cadenadebusqueda10 + "<br>";
+    cadena += "<br><strong>Expresión regular:</strong><br>" + regexp18.toString() + "<br>";
+    cadena += "<br><strong>Resultado:</strong><br>" + cadenadebusqueda10.match(regexp19).join(",") + "<br><br>";
+
+    let resultado = document.getElementById("resultado");
+    resultado.innerHTML = cadena;
+  </script>
+  <!-- Ejercicio 8. Realiza el ejemplo 4 y modificalo para que se muestre una cadena que explique 
+como funciona -->
+  <script>
+    const p = 'El veloz y astuto zorro marrón saltó sobre el perro perezoso. Si el perro reaccionó, ¿fue realmente perezoso? o fue el zorro realmente rapido ';
+    console.log(p.replace('perro', 'MONO'));
+    const regex = /perro/i;
+    console.log(p.replace(regex, 'DINOSAURIO'));
+  </script>
+
+
+  <!-- Ejercicio 9. Modifica el ejercicio 4 para que  Reemplace TODAS las apariciones de perro por 
+LORITO  -->
+  <script>
+    const p11 = 'El veloz y astuto zorro marrón saltó sobre el perro perezoso. Si el perro reaccionó, ¿fue realmente perezoso? o fue el zorro realmente rapido ';
+    console.log(p.replace('perro', 'lorito'));
+    const regex21 = /perro/i;
+    console.log(p.replace(regex21, 'lorito'));
+  </script>
+
+
+  <!-- Ejercicio 10. Modifica el ejercicio 4 para que  Reemplace todas las apariciones de 
+  espacios (\s) por el caracter ; -->
+
+  <script>
+    const p3 = 'El veloz y astuto zorro marrón saltó sobre el perro perezoso. Si el perro reaccionó, ¿fue realmente perezoso? o fue el zorro realmente rapido ';
+    const regex22 = /\s/g;
+    console.log(p.replace(regex22, ';'));
+
+
+  </script>
+  <!-- Ejercicio 11. Realiza el ejemplo 5 y modificalo para que se muestre  una cadena que 
+  explique como funciona -->
+  <script>
+    function replacer(str, p1, p2, offset, s) { return str + " - " + p1 + " , " + p2; }
+
+    var newString = "XXzzzz XXzzz XXzzzzzzzzz XXzzzz".replace(/(X*)(z*)/, replacer);
+
+    console.log(newString); 
+  </script>
+
+
+  <!-- Ejercicio 12. Modifica el ejercicio 5 para que  ponga en negrita cada grupo de X y las zzzz 
+no -->
+  <script>
+    function replacer(str, p1, p2, offset, s) { return "<b>" + p1 + "</b>" + p2; }
+
+    var newString = "XXzzzz XXzzz XXzzzzzzzzz XXzzzz".replace(/(X*)(z*)/, replacer);
+
+    document.body.innerHTML = newString; 
+  </script>
+
+
+  <!-- Ejercicio 13. Modifica el ejercicio 5 para que  cuente cuantas X y z hay en cada grupo -->
+  <script>
+    function replacer(str, p1, p2, offset, s) {
+      var countX = (p1.match(/X/g) || []).length;
+      var countZ = (p2.match(/z/g) || []).length;
+      return `Group 1: ${countX} X and ${countZ} z characters.`;
+    }
+
+    var newString = "XXzzzz XXzzz XXzzzzzzzzz XXzzzz".replace(/(X*)(z*)/g, replacer);
+
+    console.log(newString); 
+  </script>
+
+
+  <!-- Ejercicio 14. Realiza el ejemplo 6 y modificalo para que se muestre una cadena que explique 
+como funciona -->
+  <script>
+    cadena = "<h3>Ejemplo de split con exp regulares</h3>";
+    const reyesTargaryenString = 'Aegon I Targaryen; Aenys I Targaryen; Maegor I Targaryen; Jaehaerys I Targaryen: Viserys I Targaryen; Aegon II Targaryen| Rhaenyra I Targaryen: Aegon III Targaryen; Daeron I Targaryen| Baelor I Targaryen; Viserys II Targaryen; Aegon IV Targaryen: Daeron II Targaryen; Aerys I Targaryen| Maekar I Targaryen; Aegon V Targaryen; Jaehaerys II Targaryen';
+    const regExpSeparadores = /;|\||:/ig;
+    cadena += "<b>Cadena separada</b>" + "<ol><li>" + reyesTargaryenString.split(regExpSeparadores).join("<li>") + "</ol><br>";
+    document.getElementById('ejercicio2id').innerHTML += cadena;
+  </script>
+
+  <!-- Ejercicio 15. Modifica el ejercicio 6 para que  dada la cadena =" Aegon I Targaryen 112o  
+Aenys I Targaryen 222o  Maegor I Targaryen 242o  Jaehaerys I Targaryen 54: Viserys I 
+Targaryen 221j  Aegon II Targaryen| Rhaenyra I Targaryen 5: Aegon III Targaryen 242o  
+Daeron I Targaryen| Baelor I Targaryen 4342j  Viserys II Targaryen 1112o  Aegon IV 
+Targaryen 51: Daeron II Targaryen 242o  Aerys I Targaryen| Maekar I Targaryen 242o  
+Aegon V Targaryen 242o  Jaehaerys II Targaryen"  
+Separe correctamente los valores por las expresiones  numero:     numeroo o  numeroj -->
+
+</body>
+
+</html>
